@@ -1,0 +1,15 @@
+# Protected PDFs and archives containing protected files stay local.
+*.pdf
+*.zip
+
+# Generated Python cache and local upload staging.
+__pycache__/
+*.py[cod]
+.upload/
+
+# Local environment and credentials.
+.env
+.env.*
+!.env.example
+.venv/
+

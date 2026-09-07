@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "scope": "Document rendering and consistency only; no measured clearances, structural, utility or installation approval.",
+  "pdf_pages": 10,
+  "revision": "R4",
+  "pdf_file": "方案册-R4.pdf",
+  "pdf_storage": "protected or transformed on disk; generated PDF content validated separately",
+  "pdf_page_format": "A3 landscape",
+  "svg_parse": "5 passed",
+  "csv_counts": {
+    "家具尺寸表.csv": 13,
+    "设备预留表.csv": 11,
+    "水电点位表.csv": 15,
+    "现场核验表.csv": 13,
+    "新图面积标注.csv": 11,
+    "新图尺寸标注.csv": 7,
+    "电器上下水表.csv": 13
+  },
+  "page_layout": [
+    {
+      "id": "p00",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 852.8125,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p01",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 970.734375,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p02",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 970.734375,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p03",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 981.109375,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p04",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 826.953125,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p05",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 871.65625,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p06",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 761.140625,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p07",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 832.9375,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p08",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 885.03125,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p09",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 1047.828125,
+      "footerTop": 1072.0625,
+      "overflow": false
+    }
+  ],
+  "mobile_width": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "browser_errors": []
+}
