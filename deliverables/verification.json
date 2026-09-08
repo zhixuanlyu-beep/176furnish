@@ -1,20 +1,20 @@
 {
   "status": "passed",
   "scope": "Document rendering and consistency only; no measured clearances, structural, utility or installation approval.",
-  "pdf_pages": 12,
-  "revision": "R6",
-  "pdf_file": "方案册-R6.pdf",
+  "pdf_pages": 13,
+  "revision": "R7",
+  "pdf_file": "方案册-R7.pdf",
   "pdf_storage": "protected or transformed on disk; generated PDF content validated separately",
   "pdf_page_format": "A3 landscape",
-  "svg_parse": "7 passed",
+  "svg_parse": "8 passed",
   "csv_counts": {
-    "家具尺寸表.csv": 16,
-    "设备预留表.csv": 12,
-    "水电点位表.csv": 17,
-    "现场核验表.csv": 14,
+    "家具尺寸表.csv": 17,
+    "设备预留表.csv": 13,
+    "水电点位表.csv": 18,
+    "现场核验表.csv": 15,
     "新图面积标注.csv": 11,
     "新图尺寸标注.csv": 7,
-    "电器上下水表.csv": 14
+    "电器上下水表.csv": 15
   },
   "page_layout": [
     {
@@ -53,7 +53,7 @@
       "id": "p04",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 903.125,
+      "contentBottom": 997.6875,
       "footerTop": 1072.0625,
       "overflow": false
     },
@@ -77,7 +77,7 @@
       "id": "p07",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 885.125,
+      "contentBottom": 975.6875,
       "footerTop": 1072.0625,
       "overflow": false
     },
@@ -85,7 +85,7 @@
       "id": "p08",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 760.578125,
+      "contentBottom": 778.96875,
       "footerTop": 1072.0625,
       "overflow": false
     },
@@ -93,7 +93,7 @@
       "id": "p09",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 1054.421875,
+      "contentBottom": 1019.109375,
       "footerTop": 1072.0625,
       "overflow": false
     },
@@ -101,7 +101,7 @@
       "id": "p10",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 861.65625,
+      "contentBottom": 880.046875,
       "footerTop": 1072.0625,
       "overflow": false
     },
@@ -110,6 +110,14 @@
       "height": 1122.515625,
       "scrollHeight": 1123,
       "contentBottom": 782.078125,
+      "footerTop": 1072.0625,
+      "overflow": false
+    },
+    {
+      "id": "p12",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 809.265625,
       "footerTop": 1072.0625,
       "overflow": false
     }
