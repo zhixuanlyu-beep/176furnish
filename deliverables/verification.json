@@ -1,46 +1,68 @@
 {
   "status": "passed",
   "scope": "Document rendering and consistency only; no measured clearances, structural, utility or installation approval.",
-  "pdf_pages": 14,
-  "revision": "R8",
-  "pdf_file": "方案册-R8.pdf",
+  "pdf_pages": 15,
+  "revision": "R9",
+  "pdf_file": "方案册-R9.pdf",
   "pdf_storage": "existing PDF not refreshed (protected or unwritable); latest PDF validated in memory only",
   "pdf_page_format": "A3 landscape",
-  "svg_parse": "9 passed",
+  "svg_parse": "10 passed",
   "svg_text_bounds": "passed",
-  "r8_consistency": "passed",
+  "r9_consistency": "passed",
   "trial_geometry": {
-    "units": "mm; unmeasured trial coordinates, not site clearances",
-    "prep_surface": 750,
-    "partition_shift_from_assumed_bath_south": 200,
-    "island_to_closed_partition": 1110,
-    "island_table_left_offset": 250,
-    "east_gap_seated": 576,
-    "east_gap_pulled": 226,
-    "south_gap_four": 448,
-    "south_gap_six": 248,
-    "dishwasher_operator_to_partition": 84,
-    "fridge_front_to_first_six_chair": 60.0,
-    "coffee_to_west_pulled_chair": 50,
-    "chair_clear_of_fridge_front": true,
-    "chair_clear_of_coffee_work_zone": true,
+    "units": "mm; trial, not surveyed",
+    "prep_surface": 800,
+    "island_north_in_original_kitchen": 1544,
+    "counter_to_island_operation": 700,
+    "island_table_left_offset": -124,
+    "east_seated_passage": 1250,
+    "east_pulled_passage": 900,
+    "south_four_to_fridge_face": 1442,
+    "south_six_to_fridge_face": 1242,
+    "fridge_drawer_projection": 600,
+    "fridge_operator_depth": 600,
+    "fridge_front_residual_not_passage": 42,
+    "fridge_operator_to_six_pulled_chair_y": 92.0,
+    "south_crossing_doors_open_no_operator": 642,
+    "south_crossing_with_fridge_operator_is_passage": false,
+    "dishwasher_door_projection": 650,
+    "dishwasher_operator_depth": 600,
+    "dishwasher_east_bypass": 776,
+    "basket_trial_width": 600,
+    "basket_bypass_total_margin": 176,
+    "family_east_passage": 1200,
+    "occupied_chair_collisions": [],
+    "dishwasher_island_collision": false,
+    "housekeeping_route": {
+      "basket_mm": 600,
+      "door_only_swept_collisions": [],
+      "pulled_chair_collision": false,
+      "retained_wall_collisions": [],
+      "concurrent_operator_conflicts": [
+        "fridge_operator",
+        "tower_operator",
+        "coffee_operator",
+        "pantry_operator"
+      ],
+      "simultaneous_operation_and_passage_verified": false
+    },
     "site_verified": false
   },
   "csv_counts": {
     "家具尺寸表.csv": 17,
-    "设备预留表.csv": 13,
-    "水电点位表.csv": 18,
-    "现场核验表.csv": 15,
+    "设备预留表.csv": 14,
+    "水电点位表.csv": 24,
+    "现场核验表.csv": 16,
     "新图面积标注.csv": 11,
     "新图尺寸标注.csv": 7,
-    "电器上下水表.csv": 15
+    "电器上下水表.csv": 16
   },
   "page_layout": [
     {
       "id": "p00",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 958.203125,
+      "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -72,7 +94,7 @@
       "id": "p04",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 898.890625,
+      "contentBottom": 824.5,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -80,7 +102,7 @@
       "id": "p05",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 847.59375,
+      "contentBottom": 932.5,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -88,7 +110,7 @@
       "id": "p06",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 645.65625,
+      "contentBottom": 676.25,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -96,7 +118,7 @@
       "id": "p07",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 896.796875,
+      "contentBottom": 873.546875,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -104,7 +126,7 @@
       "id": "p08",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 721.203125,
+      "contentBottom": 853.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -112,7 +134,7 @@
       "id": "p09",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 977.96875,
+      "contentBottom": 891.015625,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -120,7 +142,7 @@
       "id": "p10",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 772.3125,
+      "contentBottom": 843.109375,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -128,7 +150,7 @@
       "id": "p11",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 931.3125,
+      "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -136,7 +158,7 @@
       "id": "p12",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 897.3125,
+      "contentBottom": 878.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
@@ -144,7 +166,15 @@
       "id": "p13",
       "height": 1122.515625,
       "scrollHeight": 1123,
-      "contentBottom": 1007.046875,
+      "contentBottom": 909.453125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p14",
+      "height": 1122.515625,
+      "scrollHeight": 1123,
+      "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     }
@@ -153,5 +183,28 @@
     "width": 390,
     "scrollWidth": 390
   },
+  "mobile_sizes": [
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768
+    }
+  ],
+  "protected_pdfs_preserved": [
+    "方案册-R4.pdf",
+    "方案册-R5.pdf",
+    "方案册-R6.pdf",
+    "方案册-R7.pdf",
+    "方案册-R8.pdf",
+    "方案册-R9.pdf",
+    "方案册.pdf"
+  ],
   "browser_errors": []
 }
