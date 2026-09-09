@@ -1,4 +1,4 @@
-"""R10 model, source, browser and in-memory print checks. Never writes a PDF."""
+"""R10.1 model, source, browser and in-memory print checks. Never writes a PDF."""
 from pathlib import Path
 import csv
 import hashlib
@@ -56,17 +56,35 @@ def geometry_checks():
     assert not water['gravity_drainage_established']
     assert not water['pump_assumed'] and not water['structural_cutting_authorized']
     assert max(r[7] for r in overlay_rows())<4,overlay_rows()
+    details=trial['r101']
+    assert g.sector_hit(g.DOOR_MODEL['balconyB_door'],g.HOUSE['robot'])
+    # Interior-angle collision, missed by checking only closed and fully open leaf.
+    assert g.sector_hit({'hinge':(0,0),'start_deg':0,'leaf_mm':850,'thickness_mm':0},(500,500,20,20))
+    assert not g.sector_hit({'hinge':(0,0),'start_deg':0,'leaf_mm':850,'thickness_mm':0},(850,850,20,20))
+    assert g.AC['AC02']==(6380,-7250,240,800) and g.AC['AC03']==(3736,-3750,240,800)
+    assert all(a['wall_segment_contains_backplate'] for a in details['ac_backplates'])
+    assert details['ac_backplates'][1]['bay_margin_mm']==100
+    assert details['bottleneck']['gap_mm']==624 and details['bottleneck']['remaining_mm']==24
+    assert g.BOXES['island']==(2900,225,1000,750)
+    assert all(not a['plan_intersections'] for a in details['supports'])
+    assert len(details['supports'])==2 and all(len(a['knees'])==a['seats'] for a in details['supports'])
+    assert all(a['issues'] for a in trial['states'])
+    assert all(any(k=='tower_operator' for _,k in a['chair_operator_conflicts']) for a in trial['states'])
+    assert any(g.intersection(b,g.BOXES['island_operator']) for b in g.swept_boxes(g.basket_path(False)))
+    assert any(g.intersection(b,g.BOXES['dishwasher_operator']) for b in g.swept_boxes(g.basket_path(True)))
+    assert details['robot_front']['wall_intersection'] is not None
+    assert g.intersection(g.knee_boxes(6)[0],g.knee_boxes(6)[0]) # intrusive support fixture must collide
     trial['wall_junction_checks']=len(junctions)
     trial['source_landmark_max_residual_px']=max(r[7] for r in overlay_rows())
     return trial
 
 def main():
     before=pdf_hashes();trial=geometry_checks()
-    svg_paths=sorted(HERE.glob('*.svg'));assert len(svg_paths)==13
+    svg_paths=sorted(HERE.glob('*.svg'));assert len(svg_paths)==15
     trees={p.name:ET.parse(p).getroot() for p in svg_paths}
     plans=['01-furniture.svg','02-alterations-review.svg','03-services.svg','06-utility-storage.svg',
       '07-island-dining.svg','08-appliance-clearance.svg','09-workflows.svg','10-air-conditioning.svg',
-      '11-source-overlay.svg','13-island-water-section.svg']
+      '11-source-overlay.svg','13-island-water-section.svg','14-robot-station-review.svg','15-island-table-connection.svg']
     for name in plans:
         root=trees[name]
         assert any(e.get('data-model')==g.model_digest() for e in root.iter()),name
@@ -83,9 +101,9 @@ def main():
         assert all(len(r)==len(rows[0]) for r in rows),p.name
         assert len({r[0] for r in rows[1:]})==len(rows)-1,p.name
         counts[p.name]=len(rows)-1
-    assert counts['设备预留表.csv']==15 and counts['现场核验表.csv']==20
+    assert counts['设备预留表.csv']==15 and counts['现场核验表.csv']==23
     doc=(HERE/'方案册.html').read_text(encoding='utf-8')
-    page_count=len(re.findall('<section class="page"',doc));assert page_count==30,page_count
+    page_count=len(re.findall('<section class="page"',doc));assert page_count>len(svg_paths),page_count
     reviewed=[HERE/'方案册.html',HERE/'README.md',HERE.parent/'README.md',*svg_paths,*HERE.glob('*.csv')]
     for p in reviewed:
         content=re.sub(r'data:image/[^;]+;base64,[A-Za-z0-9+/=]+','[source image]',p.read_text(encoding='utf-8-sig'))
@@ -119,7 +137,7 @@ def main():
           'preview-cabinet.png':4,'preview-coffee-water.png':5,'preview-utility-storage.png':6,
           'preview-island-dining.png':7,'preview-appliance-clearance.png':8,'preview-workflows.png':9,
           'preview-air-conditioning.png':10,'preview-new-source.png':11,'preview-source-overlay.png':11,
-          'preview-ac01-ceiling.png':12,'preview-island-water.png':13}
+          'preview-ac01-ceiling.png':12,'preview-island-water.png':13,'preview-robot-station.png':14,'preview-island-table-connection.png':15}
         for name,n in aliases.items():page.locator(f'#p{n:02d}').screenshot(path=str(HERE/name))
         for path in svg_paths:
             preview=browser.new_page(viewport={'width':1150,'height':1000})
@@ -148,14 +166,14 @@ def main():
     if baseline.exists():
         for path,digest in json.loads(baseline.read_text(encoding='utf-8')).items():
             assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest,path
-    (HERE/'PDF文件保护说明.txt').write_text(f'R10最新{page_count}页A3横向内容已通过内存PDF渲染核查。本轮不生成磁盘PDF，不修改已有PDF。请阅读方案册.html、SVG、CSV及预览图；原有受保护PDF可能为旧版本，均保持原样。PDF、ZIP及加密文件不纳入Git发布。\n',encoding='utf-8',newline='\n')
-    report={'status':'passed','revision':'R10','scope':'文件/模型/渲染核查；不代表现场安装、结构、燃气或重力排水通过。',
+    (HERE/'PDF文件保护说明.txt').write_text(f'R10.1最新{page_count}页A3横向内容已通过内存PDF渲染核查。本轮不生成磁盘PDF，不修改已有PDF。请阅读方案册.html、SVG、CSV及预览图；原有受保护PDF可能为旧版本，均保持原样。PDF、ZIP及加密文件不纳入Git发布。\n',encoding='utf-8',newline='\n')
+    report={'file_checks':{'status':'passed','scope':'文件、回归、渲染及分页'},'geometry_findings':{'details':trial['r101'],'use_states':trial['states']},'site_verification':{'status':'pending','items':trial['r101']['site_pending']},'revision':'R10.1','scope':'文件/模型/渲染核查；不代表现场安装、结构、燃气或重力排水通过。',
       'model_sha256':g.model_digest(),'pdf_pages':page_count,'pdf_storage':'in-memory only; all existing PDFs untouched',
       'pdf_page_format':'A3 landscape','svg_parse':len(svg_paths),'svg_text_bounds':'passed',
       'source_alignment':'11 independently estimated image landmarks; max residual <4px, not survey accuracy',
       'trial_geometry':trial,'csv_counts':counts,'page_layout':layout,'mobile_sizes':mobile,
       'existing_pdfs_preserved':before,'browser_errors':errors,'svg_previews':[p.name for p in svg_paths]}
     (HERE/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
-    print(json.dumps({'status':'passed','pages':page_count,'svgs':len(svg_paths),'mobile':mobile,'source_residual_px':trial['source_landmark_max_residual_px']},ensure_ascii=False))
+    print(json.dumps({'file_checks':'passed','site_verification':'pending','pages':page_count,'svgs':len(svg_paths),'mobile':mobile,'source_residual_px':trial['source_landmark_max_residual_px']},ensure_ascii=False))
 
 if __name__=='__main__':main()

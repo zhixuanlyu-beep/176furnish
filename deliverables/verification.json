@@ -1,12 +1,622 @@
 {
-  "status": "passed",
-  "revision": "R10",
+  "file_checks": {
+    "status": "passed",
+    "scope": "文件、回归、渲染及分页"
+  },
+  "geometry_findings": {
+    "details": {
+      "robot_front": {
+        "objects": [
+          "R01-front",
+          "bath_south2"
+        ],
+        "state": "托盘前抽600试排",
+        "wall_intersection": [
+          650,
+          -1370,
+          550,
+          120
+        ],
+        "action": "前抽试排穿南墙，当前朝向尚未成立，需实测另核朝向，不移动洁具"
+      },
+      "door_sweeps": [
+        {
+          "objects": [
+            "balconyB_door",
+            "robot"
+          ],
+          "state": "门扇0–90°连续扫掠，铰侧估读",
+          "radial_margin_mm": -41.9,
+          "overlap": true,
+          "action": "旧L02取消落实；其余核铰侧/尺寸，不自动移物"
+        }
+      ],
+      "door_model": {
+        "A_door": {
+          "hinge": [
+            -420,
+            -6267
+          ],
+          "start_deg": -90,
+          "sweep_deg": 90,
+          "leaf_mm": 840,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "master_bath_door": {
+          "hinge": [
+            1280,
+            -8127
+          ],
+          "start_deg": 180,
+          "sweep_deg": 90,
+          "leaf_mm": 760,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "B_door": {
+          "hinge": [
+            640,
+            -3967
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "entry": {
+          "hinge": [
+            -3410,
+            -2724
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 880,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "bath_door": {
+          "hinge": [
+            -700,
+            -1370
+          ],
+          "start_deg": -90,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "balconyB_door": {
+          "hinge": [
+            4096,
+            -1250
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 850,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "D_door": {
+          "hinge": [
+            0,
+            3268
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        }
+      },
+      "ac_backplates": [
+        {
+          "objects": [
+            "AC02",
+            "A_east"
+          ],
+          "state": "高位背板800沿东墙，深240向西",
+          "wall_segment_contains_backplate": true,
+          "bay_margin_mm": null,
+          "height_mm": null,
+          "floor_furniture_height_mm": null,
+          "height_assessment": "高位机身独立层；落地家具平面相交不直接判碰，三维高度待核",
+          "maintenance_clearance_mm": null,
+          "action": "安装高度/维护净距待厂家，实墙待测"
+        },
+        {
+          "objects": [
+            "AC03",
+            "B_east2"
+          ],
+          "state": "高位背板800沿东墙，深240向西",
+          "wall_segment_contains_backplate": true,
+          "bay_margin_mm": 100,
+          "height_mm": null,
+          "floor_furniture_height_mm": null,
+          "height_assessment": "高位机身独立层；落地家具平面相交不直接判碰，三维高度待核",
+          "maintenance_clearance_mm": null,
+          "action": "安装高度/维护净距待厂家，实墙待测"
+        }
+      ],
+      "supports": [
+        {
+          "seats": 4,
+          "legs": [
+            [
+              1315,
+              530,
+              70,
+              140
+            ],
+            [
+              2815,
+              530,
+              70,
+              140
+            ]
+          ],
+          "knees": [
+            [
+              1450.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1450.0,
+              700,
+              500,
+              300
+            ],
+            [
+              2250.0,
+              200,
+              500,
+              300
+            ],
+            [
+              2250.0,
+              700,
+              500,
+              300
+            ]
+          ],
+          "plan_intersections": [],
+          "rail_height_mm": null,
+          "action": "膝高/轨道/荷载待厂家；检修与通行错时"
+        },
+        {
+          "seats": 6,
+          "legs": [
+            [
+              1115,
+              530,
+              70,
+              140
+            ],
+            [
+              2815,
+              530,
+              70,
+              140
+            ]
+          ],
+          "knees": [
+            [
+              1150.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1150.0,
+              700,
+              500,
+              300
+            ],
+            [
+              1750.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1750.0,
+              700,
+              500,
+              300
+            ],
+            [
+              2350.0,
+              200,
+              500,
+              300
+            ],
+            [
+              2350.0,
+              700,
+              500,
+              300
+            ]
+          ],
+          "plan_intersections": [],
+          "rail_height_mm": null,
+          "action": "膝高/轨道/荷载待厂家；检修与通行错时"
+        }
+      ],
+      "bottleneck": {
+        "objects": [
+          "north_seated_chairs",
+          "dishwasher_operator",
+          "basket"
+        ],
+        "state": "就座＋装卸＋600衣篮",
+        "gap_mm": 624,
+        "basket_mm": 600,
+        "remaining_mm": 24,
+        "action": "合计余24不作为舒适通行；携篮与装卸错时"
+      },
+      "site_pending": [
+        "R01洁具、干湿界、门槛、托盘/阀门前场：尚未成立",
+        "L02完整开门、洗烘装卸/过滤器/搬机/携篮转向：旧位冲突",
+        "岛槽真实管件、水封、清扫口及W0标高：重力排水未成立",
+        "AC01梁/窗头/窗帘/灯具/投影，J拆出尺寸与S站人净高",
+        "桌轨道膝高、承载及76可拆收口检修"
+      ]
+    },
+    "use_states": [
+      {
+        "issues": [
+          {
+            "objects": [
+              "chair_2",
+              "tower_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              225.0,
+              202
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_2",
+              "coffee_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              275.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_3",
+              "coffee_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "island_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600.0,
+                115.0
+              ],
+              [
+                600.0,
+                115.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
+        "seats": 4,
+        "pulled": false,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            2,
+            "tower_operator"
+          ],
+          [
+            2,
+            "coffee_operator"
+          ],
+          [
+            3,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "island_operator"
+        ],
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 624
+      },
+      {
+        "issues": [
+          {
+            "objects": [
+              "chair_2",
+              "tower_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              225.0,
+              552
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_2",
+              "coffee_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              275.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_3",
+              "coffee_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "dishwasher_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600,
+                351.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
+        "seats": 4,
+        "pulled": true,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            2,
+            "tower_operator"
+          ],
+          [
+            2,
+            "coffee_operator"
+          ],
+          [
+            3,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "dishwasher_operator"
+        ],
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 274
+      },
+      {
+        "issues": [
+          {
+            "objects": [
+              "chair_3",
+              "tower_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              202
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_4",
+              "coffee_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_5",
+              "coffee_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "island_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600.0,
+                115.0
+              ],
+              [
+                600.0,
+                115.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
+        "seats": 6,
+        "pulled": false,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            3,
+            "tower_operator"
+          ],
+          [
+            4,
+            "coffee_operator"
+          ],
+          [
+            5,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "island_operator"
+        ],
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 624
+      },
+      {
+        "issues": [
+          {
+            "objects": [
+              "chair_3",
+              "tower_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              552
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_4",
+              "coffee_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_5",
+              "coffee_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "dishwasher_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600,
+                351.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
+        "seats": 6,
+        "pulled": true,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            3,
+            "tower_operator"
+          ],
+          [
+            4,
+            "coffee_operator"
+          ],
+          [
+            5,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "dishwasher_operator"
+        ],
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 274
+      }
+    ]
+  },
+  "site_verification": {
+    "status": "pending",
+    "items": [
+      "R01洁具、干湿界、门槛、托盘/阀门前场：尚未成立",
+      "L02完整开门、洗烘装卸/过滤器/搬机/携篮转向：旧位冲突",
+      "岛槽真实管件、水封、清扫口及W0标高：重力排水未成立",
+      "AC01梁/窗头/窗帘/灯具/投影，J拆出尺寸与S站人净高",
+      "桌轨道膝高、承载及76可拆收口检修"
+    ]
+  },
+  "revision": "R10.1",
   "scope": "文件/模型/渲染核查；不代表现场安装、结构、燃气或重力排水通过。",
-  "model_sha256": "e076298a32307d32d8c153a516c94fb05d81f4c542994ed85874554e8a292c61",
-  "pdf_pages": 30,
+  "model_sha256": "a398ea4fa54fd755995154d0015040b848deebf1966e73c0f9668fc84c76d69b",
+  "pdf_pages": 33,
   "pdf_storage": "in-memory only; all existing PDFs untouched",
   "pdf_page_format": "A3 landscape",
-  "svg_parse": 13,
+  "svg_parse": 15,
   "svg_text_bounds": "passed",
   "source_alignment": "11 independently estimated image landmarks; max residual <4px, not survey accuracy",
   "trial_geometry": {
@@ -22,6 +632,62 @@
     "south_cabinet_positions_unchanged": true,
     "states": [
       {
+        "issues": [
+          {
+            "objects": [
+              "chair_2",
+              "tower_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              225.0,
+              202
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_2",
+              "coffee_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              275.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_3",
+              "coffee_operator"
+            ],
+            "state": "4人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "island_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600.0,
+                115.0
+              ],
+              [
+                600.0,
+                115.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
         "seats": 4,
         "pulled": false,
         "chair_fixed_or_open_door_conflicts": [],
@@ -44,9 +710,63 @@
         "basket_operator_conflicts": [
           "island_operator"
         ],
-        "all_operations_with_diners_and_basket": false
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 624
       },
       {
+        "issues": [
+          {
+            "objects": [
+              "chair_2",
+              "tower_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              225.0,
+              552
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_2",
+              "coffee_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              275.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_3",
+              "coffee_operator"
+            ],
+            "state": "4人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "dishwasher_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600,
+                351.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
         "seats": 4,
         "pulled": true,
         "chair_fixed_or_open_door_conflicts": [],
@@ -69,9 +789,67 @@
         "basket_operator_conflicts": [
           "dishwasher_operator"
         ],
-        "all_operations_with_diners_and_basket": false
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 274
       },
       {
+        "issues": [
+          {
+            "objects": [
+              "chair_3",
+              "tower_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              202
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_4",
+              "coffee_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_5",
+              "coffee_operator"
+            ],
+            "state": "6人就座及设备操作",
+            "overlap_mm": [
+              500.0,
+              152
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "island_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600.0,
+                115.0
+              ],
+              [
+                600.0,
+                115.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
         "seats": 6,
         "pulled": false,
         "chair_fixed_or_open_door_conflicts": [],
@@ -94,9 +872,63 @@
         "basket_operator_conflicts": [
           "island_operator"
         ],
-        "all_operations_with_diners_and_basket": false
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 624
       },
       {
+        "issues": [
+          {
+            "objects": [
+              "chair_3",
+              "tower_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              552
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_4",
+              "coffee_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "chair_5",
+              "coffee_operator"
+            ],
+            "state": "6人拉椅及设备操作",
+            "overlap_mm": [
+              500.0,
+              502
+            ],
+            "action": "南排离座后操作，热盘依次取"
+          },
+          {
+            "objects": [
+              "basket600",
+              "dishwasher_operator"
+            ],
+            "state": "携篮及设备操作",
+            "overlap_mm": [
+              [
+                600,
+                351.0
+              ]
+            ],
+            "action": "携篮与设备操作错时"
+          }
+        ],
         "seats": 6,
         "pulled": true,
         "chair_fixed_or_open_door_conflicts": [],
@@ -119,7 +951,9 @@
         "basket_operator_conflicts": [
           "dishwasher_operator"
         ],
-        "all_operations_with_diners_and_basket": false
+        "all_operations_with_diners_and_basket": false,
+        "use_recommendation": "携篮与洗碗装卸、岛槽错时；南排离座后蒸烤/咖啡取物",
+        "local_gap_mm": 274
       }
     ],
     "water": {
@@ -172,6 +1006,275 @@
       "floor_level_change": false,
       "pump_assumed": false
     },
+    "r101": {
+      "robot_front": {
+        "objects": [
+          "R01-front",
+          "bath_south2"
+        ],
+        "state": "托盘前抽600试排",
+        "wall_intersection": [
+          650,
+          -1370,
+          550,
+          120
+        ],
+        "action": "前抽试排穿南墙，当前朝向尚未成立，需实测另核朝向，不移动洁具"
+      },
+      "door_sweeps": [
+        {
+          "objects": [
+            "balconyB_door",
+            "robot"
+          ],
+          "state": "门扇0–90°连续扫掠，铰侧估读",
+          "radial_margin_mm": -41.9,
+          "overlap": true,
+          "action": "旧L02取消落实；其余核铰侧/尺寸，不自动移物"
+        }
+      ],
+      "door_model": {
+        "A_door": {
+          "hinge": [
+            -420,
+            -6267
+          ],
+          "start_deg": -90,
+          "sweep_deg": 90,
+          "leaf_mm": 840,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "master_bath_door": {
+          "hinge": [
+            1280,
+            -8127
+          ],
+          "start_deg": 180,
+          "sweep_deg": 90,
+          "leaf_mm": 760,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "B_door": {
+          "hinge": [
+            640,
+            -3967
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "entry": {
+          "hinge": [
+            -3410,
+            -2724
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 880,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "bath_door": {
+          "hinge": [
+            -700,
+            -1370
+          ],
+          "start_deg": -90,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "balconyB_door": {
+          "hinge": [
+            4096,
+            -1250
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 850,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        },
+        "D_door": {
+          "hinge": [
+            0,
+            3268
+          ],
+          "start_deg": 0,
+          "sweep_deg": 90,
+          "leaf_mm": 750,
+          "thickness_mm": 35,
+          "height_mm": null,
+          "direction": "图示内开估读，现场核铰侧"
+        }
+      },
+      "ac_backplates": [
+        {
+          "objects": [
+            "AC02",
+            "A_east"
+          ],
+          "state": "高位背板800沿东墙，深240向西",
+          "wall_segment_contains_backplate": true,
+          "bay_margin_mm": null,
+          "height_mm": null,
+          "floor_furniture_height_mm": null,
+          "height_assessment": "高位机身独立层；落地家具平面相交不直接判碰，三维高度待核",
+          "maintenance_clearance_mm": null,
+          "action": "安装高度/维护净距待厂家，实墙待测"
+        },
+        {
+          "objects": [
+            "AC03",
+            "B_east2"
+          ],
+          "state": "高位背板800沿东墙，深240向西",
+          "wall_segment_contains_backplate": true,
+          "bay_margin_mm": 100,
+          "height_mm": null,
+          "floor_furniture_height_mm": null,
+          "height_assessment": "高位机身独立层；落地家具平面相交不直接判碰，三维高度待核",
+          "maintenance_clearance_mm": null,
+          "action": "安装高度/维护净距待厂家，实墙待测"
+        }
+      ],
+      "supports": [
+        {
+          "seats": 4,
+          "legs": [
+            [
+              1315,
+              530,
+              70,
+              140
+            ],
+            [
+              2815,
+              530,
+              70,
+              140
+            ]
+          ],
+          "knees": [
+            [
+              1450.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1450.0,
+              700,
+              500,
+              300
+            ],
+            [
+              2250.0,
+              200,
+              500,
+              300
+            ],
+            [
+              2250.0,
+              700,
+              500,
+              300
+            ]
+          ],
+          "plan_intersections": [],
+          "rail_height_mm": null,
+          "action": "膝高/轨道/荷载待厂家；检修与通行错时"
+        },
+        {
+          "seats": 6,
+          "legs": [
+            [
+              1115,
+              530,
+              70,
+              140
+            ],
+            [
+              2815,
+              530,
+              70,
+              140
+            ]
+          ],
+          "knees": [
+            [
+              1150.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1150.0,
+              700,
+              500,
+              300
+            ],
+            [
+              1750.0,
+              200,
+              500,
+              300
+            ],
+            [
+              1750.0,
+              700,
+              500,
+              300
+            ],
+            [
+              2350.0,
+              200,
+              500,
+              300
+            ],
+            [
+              2350.0,
+              700,
+              500,
+              300
+            ]
+          ],
+          "plan_intersections": [],
+          "rail_height_mm": null,
+          "action": "膝高/轨道/荷载待厂家；检修与通行错时"
+        }
+      ],
+      "bottleneck": {
+        "objects": [
+          "north_seated_chairs",
+          "dishwasher_operator",
+          "basket"
+        ],
+        "state": "就座＋装卸＋600衣篮",
+        "gap_mm": 624,
+        "basket_mm": 600,
+        "remaining_mm": 24,
+        "action": "合计余24不作为舒适通行；携篮与装卸错时"
+      },
+      "site_pending": [
+        "R01洁具、干湿界、门槛、托盘/阀门前场：尚未成立",
+        "L02完整开门、洗烘装卸/过滤器/搬机/携篮转向：旧位冲突",
+        "岛槽真实管件、水封、清扫口及W0标高：重力排水未成立",
+        "AC01梁/窗头/窗帘/灯具/投影，J拆出尺寸与S站人净高",
+        "桌轨道膝高、承载及76可拆收口检修"
+      ]
+    },
     "site_verified": false,
     "wall_junction_checks": 11,
     "source_landmark_max_residual_px": 2.56
@@ -182,7 +1285,7 @@
     "新图尺寸标注.csv": 7,
     "新图面积标注.csv": 11,
     "水电点位表.csv": 25,
-    "现场核验表.csv": 20,
+    "现场核验表.csv": 23,
     "电器上下水表.csv": 17,
     "设备预留表.csv": 15
   },
@@ -273,96 +1376,114 @@
     },
     {
       "id": "p14",
-      "contentBottom": 629.46875,
+      "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p15",
-      "contentBottom": 697.140625,
+      "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p16",
-      "contentBottom": 453.453125,
+      "contentBottom": 718.859375,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p17",
-      "contentBottom": 716.578125,
+      "contentBottom": 697.140625,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p18",
-      "contentBottom": 489.078125,
+      "contentBottom": 453.453125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p19",
-      "contentBottom": 680.953125,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p20",
       "contentBottom": 716.578125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
+      "id": "p20",
+      "contentBottom": 489.078125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
       "id": "p21",
-      "contentBottom": 471.265625,
+      "contentBottom": 698.765625,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p22",
-      "contentBottom": 680.953125,
+      "contentBottom": 716.578125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p23",
-      "contentBottom": 734.390625,
+      "contentBottom": 471.265625,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p24",
-      "contentBottom": 591.078125,
+      "contentBottom": 680.953125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p25",
-      "contentBottom": 451.828125,
+      "contentBottom": 734.390625,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p26",
-      "contentBottom": 643.703125,
+      "contentBottom": 383.828125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p27",
-      "contentBottom": 382.203125,
+      "contentBottom": 591.078125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p28",
-      "contentBottom": 556.265625,
+      "contentBottom": 451.828125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p29",
+      "contentBottom": 643.703125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p30",
+      "contentBottom": 382.203125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p31",
+      "contentBottom": 556.265625,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p32",
       "contentBottom": 242.953125,
       "footerTop": 1072.5625,
       "overflow": false
@@ -405,6 +1526,8 @@
     "10-air-conditioning.svg",
     "11-source-overlay.svg",
     "12-ac01-ceiling-section.svg",
-    "13-island-water-section.svg"
+    "13-island-water-section.svg",
+    "14-robot-station-review.svg",
+    "15-island-table-connection.svg"
   ]
 }
