@@ -1,35 +1,39 @@
-# 丽水嘉园176㎡ · R9开放餐厨、整面高柜与空调重排
+# 丽水嘉园176㎡ · R10 横向带水岛桌与南侧风管机
 
-拆除餐区北侧、厨房西南侧及餐区西侧可拆细墙，保粗墙、梁柱、公卫和C/D隔墙。取消餐厨分隔，保留燃气；开放餐厨燃气条件待现场核验，未确认合规。
+南墙柜保持冰箱、必配分体蒸烤、咖啡、食品的原位置与顺序。岛1000×750在东，桌1600×800在西、向西延伸1800；岛东部增加辅助小水槽及冷热水，原主水槽、洗碗机和800净备菜保留。
 
-C/D南墙从西向东为冰箱950–1000、必配分体蒸烤高柜600、咖啡1300及食品余量，均朝北使用。柜深、散热和端部余量按厂家安装图；3976图注不用于直接下单。
+北侧主路线：就座净带1000、全拉椅650，均为估读算例。南排就座与蒸烤/咖啡取物须错时；携600衣篮时，就座状态暂停岛北操作，全拉椅状态暂停洗碗装卸。南移仅余48即碰蒸烤全开门，不计作通道。
 
-岛1000×750北端进入原厨房，南接1600×800餐桌，六人延伸1800。上部水槽—800净备菜—灶连续，洗碗机在相邻直线柜段。家庭厅删除南侧落地书柜，西柜深600–650，书籍移到北桌上方280深书柜。
+岛槽排水初排3.452m，2%需69.04mm落差。接入标高和可用地面厚度待测，**重力排水未成立**；保留带水和平地需求，不默认地台、提升泵或结构开槽。
 
-客厅AC01风管机，A/B/D与家庭厅AC02–AC05独立挂机，共五套独立系统。公共区负荷计入连通餐区；匹数、净高、吊顶、冷媒/冷凝水与室外机位待专业深化。
+阳台A封窗并连通客厅，AC01在交界顶面局部吊顶内向北送风、客厅侧回风；公共区冷量含餐区。AC05普通挂机在家庭厅北侧A门洞以西，桌上书柜集中西侧。吊顶高度、维护净距、孔位、冷凝水及外机均待核。
 
-算例东侧拉椅后900，北厨台至岛700仅为单人操作带；洗碗满开东侧776偏紧，600衣篮尚须现场转弯。冰箱抽屉600＋人600，六人桌尾余42不是通道，冰箱由西侧开放口到达。设备与椅子包络无相交；门全开无人取物时桌南横向通路余642。冰箱、蒸烤或咖啡柜前站人会占用这条横向通路，当前不具备此处同时操作与通行的条件，仍需设计深化；不代表已通过现场验收。
+B/C/D飘窗、门窗、入户转折、公卫和阳台恢复为统一毫米模型，新增原图半透明叠合、风管机吊顶和岛槽给排水剖面。原图估读不是实测净尺寸；燃气使用条件未确认合规。文件验证不替代现场安装验收。
 
-![R9家具平面](deliverables/preview-furniture.png)
+![R10平面](deliverables/preview-furniture.png)
 
-- [15页离线方案册](deliverables/方案册.html)
-- [furniture.svg](deliverables/01-furniture.svg)
-- [alterations-review.svg](deliverables/02-alterations-review.svg)
-- [services.svg](deliverables/03-services.svg)
-- [cabinet-access.svg](deliverables/04-cabinet-access.svg)
-- [coffee-sideboard.svg](deliverables/05-coffee-sideboard.svg)
-- [utility-storage.svg](deliverables/06-utility-storage.svg)
-- [island-dining.svg](deliverables/07-island-dining.svg)
-- [appliance-clearance.svg](deliverables/08-appliance-clearance.svg)
-- [workflows.svg](deliverables/09-workflows.svg)
-- [air-conditioning.svg](deliverables/10-air-conditioning.svg)
-- [渲染与一致性检查](deliverables/verification.json)
-- [家具尺寸](deliverables/家具尺寸表.csv)
-- [设备清单](deliverables/设备预留表.csv)
-- [水电与空调点号](deliverables/水电点位表.csv)
-- [现场核验](deliverables/现场核验表.csv)
-- [设备给排水](deliverables/电器上下水表.csv)
+- [30页离线方案册](deliverables/方案册.html)
+- [完成平面](deliverables/01-furniture.svg)
+- [拆改与原门洞](deliverables/02-alterations-review.svg)
+- [水电定位](deliverables/03-services.svg)
+- [南墙柜立面](deliverables/04-cabinet-access.svg)
+- [蒸烤取物与咖啡立剖面](deliverables/05-coffee-sideboard.svg)
+- [家庭厅与AC05](deliverables/06-utility-storage.svg)
+- [四人、六人和南移边界](deliverables/07-island-dining.svg)
+- [满开与操作占用](deliverables/08-appliance-clearance.svg)
+- [北侧通行与七类工作顺序](deliverables/09-workflows.svg)
+- [五套独立空调](deliverables/10-air-conditioning.svg)
+- [原图半透明叠合](deliverables/11-source-overlay.svg)
+- [风管机局部吊顶剖面](deliverables/12-ac01-ceiling-section.svg)
+- [岛槽给排水平面与剖面](deliverables/13-island-water-section.svg)
+- [家具尺寸表.csv](deliverables/家具尺寸表.csv)
+- [设备预留表.csv](deliverables/设备预留表.csv)
+- [水电点位表.csv](deliverables/水电点位表.csv)
+- [现场核验表.csv](deliverables/现场核验表.csv)
+- [新图面积标注.csv](deliverables/新图面积标注.csv)
+- [新图尺寸标注.csv](deliverables/新图尺寸标注.csv)
+- [电器上下水表.csv](deliverables/电器上下水表.csv)
+- [底图对位核验.csv](deliverables/底图对位核验.csv)
+- [渲染、几何及分页核查](deliverables/verification.json)
 
-运行 `python deliverables/build_package.py`，再运行 `python deliverables/render_verify.py`。需要Playwright、PyMuPDF、Pillow及Chromium/Edge，支持FURNISH_BROWSER。墙段、柜体、设备及家具共用deliverables/r9_geometry.py；booklet.css控制分页与移动端。
-
-检查仅证明交付文件正确，不替代现场安装验收。原生Git发布到已授权main，排除PDF、ZIP、加密文件、缓存及临时资料；已有受保护PDF原样保留。PDF文件状态见本地保护说明。
+运行 `python deliverables/build_package.py` 与 `python deliverables/render_verify.py`。依赖Playwright、PyMuPDF、Pillow及Chromium/Edge（可设FURNISH_BROWSER）。几何统一于 `deliverables/r10_geometry.py`。PDF仅在内存验证，不写入或修改已有PDF；Git继续排除PDF、ZIP、加密文件及缓存。

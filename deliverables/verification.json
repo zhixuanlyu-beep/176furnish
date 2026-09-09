@@ -1,210 +1,410 @@
 {
   "status": "passed",
-  "scope": "Document rendering and consistency only; no measured clearances, structural, utility or installation approval.",
-  "pdf_pages": 15,
-  "revision": "R9",
-  "pdf_file": "方案册-R9.pdf",
-  "pdf_storage": "existing PDF not refreshed (protected or unwritable); latest PDF validated in memory only",
+  "revision": "R10",
+  "scope": "文件/模型/渲染核查；不代表现场安装、结构、燃气或重力排水通过。",
+  "model_sha256": "e076298a32307d32d8c153a516c94fb05d81f4c542994ed85874554e8a292c61",
+  "pdf_pages": 30,
+  "pdf_storage": "in-memory only; all existing PDFs untouched",
   "pdf_page_format": "A3 landscape",
-  "svg_parse": "10 passed",
+  "svg_parse": 13,
   "svg_text_bounds": "passed",
-  "r9_consistency": "passed",
+  "source_alignment": "11 independently estimated image landmarks; max residual <4px, not survey accuracy",
   "trial_geometry": {
-    "units": "mm; trial, not surveyed",
+    "units": "mm; image-estimated trial, not surveyed",
+    "fixed_conflicts": [],
+    "fixed_wall_conflicts": [],
     "prep_surface": 800,
-    "island_north_in_original_kitchen": 1544,
-    "counter_to_island_operation": 700,
-    "island_table_left_offset": -124,
-    "east_seated_passage": 1250,
-    "east_pulled_passage": 900,
-    "south_four_to_fridge_face": 1442,
-    "south_six_to_fridge_face": 1242,
-    "fridge_drawer_projection": 600,
-    "fridge_operator_depth": 600,
-    "fridge_front_residual_not_passage": 42,
-    "fridge_operator_to_six_pulled_chair_y": 92.0,
-    "south_crossing_doors_open_no_operator": 642,
-    "south_crossing_with_fridge_operator_is_passage": false,
-    "dishwasher_door_projection": 650,
-    "dishwasher_operator_depth": 600,
-    "dishwasher_east_bypass": 776,
-    "basket_trial_width": 600,
-    "basket_bypass_total_margin": 176,
-    "family_east_passage": 1200,
-    "occupied_chair_collisions": [],
-    "dishwasher_island_collision": false,
-    "housekeeping_route": {
-      "basket_mm": 600,
-      "door_only_swept_collisions": [],
-      "pulled_chair_collision": false,
-      "retained_wall_collisions": [],
-      "concurrent_operator_conflicts": [
-        "fridge_operator",
-        "tower_operator",
-        "coffee_operator",
-        "pantry_operator"
+    "north_pulled_gap": 650,
+    "north_seated_gap": 1000,
+    "east_island_wall_gap_not_passage": 76,
+    "south_pulled_to_tower_door": 48,
+    "south_shift_limit_door_only_mm": 48,
+    "south_cabinet_positions_unchanged": true,
+    "states": [
+      {
+        "seats": 4,
+        "pulled": false,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            2,
+            "tower_operator"
+          ],
+          [
+            2,
+            "coffee_operator"
+          ],
+          [
+            3,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "island_operator"
+        ],
+        "all_operations_with_diners_and_basket": false
+      },
+      {
+        "seats": 4,
+        "pulled": true,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            2,
+            "tower_operator"
+          ],
+          [
+            2,
+            "coffee_operator"
+          ],
+          [
+            3,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "dishwasher_operator"
+        ],
+        "all_operations_with_diners_and_basket": false
+      },
+      {
+        "seats": 6,
+        "pulled": false,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            3,
+            "tower_operator"
+          ],
+          [
+            4,
+            "coffee_operator"
+          ],
+          [
+            5,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "island_operator"
+        ],
+        "all_operations_with_diners_and_basket": false
+      },
+      {
+        "seats": 6,
+        "pulled": true,
+        "chair_fixed_or_open_door_conflicts": [],
+        "chair_operator_conflicts": [
+          [
+            3,
+            "tower_operator"
+          ],
+          [
+            4,
+            "coffee_operator"
+          ],
+          [
+            5,
+            "coffee_operator"
+          ]
+        ],
+        "basket_solid_conflicts": [],
+        "basket_chair_conflicts": [],
+        "basket_operator_conflicts": [
+          "dishwasher_operator"
+        ],
+        "all_operations_with_diners_and_basket": false
+      }
+    ],
+    "water": {
+      "route_mm": [
+        [
+          3630,
+          510
+        ],
+        [
+          3876,
+          510
+        ],
+        [
+          3876,
+          -2400
+        ],
+        [
+          3580,
+          -2400
+        ]
       ],
-      "simultaneous_operation_and_passage_verified": false
+      "horizontal_segments_mm": [
+        246,
+        2910,
+        296
+      ],
+      "horizontal_length_mm": 3452,
+      "pipe_trial_outer_diameter_mm": 50,
+      "slope_scenarios": [
+        {
+          "slope": 0.01,
+          "fall_mm": 34.52,
+          "minimum_build_up_trial_mm": 104.52
+        },
+        {
+          "slope": 0.02,
+          "fall_mm": 69.04,
+          "minimum_build_up_trial_mm": 139.04
+        },
+        {
+          "slope": 0.025,
+          "fall_mm": 86.3,
+          "minimum_build_up_trial_mm": 156.3
+        }
+      ],
+      "connection_invert_mm": null,
+      "available_floor_build_up_mm": null,
+      "gravity_drainage_established": false,
+      "structural_cutting_authorized": false,
+      "floor_level_change": false,
+      "pump_assumed": false
     },
-    "site_verified": false
+    "site_verified": false,
+    "wall_junction_checks": 11,
+    "source_landmark_max_residual_px": 2.56
   },
   "csv_counts": {
     "家具尺寸表.csv": 17,
-    "设备预留表.csv": 14,
-    "水电点位表.csv": 24,
-    "现场核验表.csv": 16,
-    "新图面积标注.csv": 11,
+    "底图对位核验.csv": 11,
     "新图尺寸标注.csv": 7,
-    "电器上下水表.csv": 16
+    "新图面积标注.csv": 11,
+    "水电点位表.csv": 25,
+    "现场核验表.csv": 20,
+    "电器上下水表.csv": 17,
+    "设备预留表.csv": 15
   },
   "page_layout": [
     {
       "id": "p00",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
       "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p01",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
       "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p02",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
       "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p03",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
       "contentBottom": 961.328125,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p04",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 824.5,
+      "contentBottom": 993.109375,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p05",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 932.5,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p06",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 676.25,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p07",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 873.546875,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p08",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 853.328125,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p09",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 891.015625,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p10",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 843.109375,
-      "footerTop": 1072.5625,
-      "overflow": false
-    },
-    {
-      "id": "p11",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
       "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
+      "id": "p06",
+      "contentBottom": 903.71875,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p07",
+      "contentBottom": 903.71875,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p08",
+      "contentBottom": 903.71875,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p09",
+      "contentBottom": 903.71875,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p10",
+      "contentBottom": 961.328125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p11",
+      "contentBottom": 993.109375,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
       "id": "p12",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 878.71875,
+      "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p13",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 909.453125,
+      "contentBottom": 903.71875,
       "footerTop": 1072.5625,
       "overflow": false
     },
     {
       "id": "p14",
-      "height": 1122.515625,
-      "scrollHeight": 1123,
-      "contentBottom": 961.328125,
+      "contentBottom": 629.46875,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p15",
+      "contentBottom": 697.140625,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p16",
+      "contentBottom": 453.453125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p17",
+      "contentBottom": 716.578125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p18",
+      "contentBottom": 489.078125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p19",
+      "contentBottom": 680.953125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p20",
+      "contentBottom": 716.578125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p21",
+      "contentBottom": 471.265625,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p22",
+      "contentBottom": 680.953125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p23",
+      "contentBottom": 734.390625,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p24",
+      "contentBottom": 591.078125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p25",
+      "contentBottom": 451.828125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p26",
+      "contentBottom": 643.703125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p27",
+      "contentBottom": 382.203125,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p28",
+      "contentBottom": 556.265625,
+      "footerTop": 1072.5625,
+      "overflow": false
+    },
+    {
+      "id": "p29",
+      "contentBottom": 242.953125,
       "footerTop": 1072.5625,
       "overflow": false
     }
   ],
-  "mobile_width": {
-    "width": 390,
-    "scrollWidth": 390
-  },
   "mobile_sizes": [
-    {
-      "width": 390,
-      "scrollWidth": 390
-    },
     {
       "width": 320,
       "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
     },
     {
       "width": 768,
       "scrollWidth": 768
     }
   ],
-  "protected_pdfs_preserved": [
-    "方案册-R4.pdf",
-    "方案册-R5.pdf",
-    "方案册-R6.pdf",
-    "方案册-R7.pdf",
-    "方案册-R8.pdf",
-    "方案册-R9.pdf",
-    "方案册.pdf"
-  ],
-  "browser_errors": []
+  "existing_pdfs_preserved": {
+    "deliverables\\方案册-R4.pdf": "fa9d3be6f5242426e67ee1ce8aba8d32fd48edceb6815f1196bac530b0d839fb",
+    "deliverables\\方案册-R5.pdf": "d852a4acad4bf9b420ea7f7dc3efe7e8954f0982cd763edf6a90bec3c3f25b93",
+    "deliverables\\方案册-R6.pdf": "bf800e0c83f378f8456dada9a7a511bca9fbac4d231709b0cdcc1c457e45d365",
+    "deliverables\\方案册-R7.pdf": "1385f4ecbea0b9947ecceaf38a9827efbc92cbef5be62328cc0f6dd4d88629c3",
+    "deliverables\\方案册-R8.pdf": "486d976f65808105da389837abc93a992a70c815d7bf19ae94f85e8b0f43ca3d",
+    "deliverables\\方案册-R9.pdf": "e14ff32ff014a8e052d97b4daea02029007c75f17952fc262efc2f85ee78ae59",
+    "deliverables\\方案册.pdf": "50213302226bea27a8e1c92086818a2dc1ce07f3937852104c49a71b06004080"
+  },
+  "browser_errors": [],
+  "svg_previews": [
+    "01-furniture.svg",
+    "02-alterations-review.svg",
+    "03-services.svg",
+    "04-cabinet-access.svg",
+    "05-coffee-sideboard.svg",
+    "06-utility-storage.svg",
+    "07-island-dining.svg",
+    "08-appliance-clearance.svg",
+    "09-workflows.svg",
+    "10-air-conditioning.svg",
+    "11-source-overlay.svg",
+    "12-ac01-ceiling-section.svg",
+    "13-island-water-section.svg"
+  ]
 }
