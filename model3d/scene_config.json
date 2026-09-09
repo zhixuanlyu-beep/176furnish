@@ -1,0 +1,1375 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "axes": "X east, Y north, Z up",
+  "origin": "C northwest interior reference",
+  "provenance": {
+    "image": "../IMG20260907-094631119.jpg",
+    "layout": "../deliverables/r10_geometry.py",
+    "method": "Dimension-line anchored R10 millimetre survey concept, transformed x/1000, -y/1000; no scaling from schematic pixels.",
+    "dimension_lines_mm": {
+      "A_depth": 3930,
+      "B_depth": 3423,
+      "kitchen_depth": 2844,
+      "C_depth": 2998,
+      "D_depth": 3264,
+      "CD_width": 3976
+    },
+    "boundary_status": "Image-estimated wall faces, not surveyed net dimensions; structural classification and beams/columns unverified."
+  },
+  "defaults": {
+    "wall_height": 2.8,
+    "thick_wall": 0.22,
+    "thin_wall": 0.12,
+    "door_height": 2.1,
+    "bedroom_door": 0.9,
+    "bath_door": 0.8,
+    "study_door": 0.85,
+    "window_sill": 0.9,
+    "window_height": 1.5,
+    "bay_sill": 0.45,
+    "bay_height": 1.8
+  },
+  "assumptions": [
+    "Existing R10 exterior footprints retain 240mm where already defined; 220mm is the fallback for new thick walls. No structural boundary is trimmed.",
+    "Door widths are concept clear openings before detailed frames; positions and hinge sides estimated.",
+    "C west opening narrowed to 2200mm by retaining a south pier; header is conceptual, structural design pending.",
+    "Kitchen south fixed glazing restores enclosure along removed partition M01; west 1000mm sliding door closes connection. Former C north 900mm portal has no leaf.",
+    "Dining table moved 350mm south and deepened 50mm to clear kitchen glass; island remains fixed; table-island overlap along edge is now 425mm.",
+    "Coffee enlarged from 1300 to 1700mm in place; pantry reduced from 901 to 501mm, equipment order unchanged.",
+    "Study east glass face at X=-480mm leaves a 1000mm route to A; desk shifted 170mm west and deep storage shortened to avoid its working space.",
+    "Study glass partitions and all bathroom fixture placements are concept assumptions; existing plumbing positions are not confirmed.",
+    "No hidden water, drain, gas or refrigerant routing is modeled. Island sink remains conditional: gravity drain not established.",
+    "Beams over openings are placeholders; original structural columns cannot be independently identified from source image."
+  ],
+  "walls": {
+    "A_north": [
+      -0.66,
+      9.957,
+      7.52,
+      0.24
+    ],
+    "A_west": [
+      -0.66,
+      6.267,
+      0.24,
+      3.81
+    ],
+    "A_east": [
+      6.62,
+      6.027,
+      0.24,
+      4.05
+    ],
+    "A_south1": [
+      0.42,
+      6.147,
+      4.29,
+      0.12
+    ],
+    "A_south2": [
+      6.22,
+      6.147,
+      0.4,
+      0.12
+    ],
+    "family_north": [
+      -3.65,
+      6.147,
+      3.23,
+      0.24
+    ],
+    "family_west": [
+      -3.65,
+      2.724,
+      0.24,
+      3.423
+    ],
+    "master_bath_east1": [
+      1.28,
+      8.887,
+      0.12,
+      1.19
+    ],
+    "master_bath_east2": [
+      1.28,
+      7.627,
+      0.12,
+      0.5
+    ],
+    "master_bath_south": [
+      -0.42,
+      7.627,
+      1.7,
+      0.12
+    ],
+    "B_west1": [
+      0.52,
+      3.967,
+      0.12,
+      2.18
+    ],
+    "B_west2": [
+      0.52,
+      2.844,
+      0.12,
+      0.373
+    ],
+    "B_east1": [
+      3.976,
+      5.4,
+      0.24,
+      0.747
+    ],
+    "B_east2": [
+      3.976,
+      2.844,
+      0.24,
+      1.006
+    ],
+    "bath_kitchen_north": [
+      -0.9,
+      2.724,
+      4.876,
+      0.12
+    ],
+    "entry_return": [
+      -3.41,
+      2.724,
+      1.01,
+      0.12
+    ],
+    "entry_lower": [
+      -3.65,
+      1.25,
+      0.24,
+      0.594
+    ],
+    "entry_step": [
+      -4.412,
+      1.13,
+      1.002,
+      0.24
+    ],
+    "living_west": [
+      -4.412,
+      -6.47,
+      0.24,
+      7.6
+    ],
+    "bath_west": [
+      -0.9,
+      1.25,
+      0.12,
+      1.474
+    ],
+    "bath_south1": [
+      -0.78,
+      1.25,
+      0.08,
+      0.12
+    ],
+    "bath_south2": [
+      0.05,
+      1.25,
+      1.55,
+      0.12
+    ],
+    "bath_east": [
+      1.6,
+      1.25,
+      0.12,
+      1.474
+    ],
+    "balconyB_div1": [
+      3.976,
+      1.25,
+      0.12,
+      1.474
+    ],
+    "balconyB_div2": [
+      3.976,
+      0.0,
+      0.12,
+      0.4
+    ],
+    "balconyB_NE": [
+      5.093,
+      2.664,
+      0.12,
+      0.18
+    ],
+    "balconyB_SE": [
+      5.093,
+      -0.12,
+      0.12,
+      0.24
+    ],
+    "C_north_end": [
+      0.0,
+      -0.12,
+      0.18,
+      0.12
+    ],
+    "C_east1": [
+      3.976,
+      -0.55,
+      0.24,
+      0.55
+    ],
+    "C_east2": [
+      3.976,
+      -2.998,
+      0.24,
+      0.798
+    ],
+    "CD": [
+      -0.12,
+      -3.118,
+      4.336,
+      0.12
+    ],
+    "C_west_end": [
+      -0.12,
+      -3.118,
+      0.12,
+      0.798
+    ],
+    "D_west1": [
+      -0.12,
+      -3.268,
+      0.12,
+      0.15
+    ],
+    "D_west2": [
+      -0.12,
+      -6.382,
+      0.12,
+      2.364
+    ],
+    "D_east": [
+      3.976,
+      -6.382,
+      0.24,
+      3.264
+    ],
+    "D_south1": [
+      0.0,
+      -6.382,
+      1.12,
+      0.12
+    ],
+    "D_south2": [
+      2.76,
+      -6.382,
+      1.216,
+      0.12
+    ],
+    "balconyA_head1": [
+      -4.172,
+      -5.26,
+      0.6,
+      0.12
+    ],
+    "balconyA_head2": [
+      -1.572,
+      -5.38,
+      1.452,
+      0.24
+    ],
+    "balconyA_east": [
+      -1.167,
+      -6.47,
+      0.12,
+      1.09
+    ]
+  },
+  "openings": {
+    "former_C_door": {
+      "box": [
+        0.18,
+        -0.12,
+        0.9,
+        0.12
+      ],
+      "kind": "removed_door"
+    },
+    "former_kitchen_door": {
+      "box": [
+        1.6,
+        0.0,
+        0.12,
+        1.0
+      ],
+      "kind": "glass_door",
+      "slide_offset": [
+        0.09,
+        0,
+        0
+      ]
+    },
+    "A_door": {
+      "box": [
+        -0.42,
+        6.147,
+        0.9,
+        0.12
+      ],
+      "kind": "door"
+    },
+    "A_window": {
+      "box": [
+        4.71,
+        6.147,
+        1.51,
+        0.12
+      ],
+      "kind": "window"
+    },
+    "master_bath_door": {
+      "box": [
+        1.28,
+        8.127,
+        0.12,
+        0.76
+      ],
+      "kind": "door"
+    },
+    "B_door": {
+      "box": [
+        0.52,
+        3.217,
+        0.12,
+        0.9
+      ],
+      "kind": "door"
+    },
+    "entry": {
+      "box": [
+        -3.65,
+        1.844,
+        0.24,
+        0.88
+      ],
+      "kind": "door"
+    },
+    "bath_door": {
+      "box": [
+        -0.7,
+        1.25,
+        0.8,
+        0.12
+      ],
+      "kind": "door",
+      "swing_sign": -1
+    },
+    "balconyB_door": {
+      "box": [
+        3.976,
+        0.4,
+        0.12,
+        0.85
+      ],
+      "kind": "door"
+    },
+    "D_door": {
+      "box": [
+        -0.12,
+        -4.018,
+        0.12,
+        0.9
+      ],
+      "kind": "door"
+    },
+    "balconyA_connection": {
+      "box": [
+        -3.572,
+        -5.26,
+        2.0,
+        0.12
+      ],
+      "kind": "connected"
+    },
+    "balconyB_north": {
+      "box": [
+        4.216,
+        2.724,
+        0.877,
+        0.12
+      ],
+      "kind": "window"
+    },
+    "balconyB_east": {
+      "box": [
+        5.093,
+        0.12,
+        0.12,
+        2.544
+      ],
+      "kind": "window"
+    },
+    "balconyB_south": {
+      "box": [
+        4.216,
+        -0.12,
+        0.877,
+        0.12
+      ],
+      "kind": "window"
+    },
+    "balconyA_south": {
+      "box": [
+        -4.172,
+        -6.47,
+        3.005,
+        0.12
+      ],
+      "kind": "window"
+    },
+    "B_bay": {
+      "box": [
+        3.976,
+        3.85,
+        0.75,
+        1.55
+      ],
+      "kind": "bay_east"
+    },
+    "C_bay": {
+      "box": [
+        3.976,
+        -2.2,
+        0.75,
+        1.65
+      ],
+      "kind": "bay_east"
+    },
+    "D_bay": {
+      "box": [
+        1.12,
+        -6.962,
+        1.64,
+        0.7
+      ],
+      "kind": "bay_south"
+    },
+    "C_west_opening": {
+      "box": [
+        -0.12,
+        -2.32,
+        0.12,
+        2.2
+      ],
+      "kind": "connected"
+    },
+    "kitchen_south_glass": {
+      "box": [
+        1.08,
+        -0.12,
+        2.896,
+        0.12
+      ],
+      "kind": "glass_partition"
+    },
+    "kitchen_west_glass": {
+      "box": [
+        1.6,
+        1.0,
+        0.12,
+        0.25
+      ],
+      "kind": "glass_partition"
+    },
+    "study_glass": {
+      "box": [
+        -3.41,
+        3.59,
+        2.08,
+        0.06
+      ],
+      "kind": "glass_partition"
+    },
+    "study_door": {
+      "box": [
+        -1.33,
+        3.59,
+        0.85,
+        0.06
+      ],
+      "kind": "glass_door",
+      "slide_sign": -1
+    },
+    "study_return": {
+      "box": [
+        -0.54,
+        3.65,
+        0.06,
+        2.497
+      ],
+      "kind": "glass_partition"
+    }
+  },
+  "rooms": {
+    "Bedroom_A": [
+      [
+        1.4,
+        6.147,
+        5.22,
+        3.81
+      ],
+      [
+        -0.42,
+        6.267,
+        1.82,
+        1.36
+      ]
+    ],
+    "Bath_A": [
+      [
+        -0.42,
+        7.747,
+        1.7,
+        2.21
+      ]
+    ],
+    "Bedroom_B": [
+      [
+        0.64,
+        2.844,
+        3.336,
+        3.303
+      ]
+    ],
+    "Study": [
+      [
+        -3.41,
+        3.59,
+        2.87,
+        2.557
+      ]
+    ],
+    "Hall": [
+      [
+        -0.48,
+        3.59,
+        1.0,
+        2.557
+      ],
+      [
+        -3.41,
+        2.724,
+        3.93,
+        0.866
+      ],
+      [
+        -3.41,
+        1.13,
+        2.51,
+        1.594
+      ],
+      [
+        -0.78,
+        0.0,
+        2.38,
+        1.25
+      ]
+    ],
+    "Bath_Public": [
+      [
+        -0.78,
+        1.37,
+        2.38,
+        1.354
+      ]
+    ],
+    "Kitchen": [
+      [
+        1.72,
+        0.0,
+        2.256,
+        2.724
+      ]
+    ],
+    "Living": [
+      [
+        -4.172,
+        -5.14,
+        4.052,
+        6.27
+      ],
+      [
+        -3.41,
+        1.13,
+        3.29,
+        0.12
+      ]
+    ],
+    "C_Prep_Dining": [
+      [
+        0.0,
+        -2.998,
+        3.976,
+        2.998
+      ]
+    ],
+    "Bedroom_D": [
+      [
+        0.0,
+        -6.262,
+        3.976,
+        3.144
+      ]
+    ],
+    "Balcony_A": [
+      [
+        -4.172,
+        -6.35,
+        3.005,
+        1.09
+      ]
+    ],
+    "Balcony_B": [
+      [
+        4.096,
+        0.0,
+        0.997,
+        2.724
+      ]
+    ]
+  },
+  "furniture": {
+    "bedA": {
+      "box": [
+        3.35,
+        7.577,
+        1.8,
+        2.0
+      ],
+      "room": "Bedroom_A",
+      "kind": "bed",
+      "height": 0.6,
+      "material": "linen"
+    },
+    "bedB": {
+      "box": [
+        1.67,
+        4.047,
+        1.2,
+        2.0
+      ],
+      "room": "Bedroom_B",
+      "kind": "bed",
+      "height": 0.6,
+      "material": "linen"
+    },
+    "bedD": {
+      "box": [
+        1.68,
+        -5.262,
+        1.5,
+        2.0
+      ],
+      "room": "Bedroom_D",
+      "kind": "bed",
+      "height": 0.6,
+      "material": "linen"
+    },
+    "wardrobeA": {
+      "box": [
+        5.92,
+        7.377,
+        0.6,
+        2.4
+      ],
+      "room": "Bedroom_A",
+      "kind": "cabinet",
+      "height": 2.4,
+      "material": "oak"
+    },
+    "wardrobeB": {
+      "box": [
+        0.64,
+        4.547,
+        0.6,
+        1.5
+      ],
+      "room": "Bedroom_B",
+      "kind": "cabinet",
+      "height": 2.4,
+      "material": "oak"
+    },
+    "wardrobeD": {
+      "box": [
+        0.0,
+        -6.0,
+        2.7,
+        0.6
+      ],
+      "room": "Bedroom_D",
+      "kind": "cabinet",
+      "height": 2.4,
+      "material": "oak"
+    },
+    "sofa": {
+      "box": [
+        -4.072,
+        -3.55,
+        0.95,
+        2.7
+      ],
+      "room": "Living",
+      "kind": "sofa",
+      "height": 0.85,
+      "material": "linen"
+    },
+    "coffee_table": {
+      "box": [
+        -2.6,
+        -2.32,
+        0.9,
+        0.6
+      ],
+      "room": "Living",
+      "kind": "table",
+      "height": 0.4,
+      "material": "walnut"
+    },
+    "screen": {
+      "box": [
+        -1.15,
+        -3.45,
+        0.08,
+        2.45
+      ],
+      "room": "Living",
+      "kind": "screen",
+      "height": 0.08,
+      "material": "warm_white",
+      "z": 2.2
+    },
+    "desk": {
+      "box": [
+        -2.28,
+        5.447,
+        1.7,
+        0.7
+      ],
+      "room": "Study",
+      "kind": "table",
+      "height": 0.75,
+      "material": "walnut"
+    },
+    "study_chair": {
+      "box": [
+        -1.4,
+        4.747,
+        0.5,
+        0.5
+      ],
+      "room": "Study",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "olive"
+    },
+    "study_storage": {
+      "box": [
+        -3.41,
+        4.0,
+        0.65,
+        1.35
+      ],
+      "room": "Study",
+      "kind": "cabinet",
+      "height": 2.3,
+      "material": "oak",
+      "front": "east"
+    },
+    "shoe": {
+      "box": [
+        -2.2,
+        2.374,
+        1.1,
+        0.35
+      ],
+      "room": "Hall",
+      "kind": "cabinet",
+      "height": 1.1,
+      "material": "oak"
+    },
+    "fridge": {
+      "box": [
+        0.1,
+        -2.998,
+        0.975,
+        0.75
+      ],
+      "room": "C_Prep_Dining",
+      "kind": "fridge",
+      "height": 2.2,
+      "material": "walnut"
+    },
+    "tower": {
+      "box": [
+        1.075,
+        -2.998,
+        0.6,
+        0.6
+      ],
+      "room": "C_Prep_Dining",
+      "kind": "tower",
+      "height": 2.2,
+      "material": "walnut"
+    },
+    "coffee": {
+      "box": [
+        1.675,
+        -2.998,
+        1.7,
+        0.6
+      ],
+      "room": "C_Prep_Dining",
+      "kind": "cabinet",
+      "height": 0.9,
+      "material": "walnut"
+    },
+    "pantry": {
+      "box": [
+        3.375,
+        -2.998,
+        0.501,
+        0.6
+      ],
+      "room": "C_Prep_Dining",
+      "kind": "cabinet",
+      "height": 2.2,
+      "material": "walnut"
+    },
+    "island": {
+      "box": [
+        2.9,
+        -0.975,
+        1.0,
+        0.75
+      ],
+      "room": "C_Prep_Dining",
+      "kind": "cabinet",
+      "height": 0.9,
+      "material": "walnut"
+    },
+    "table4": {
+      "box": [
+        1.3,
+        -1.4,
+        1.6,
+        0.85
+      ],
+      "room": "Dining_4",
+      "kind": "table",
+      "height": 0.75,
+      "material": "walnut",
+      "seats": 4
+    },
+    "chair4_0": {
+      "box": [
+        1.45,
+        -0.55,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_4",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "south"
+    },
+    "chair4_1": {
+      "box": [
+        2.25,
+        -0.55,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_4",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "south"
+    },
+    "chair4_2": {
+      "box": [
+        1.45,
+        -1.85,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_4",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "north"
+    },
+    "chair4_3": {
+      "box": [
+        2.25,
+        -1.85,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_4",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "north"
+    },
+    "table6": {
+      "box": [
+        1.1,
+        -1.4,
+        1.8,
+        0.85
+      ],
+      "room": "Dining_6",
+      "kind": "table",
+      "height": 0.75,
+      "material": "walnut",
+      "seats": 6
+    },
+    "chair6_0": {
+      "box": [
+        1.15,
+        -0.55,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "south"
+    },
+    "chair6_1": {
+      "box": [
+        1.75,
+        -0.55,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "south"
+    },
+    "chair6_2": {
+      "box": [
+        2.35,
+        -0.55,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "south"
+    },
+    "chair6_3": {
+      "box": [
+        1.15,
+        -1.85,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "north"
+    },
+    "chair6_4": {
+      "box": [
+        1.75,
+        -1.85,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "north"
+    },
+    "chair6_5": {
+      "box": [
+        2.35,
+        -1.85,
+        0.5,
+        0.45
+      ],
+      "room": "Dining_6",
+      "kind": "chair",
+      "height": 0.8,
+      "material": "linen",
+      "facing": "north"
+    },
+    "hob": {
+      "box": [
+        1.72,
+        2.124,
+        0.68,
+        0.6
+      ],
+      "room": "Kitchen",
+      "kind": "cabinet",
+      "height": 0.9,
+      "material": "olive",
+      "front": "south"
+    },
+    "prep": {
+      "box": [
+        2.4,
+        2.124,
+        0.8,
+        0.6
+      ],
+      "room": "Kitchen",
+      "kind": "cabinet",
+      "height": 0.9,
+      "material": "olive",
+      "front": "south"
+    },
+    "sink": {
+      "box": [
+        3.2,
+        2.124,
+        0.776,
+        0.6
+      ],
+      "room": "Kitchen",
+      "kind": "cabinet",
+      "height": 0.9,
+      "material": "olive",
+      "front": "south"
+    },
+    "Bath_A_basin": {
+      "box": [
+        -0.35,
+        9.27,
+        0.7,
+        0.43
+      ],
+      "room": "Bath_A",
+      "kind": "basin",
+      "height": 0.85,
+      "material": "warm_white",
+      "status": "assumed_fixture_position"
+    },
+    "Bath_A_wc": {
+      "box": [
+        -0.35,
+        8.4,
+        0.4,
+        0.65
+      ],
+      "room": "Bath_A",
+      "kind": "wc",
+      "height": 0.75,
+      "material": "warm_white",
+      "status": "assumed_fixture_position"
+    },
+    "Bath_Public_basin": {
+      "box": [
+        0.7,
+        2.25,
+        0.7,
+        0.43
+      ],
+      "room": "Bath_Public",
+      "kind": "basin",
+      "height": 0.85,
+      "material": "warm_white",
+      "status": "assumed_fixture_position"
+    },
+    "Bath_Public_wc": {
+      "box": [
+        0.7,
+        1.38,
+        0.4,
+        0.65
+      ],
+      "room": "Bath_Public",
+      "kind": "wc",
+      "height": 0.75,
+      "material": "warm_white",
+      "status": "assumed_fixture_position"
+    },
+    "shower_A": {
+      "box": [
+        0.4,
+        9.05,
+        0.85,
+        0.85
+      ],
+      "room": "Bath_A",
+      "kind": "shower",
+      "height": 2.1,
+      "material": "glass",
+      "status": "assumed_fixture_position"
+    },
+    "shower_public": {
+      "box": [
+        -0.75,
+        1.83,
+        0.85,
+        0.85
+      ],
+      "room": "Bath_Public",
+      "kind": "shower",
+      "height": 2.1,
+      "material": "glass",
+      "status": "assumed_fixture_position"
+    },
+    "laundry": {
+      "box": [
+        4.216,
+        1.84,
+        0.75,
+        0.65
+      ],
+      "room": "Balcony_B",
+      "kind": "laundry",
+      "height": 1.8,
+      "material": "warm_white",
+      "status": "conditional"
+    },
+    "robot_R01": {
+      "box": [
+        0.65,
+        1.59,
+        0.55,
+        0.45
+      ],
+      "room": "Candidate_Equipment",
+      "kind": "robot",
+      "height": 0.65,
+      "material": "warm_white",
+      "status": "unconfirmed_hidden"
+    },
+    "robot_L02": {
+      "box": [
+        4.3,
+        0.0,
+        0.65,
+        0.45
+      ],
+      "room": "Candidate_Equipment",
+      "kind": "robot",
+      "height": 0.65,
+      "material": "warm_white",
+      "status": "rejected_position_hidden"
+    }
+  },
+  "materials": {
+    "warm_white": [
+      0.86,
+      0.82,
+      0.73,
+      1
+    ],
+    "oak": [
+      0.64,
+      0.43,
+      0.23,
+      1
+    ],
+    "walnut": [
+      0.22,
+      0.1,
+      0.045,
+      1
+    ],
+    "linen": [
+      0.69,
+      0.61,
+      0.48,
+      1
+    ],
+    "olive": [
+      0.26,
+      0.3,
+      0.16,
+      1
+    ],
+    "brick": [
+      0.46,
+      0.16,
+      0.085,
+      1
+    ],
+    "black": [
+      0.025,
+      0.028,
+      0.025,
+      1
+    ],
+    "stone": [
+      0.73,
+      0.7,
+      0.61,
+      1
+    ],
+    "glass": [
+      0.64,
+      0.8,
+      0.83,
+      0.28
+    ],
+    "metal": [
+      0.4,
+      0.42,
+      0.43,
+      1
+    ]
+  },
+  "equipment": {
+    "coffee_machine": {
+      "water": "manual tank",
+      "waste": "manual drip tray",
+      "power": true,
+      "top_clearance": 0.35,
+      "front_clearance": 0.6
+    },
+    "grinder": {
+      "water": "none",
+      "waste": "manual grounds cleaning",
+      "power": true,
+      "top_clearance": 0.3
+    },
+    "dishwasher": {
+      "water": "fixed supply",
+      "waste": "fixed sanitary drain",
+      "power": true
+    },
+    "purifier": {
+      "water": "fixed supply",
+      "waste": "RO reject to sanitary drain, model pending",
+      "power": true
+    },
+    "steam_oven": {
+      "water": "manual tank",
+      "waste": "manual waste box",
+      "power": true
+    },
+    "oven": {
+      "water": "none",
+      "waste": "none",
+      "power": true
+    },
+    "laundry": {
+      "water": "conditional fixed supply",
+      "waste": "conditional sanitary drain / dryer tank",
+      "power": true,
+      "status": "conditional"
+    },
+    "island_sink": {
+      "water": "conditional hot/cold",
+      "waste": "gravity drain not established",
+      "power": false,
+      "status": "conditional"
+    },
+    "robot": {
+      "water": "unconfirmed",
+      "waste": "unconfirmed",
+      "power": true,
+      "status": "candidate_hidden"
+    }
+  },
+  "cameras": {
+    "01_Axonometric": {
+      "position": [
+        16,
+        -20,
+        19
+      ],
+      "target": [
+        0.5,
+        1,
+        0
+      ],
+      "ortho": 22
+    },
+    "02_Top": {
+      "position": [
+        1,
+        1.5,
+        24
+      ],
+      "target": [
+        1,
+        1.5,
+        0
+      ],
+      "ortho": 19
+    },
+    "03_Living_to_C": {
+      "position": [
+        -3.7,
+        -2,
+        1.65
+      ],
+      "target": [
+        2.2,
+        -1.8,
+        1.1
+      ]
+    },
+    "04_C_to_Living": {
+      "position": [
+        3.4,
+        -1.7,
+        1.65
+      ],
+      "target": [
+        -2.7,
+        -2,
+        1.1
+      ]
+    },
+    "05_Coffee": {
+      "position": [
+        2.4,
+        -0.7,
+        1.6
+      ],
+      "target": [
+        2.5,
+        -2.7,
+        1.15
+      ]
+    },
+    "06_Dining_Kitchen": {
+      "position": [
+        0.4,
+        -2.1,
+        1.7
+      ],
+      "target": [
+        2.8,
+        1.4,
+        1.05
+      ]
+    },
+    "07_Study": {
+      "position": [
+        -0.2,
+        3.9,
+        1.65
+      ],
+      "target": [
+        -2,
+        5.7,
+        1.1
+      ]
+    }
+  }
+}

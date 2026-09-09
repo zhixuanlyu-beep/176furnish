@@ -1,0 +1,504 @@
+{
+  "status": "passed",
+  "scope": "artifact integrity; design warnings do not imply site approval",
+  "blender_version": "5.2.1 LTS",
+  "checks": {
+    "blender_background": true,
+    "metres": true,
+    "seven_cameras": true,
+    "room_collections": true,
+    "materials": true,
+    "lights": true,
+    "configuration_matches": true,
+    "hidden_candidates": true,
+    "six_seat_alternative_hidden": true,
+    "C_north_no_leaf": true,
+    "C_west_2200": true,
+    "CD_wall_preserved": true,
+    "A_window_south": true,
+    "kitchen_closable": true,
+    "bedA_mattress": true,
+    "bedB_mattress": true,
+    "bedD_mattress": true,
+    "coffee_dimensions": true,
+    "sofa_dimensions": true,
+    "desk_dimensions": true,
+    "table4_dimensions": true,
+    "table6_dimensions": true,
+    "all_mesh_dimensions_positive": true,
+    "glb_import": true,
+    "glb_mesh_count": true,
+    "glb_no_candidate_mesh": true,
+    "glb_no_six_seat_mesh": true
+  },
+  "counts": {
+    "blend_objects": 779,
+    "blend_materials": 11,
+    "glb_meshes": 654
+  },
+  "assumptions": [
+    "Existing R10 exterior footprints retain 240mm where already defined; 220mm is the fallback for new thick walls. No structural boundary is trimmed.",
+    "Door widths are concept clear openings before detailed frames; positions and hinge sides estimated.",
+    "C west opening narrowed to 2200mm by retaining a south pier; header is conceptual, structural design pending.",
+    "Kitchen south fixed glazing restores enclosure along removed partition M01; west 1000mm sliding door closes connection. Former C north 900mm portal has no leaf.",
+    "Dining table moved 350mm south and deepened 50mm to clear kitchen glass; island remains fixed; table-island overlap along edge is now 425mm.",
+    "Coffee enlarged from 1300 to 1700mm in place; pantry reduced from 901 to 501mm, equipment order unchanged.",
+    "Study east glass face at X=-480mm leaves a 1000mm route to A; desk shifted 170mm west and deep storage shortened to avoid its working space.",
+    "Study glass partitions and all bathroom fixture placements are concept assumptions; existing plumbing positions are not confirmed.",
+    "No hidden water, drain, gas or refrigerant routing is modeled. Island sink remains conditional: gravity drain not established.",
+    "Beams over openings are placeholders; original structural columns cannot be independently identified from source image."
+  ],
+  "metrics": {
+    "4": {
+      "north_route_seated_mm": 20,
+      "north_route_pulled_mm": -330,
+      "south_chair_to_coffee_mm": 548,
+      "south_chair_to_open_oven_mm": -2
+    },
+    "6": {
+      "north_route_seated_mm": 20,
+      "north_route_pulled_mm": -330,
+      "south_chair_to_coffee_mm": 548,
+      "south_chair_to_open_oven_mm": -2
+    }
+  },
+  "issues": [
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_2",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": false,
+        "overlap_mm": [
+          275.0,
+          450.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_2",
+        "oven_open"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": false,
+        "overlap_mm": [
+          225.0,
+          2.0,
+          350.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_3",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": false,
+        "overlap_mm": [
+          500.0,
+          450.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "pulled_chair_wall",
+      "objects": [
+        "chair4_0",
+        "kitchen_south_glass_glass"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          40.0,
+          765.0
+        ]
+      },
+      "action": "Full pull-out obstructed; adjust seating use or furniture position."
+    },
+    {
+      "category": "pulled_chair_wall",
+      "objects": [
+        "chair4_1",
+        "kitchen_south_glass_glass"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          40.0,
+          765.0
+        ]
+      },
+      "action": "Full pull-out obstructed; adjust seating use or furniture position."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_2",
+        "coffee_drawer"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          275.0,
+          302.0,
+          550.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_2",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          275.0,
+          498.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_2",
+        "oven_open"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          225.0,
+          352.0,
+          350.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_3",
+        "coffee_drawer"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          302.0,
+          550.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair4_3",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 4,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          498.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_3",
+        "oven_open"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": false,
+        "overlap_mm": [
+          500.0,
+          2.0,
+          350.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_4",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": false,
+        "overlap_mm": [
+          500.0,
+          450.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_5",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": false,
+        "overlap_mm": [
+          500.0,
+          450.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "pulled_chair_wall",
+      "objects": [
+        "chair6_0",
+        "kitchen_south_glass_glass"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          40.0,
+          765.0
+        ]
+      },
+      "action": "Full pull-out obstructed; adjust seating use or furniture position."
+    },
+    {
+      "category": "pulled_chair_wall",
+      "objects": [
+        "chair6_1",
+        "kitchen_south_glass_glass"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          40.0,
+          765.0
+        ]
+      },
+      "action": "Full pull-out obstructed; adjust seating use or furniture position."
+    },
+    {
+      "category": "pulled_chair_wall",
+      "objects": [
+        "chair6_2",
+        "kitchen_south_glass_glass"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          40.0,
+          765.0
+        ]
+      },
+      "action": "Full pull-out obstructed; adjust seating use or furniture position."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_3",
+        "oven_open"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          352.0,
+          350.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_4",
+        "coffee_drawer"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          302.0,
+          550.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_4",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          498.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_5",
+        "coffee_drawer"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          302.0,
+          550.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "service_chair",
+      "objects": [
+        "chair6_5",
+        "coffee_operator"
+      ],
+      "detail": {
+        "seats": 6,
+        "pulled": true,
+        "overlap_mm": [
+          500.0,
+          498.0,
+          800.0
+        ]
+      },
+      "action": "South row must vacate before opening/servicing equipment."
+    },
+    {
+      "category": "passage",
+      "objects": [
+        "Dining_4",
+        "north_route"
+      ],
+      "detail": {
+        "north_route_seated_mm": 20,
+        "north_route_pulled_mm": -330,
+        "south_chair_to_coffee_mm": 548,
+        "south_chair_to_open_oven_mm": -2
+      },
+      "action": "Closed glass prevents full north chair pull-out. Dining seating needs further layout review; access from west, no north passage asserted."
+    },
+    {
+      "category": "passage",
+      "objects": [
+        "Dining_6",
+        "north_route"
+      ],
+      "detail": {
+        "north_route_seated_mm": 20,
+        "north_route_pulled_mm": -330,
+        "south_chair_to_coffee_mm": 548,
+        "south_chair_to_open_oven_mm": -2
+      },
+      "action": "Closed glass prevents full north chair pull-out. Dining seating needs further layout review; access from west, no north passage asserted."
+    },
+    {
+      "category": "unconfirmed_structural",
+      "objects": [
+        "headers",
+        "wall_thickness"
+      ],
+      "detail": "Image cannot resolve original beams, columns or load-bearing classification.",
+      "action": "Site survey required; no construction clearance asserted."
+    },
+    {
+      "category": "conditional_equipment",
+      "objects": [
+        "island_sink",
+        "laundry",
+        "robot"
+      ],
+      "detail": "No hidden pipework; island gravity drain and balcony sanitary connection unverified.",
+      "action": "Confirm connection levels and equipment models before installation."
+    },
+    {
+      "category": "bathroom_assumptions",
+      "objects": [
+        "Bath_A",
+        "Bath_Public"
+      ],
+      "detail": "Sanitary fixtures modeled as assumed concept positions, not inferred confirmed plumbing.",
+      "action": "Survey fixture footprints and wet-zone boundaries."
+    }
+  ],
+  "limitations": [
+    "No local Cycles render; configured lights/materials/cameras verified by data.",
+    "Door sweep sampled at 90 animation frames with conservative AABBs; hardware tolerances and exact continuous sweep not certified.",
+    "Cabinet fronts are closed geometry with separate service envelopes; manufacturer hinges not modeled.",
+    "Floorplan derived from dimension-anchored R10 wall faces, not independently surveyed coordinates."
+  ],
+  "files": {
+    "whole_home.blend": {
+      "bytes": 445390,
+      "sha256": "ea4fd312977e01af59e00f4de9502ea66e53863477452fe14bf08d2dc1305ed9"
+    },
+    "whole_home.glb": {
+      "bytes": 2953592,
+      "sha256": "5f8a8ac6f8d97944629d6d163b7418d687e282a7c318286e25661efc4c2f52d7"
+    },
+    "scene_config.json": {
+      "bytes": 24088,
+      "sha256": "5833998ddf402c3556eebe6caa31bfc9bfa4766d3bd04bafcc71a575660e4589"
+    },
+    "build_scene.py": {
+      "bytes": 17695,
+      "sha256": "c110786f25c62701821468ed2e49369e50dd3b5b5d8d46cbb018f37f37efc810"
+    }
+  }
+}
