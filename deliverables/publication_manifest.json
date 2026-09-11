@@ -1,0 +1,79 @@
+{
+  "revision": "R10.2 家庭厅与客厅优化版",
+  "model_files": {
+    "whole_home.blend": {
+      "bytes": 463880,
+      "sha256": "de1e4c94d15aff66d8f05a5699f7f8cf9a245260033a5f21292b696b58dc75ba"
+    },
+    "whole_home.glb": {
+      "bytes": 2822344,
+      "sha256": "01ca3d73ac3cb874e91072328571690a1bff51132578820048e380472ca80bb7"
+    },
+    "scene_config.json": {
+      "bytes": 35220,
+      "sha256": "f4d17fa99b07b56395af44943bc0527c9c5430929c94793991c00c225e3214c0"
+    },
+    "build_scene.py": {
+      "bytes": 22805,
+      "sha256": "bf4ac7c9e156e0bdc29a10b9e0098a15791d25ba32ea0639d6da84d2e7501d4b"
+    },
+    "verify_scene.py": {
+      "bytes": 20350,
+      "sha256": "155e80133716319e272713a55743d4a7626d4b5796b8dd8ce0958387ac64c950"
+    },
+    "layout_rules.py": {
+      "bytes": 9437,
+      "sha256": "e735f6a79e4cdc86ca420d0e1973014b521086787a05d80961a2f7e4ed97af76"
+    },
+    "family_checks.py": {
+      "bytes": 5425,
+      "sha256": "a840de44a04d9618a90ed42fe0b24b12ddc6e50ddac5c53a6fd2668640e99670"
+    },
+    "geometry_snapshot.json": {
+      "bytes": 778493,
+      "sha256": "b397c797f2c73e5950bf35479fee0b0de79923d34ad6da0281b04b39e8bd815b"
+    },
+    "layout_states.json": {
+      "bytes": 5666,
+      "sha256": "169a0a0a8b6b555492e61ed1f61f25e483a4e693534430574f070f5559d4a853"
+    }
+  },
+  "outputs": {
+    "01-furniture.svg": "a755e2ddd241f16dff8e8a00a00b2f1f5d649265faf5983ce4cbbed5307eb3da",
+    "02-alterations-review.svg": "ffa8c29808f0a7221ba38218a8891c65c1264c08a2f2a7eda5f437678463a4bb",
+    "03-services.svg": "2e864fc2b979abc8d4cd1a25cb46e4542c9191a768c5530607b672f02477fceb",
+    "04-cabinet-access.svg": "867e46eee17d7fa6ffb96e722202091baab9cafd67c44780ee57083952476182",
+    "05-coffee-sideboard.svg": "684b9f481473209951e0bcfc375e5b53d60727efce4d20e7ae524ef56c71a4be",
+    "06-utility-storage.svg": "4b512f58e212cc0984ba0bcf2ff7d59730dc9745f64e46fffeafb5177202cad9",
+    "07-island-dining.svg": "5bbb625941c6cc83d30a9f11464a874d62226e30ed6ea9a543c19e6173ac3c9b",
+    "08-appliance-clearance.svg": "e55efcfc307d118d02d1fb912bdcd84820f0f8aae1758d03d96d14b797631c28",
+    "09-workflows.svg": "38fd059d3e99d9eefd8e1ff9d47267c0aa2bc975d0dec931ea209ca99f813548",
+    "10-air-conditioning.svg": "bee8c7def68cc425a89e3c8107f10c548b5c6c3c47c12752d86ce8ddc58e558c",
+    "11-source-overlay.svg": "43998619de445bc3cbe04800af7d8afa4502cf88329f793284de8621645dedc5",
+    "12-ac01-ceiling-section.svg": "04c545c5263b92abaa3f444ea15122a77dc69d86174fdc56c4937ea8ec7deaba",
+    "13-island-water-section.svg": "1fe0d43d567e24a8d41ebae9fc17f0969a9e24cbbdd6dab7e7b5d6eee360d907",
+    "14-robot-station-review.svg": "c0cdc99a9f107b46f7ba4a844febb2cf640a6187b7e9024dd163e43da5b5ba8e",
+    "15-island-table-connection.svg": "c48d04ec4b7ff70c63a364db42dad284b57be675b8b7fb88b86c1f4a3072c0a7",
+    "家具尺寸表.csv": "09db2c4916c6a4044cc148e6491a82c948e133f640b5f7085078a938b173b4b2",
+    "底图对位核验.csv": "404bd7efc1eafee8c7705eb97b472c800e4ba39b5b30fff6fd6be47eba6a6f6a",
+    "新图尺寸标注.csv": "e293346bf02d387280c736184b33fa43b92bdd8a34756dffd52bf78d56f35cad",
+    "新图面积标注.csv": "232d05a56ac093ec8c0f27d17f3ec2f18384216befefddce2abc5e151c68dc08",
+    "水电点位表.csv": "7f012f4214be4e701f0d74dda0341fb9ec0545128f8f959fc5d517bf374b22c7",
+    "现场核验表.csv": "d2c220f0f6cfe8b9d39853e776c239cacb7a2cdbb05884f8d632b559d5c30613",
+    "电器上下水表.csv": "101a5baadc26db1787571ab3682ad3ad9ffb9a537db7f193f5a1c1f0e45403c1",
+    "设备预留表.csv": "4a578dfd3eed89d440252ae8c974a23210b5eb30c80ea798da577bdc6fc390cf",
+    "方案册.html": "d52b7c37882830631fa08d612c15e6371f254abd57db9c750c1a90b3b730cd36",
+    "README.md": "cec9f8c818e21a568c727bde772ee6393ca871c1b4a9a92129367e7777b94d39"
+  },
+  "root_readme": "fdb3aa71e8bbf269aa494b8f953e903ef5be91615c1418ee0b61fdaff376d2d9",
+  "generators": {
+    "build_package.py": "2f743c44c84a093806a8760e6dafb81f2a7780d005f1bf5265c4b13cf272c816",
+    "r10_booklet.py": "cfaa6c1448c6892be49d135250260d2c3e060babe6426fbcd291d2562cad2a73",
+    "r10_geometry.py": "b415b339ca063d634f22d8b2d4c74b4d325f429f9b9204eaab6273476248fd94",
+    "sync_model.py": "ad09a5eac4adca6b6da7dc84acc37582f95c4d350056de67e3bcfa2585eda7e2",
+    "concept_details.py": "098c1c7572ca9a90e1d8da9b3c458d9a780e4f691b2462ec79c412948872638e",
+    "booklet.css": "f24f26dd8899fee2082f202100c47e1d738ebc4af0e0f8c340a513e4f69af193",
+    "schedule_baseline.json": "951ea8e17752d22ac5a45b9d85898b66c9a19984d3620cd928fd8f49ef870146"
+  },
+  "pages": 52
+}

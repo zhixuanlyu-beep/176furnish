@@ -1,116 +1,119 @@
-"""R10.1 model, source, browser and in-memory print checks. Never writes a PDF."""
+"""Full local verification, all previews, in-memory PDF only."""
 from pathlib import Path
 import csv
-import hashlib
 import json
 import math
 import os
 import re
+import tempfile
+import shutil
+import subprocess
 import xml.etree.ElementTree as ET
 from playwright.sync_api import sync_playwright
 import fitz
 from PIL import Image
 import r10_geometry as g
-from r10_booklet import overlay_rows
-
+from sync_model import ROOT,MODEL,REVISION,read,digest,require_verified
+from r10_booklet import protected
 HERE=Path(__file__).resolve().parent
 
 def pdf_hashes():
-    return {str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in HERE.parent.rglob('*.pdf')}
+    return {str(p.relative_to(ROOT)):digest(p) for p in ROOT.rglob('*') if p.suffix.lower() in ('.pdf','.zip')}
 
 def geometry_checks():
-    trial=g.trial_metrics()
-    assert not trial['fixed_conflicts'],trial['fixed_conflicts']
-    assert not trial['fixed_wall_conflicts'],trial['fixed_wall_conflicts']
-    for state in trial['states']:
-        for key in ['chair_fixed_or_open_door_conflicts','basket_solid_conflicts','basket_chair_conflicts']:
-            assert not state[key],(state,key)
-        # Operation conflicts are computed and reported, never required to exist.
-    t4,t6=g.BOXES['table4'],g.BOXES['table6']
-    assert t4[0]+t4[2]==t6[0]+t6[2]==g.BOXES['island'][0]
-    assert t6[0]==t4[0]-200 and t4[1:2]==t6[1:2]
-    assert g.BOXES['prep'][0]+g.BOXES['prep'][2]==g.BOXES['sink'][0]
-    assert g.BOXES['hob'][0]+g.BOXES['hob'][2]==g.BOXES['prep'][0]
-    assert g.AC['AC05'][0]+g.AC['AC05'][2]<=g.OPENINGS['A_door']['box'][0]
-    assert g.FAMILY['books'][0]+g.FAMILY['books'][2]<g.AC['AC05'][0]
-    assert not any(g.intersection(g.AC01_STAND,b) for b in g.HOUSE.values())
-    junctions=[('A_north','A_east'),('A_north','A_west'),('family_north','A_west'),
-      ('entry_step','entry_lower'),('entry_step','living_west'),
-      ('bath_kitchen_north','bath_east'),('bath_south2','bath_east'),
-      ('CD','C_east2'),('CD','C_west_end'),('CD','D_east'),('D_west2','D_south1')]
-    for a,b in junctions:
-        x,y,w,h=g.WALLS[a]
-        assert g.intersection((x-.01,y-.01,w+.02,h+.02),g.WALLS[b]),(a,b)
-    for key,v in g.OPENINGS.items():
-        if v['kind'].startswith('bay'):continue
-        assert not any(g.intersection(v['box'],w) for w in g.WALLS.values()),key
-    assert all(k in g.OPENINGS for k in ['B_bay','C_bay','D_bay'])
-    for ident,services in g.AC_ROUTES.items():
-        assert set(services)=={'refrigerant','power','condensate'}
-        for pts in services.values():
-            x,y,w,h=g.AC[ident];px,py=pts[0]
-            assert x<=px<=x+w and y<=py<=y+h,(ident,pts[0])
-    water=trial['water']
-    assert water['horizontal_length_mm']==sum(water['horizontal_segments_mm'])
-    assert not water['gravity_drainage_established']
-    assert not water['pump_assumed'] and not water['structural_cutting_authorized']
-    assert max(r[7] for r in overlay_rows())<4,overlay_rows()
-    details=trial['r101']
-    assert g.sector_hit(g.DOOR_MODEL['balconyB_door'],g.HOUSE['robot'])
-    # Interior-angle collision, missed by checking only closed and fully open leaf.
-    assert g.sector_hit({'hinge':(0,0),'start_deg':0,'leaf_mm':850,'thickness_mm':0},(500,500,20,20))
-    assert not g.sector_hit({'hinge':(0,0),'start_deg':0,'leaf_mm':850,'thickness_mm':0},(850,850,20,20))
-    assert g.AC['AC02']==(6380,-7250,240,800) and g.AC['AC03']==(3736,-3750,240,800)
-    assert all(a['wall_segment_contains_backplate'] for a in details['ac_backplates'])
-    assert details['ac_backplates'][1]['bay_margin_mm']==100
-    assert details['bottleneck']['gap_mm']==624 and details['bottleneck']['remaining_mm']==24
-    assert g.BOXES['island']==(2900,225,1000,750)
-    assert all(not a['plan_intersections'] for a in details['supports'])
-    assert len(details['supports'])==2 and all(len(a['knees'])==a['seats'] for a in details['supports'])
-    assert all(a['issues'] for a in trial['states'])
-    assert all(any(k=='tower_operator' for _,k in a['chair_operator_conflicts']) for a in trial['states'])
-    assert any(g.intersection(b,g.BOXES['island_operator']) for b in g.swept_boxes(g.basket_path(False)))
-    assert any(g.intersection(b,g.BOXES['dishwasher_operator']) for b in g.swept_boxes(g.basket_path(True)))
-    assert details['robot_front']['wall_intersection'] is not None
-    assert g.intersection(g.knee_boxes(6)[0],g.knee_boxes(6)[0]) # intrusive support fixture must collide
-    trial['wall_junction_checks']=len(junctions)
-    trial['source_landmark_max_residual_px']=max(r[7] for r in overlay_rows())
-    return trial
+    validation=g.M.validation()
+    # A changed configuration with old verification must fail before any publish writes.
+    with tempfile.TemporaryDirectory() as temp:
+        dst=Path(temp)
+        for n in ('scene_config.json','verification.json','geometry_snapshot.json'):
+            shutil.copyfile(MODEL/n,dst/n)
+        c=read(dst/'scene_config.json');c['furniture']['table4']['box'][0]+=.01
+        (dst/'scene_config.json').write_text(json.dumps(c),encoding='utf-8')
+        try:require_verified(dst)
+        except RuntimeError as e:assert 'scene_config.json' in str(e)
+        else:raise AssertionError('Stale configuration was accepted')
+    validation['counterexamples'].append('配置修改而验证未更新时阻止发布')
+    with tempfile.TemporaryDirectory() as temp:
+        dst=Path(temp)
+        for n in ('make_config.py','layout_rules.py','r10_baseline.json'):shutil.copyfile(MODEL/n,dst/n)
+        subprocess.run([os.sys.executable,str(dst/'make_config.py')],check=True,capture_output=True)
+        assert (dst/'scene_config.json').read_bytes()==(MODEL/'scene_config.json').read_bytes()
+        sys_path=str(MODEL)
+        if sys_path not in os.sys.path:os.sys.path.insert(0,sys_path)
+        from layout_rules import apply_family_layout
+        import copy
+        current=read(MODEL/'scene_config.json')
+        assert current == apply_family_layout(copy.deepcopy(current)) == apply_family_layout(apply_family_layout(copy.deepcopy(current)))
+        validation['historical_baseline_migration']=dict(status='byte-identical',config_sha256=digest(MODEL/'scene_config.json'))
+    # Round-trip actual manually filled fields in an isolated schedule directory.
+    import r10_booklet as booklet
+    with tempfile.TemporaryDirectory() as temp:
+        dst=Path(temp)
+        for n in ('schedule_baseline.json','generated_schedule_state.json'):shutil.copyfile(HERE/n,dst/n)
+        name='现场核验表.csv';rows=list(csv.reader((HERE/name).open(encoding='utf-8-sig',newline='')))
+        rows[1][6:]=['现场填写测试','evidence/example','核验人','2026-09-10']
+        with (dst/name).open('w',encoding='utf-8-sig',newline='') as f:csv.writer(f).writerows(rows)
+        previous=booklet.HERE
+        try:
+            booklet.HERE=dst
+            data,_=booklet.schedules();assert data[name][1][6:]==rows[1][6:]
+        finally:booklet.HERE=previous
+    validation['manual_columns_preserved']='passed'
+    return validation
 
 def main():
-    before=pdf_hashes();trial=geometry_checks()
+    before=pdf_hashes();protected();trial=geometry_checks()
+    manifest=read(HERE/'publication_manifest.json')
+    for n,h in manifest['outputs'].items():assert digest(HERE/n)==h,n
+    for n,h in manifest['generators'].items():assert digest(HERE/n)==h,n
+    assert digest(ROOT/'README.md')==manifest['root_readme']
     svg_paths=sorted(HERE.glob('*.svg'));assert len(svg_paths)==15
     trees={p.name:ET.parse(p).getroot() for p in svg_paths}
-    plans=['01-furniture.svg','02-alterations-review.svg','03-services.svg','06-utility-storage.svg',
-      '07-island-dining.svg','08-appliance-clearance.svg','09-workflows.svg','10-air-conditioning.svg',
-      '11-source-overlay.svg','13-island-water-section.svg','14-robot-station-review.svg','15-island-table-connection.svg']
-    for name in plans:
-        root=trees[name]
-        assert any(e.get('data-model')==g.model_digest() for e in root.iter()),name
+    for name,root in trees.items():
         for el in root.iter():
             if el.get('data-wall'):
-                assert [float(n) for n in el.get('data-box').split(',')]==list(g.WALLS[el.get('data-wall')]),name
-                assert any(c.tag.endswith('rect') for c in el),name
-    assert sum(bool(e.get('data-removal')) for e in trees['02-alterations-review.svg'].iter())==3
-    for name in ['01-furniture.svg','03-services.svg','07-island-dining.svg','10-air-conditioning.svg']:
-        assert not any(e.get('data-removal') for e in trees[name].iter()),name
+                assert [float(v) for v in el.get('data-box').split(',')]==g.WALLS[el.get('data-wall')],name
+            if el.get('data-config-object'):
+                assert [float(v) for v in el.get('data-box').split(',')]==g.BOXES[el.get('data-config-object')],name
+            if el.get('data-opening'):
+                assert [float(v) for v in el.get('data-box').split(',')]==g.OPENINGS[el.get('data-opening')]['box'],name
+            if el.get('data-part'):
+                assert el.get('data-part') in g.M.objects,name
+                axes=list(map(int,el.get('data-axes').split(',')))
+                obj=g.M.objects[el.get('data-part')]
+                expected=g.hull([(v[axes[0]]*1000,-v[axes[1]]*1000) for v in obj['vertices']])
+                actual=[tuple(map(float,p.split(','))) for p in el.get('points').split()]
+                assert actual==expected,(name,el.get('data-part'))
+    whole=trees['01-furniture.svg']
+    assert {e.get('data-config-object') for e in whole.iter() if e.get('data-config-object')}=={n for n,f in g.C['furniture'].items() if f['room']!='Dining_6'}
+    assert {e.get('data-wall') for e in whole.iter() if e.get('data-wall')}==set(g.WALLS)
+    assert {e.get('data-opening') for e in whole.iter() if e.get('data-opening')}==set(g.OPENINGS)
+    assert sum(bool(e.get('data-removal')) for e in trees['02-alterations-review.svg'].iter())==len(g.C['demolition'])
     counts={}
     for p in HERE.glob('*.csv'):
         with p.open(encoding='utf-8-sig',newline='') as f:rows=list(csv.reader(f))
         assert all(len(r)==len(rows[0]) for r in rows),p.name
         assert len({r[0] for r in rows[1:]})==len(rows)-1,p.name
         counts[p.name]=len(rows)-1
-    assert counts['设备预留表.csv']==15 and counts['现场核验表.csv']==23
+    assert len(counts)==8 and counts['设备预留表.csv']==16 and counts['现场核验表.csv']==25
+    original=read(HERE/'schedule_baseline.json')
+    for name in ('新图面积标注.csv','新图尺寸标注.csv'):
+        rows=list(csv.reader((HERE/name).open(encoding='utf-8-sig',newline='')))
+        assert [r[:2] for r in rows]==[r[:2] for r in original[name]]
+    assert list(csv.reader((HERE/'底图对位核验.csv').open(encoding='utf-8-sig',newline='')))==original['底图对位核验.csv']
     doc=(HERE/'方案册.html').read_text(encoding='utf-8')
-    page_count=len(re.findall('<section class="page"',doc));assert page_count>len(svg_paths),page_count
-    reviewed=[HERE/'方案册.html',HERE/'README.md',HERE.parent/'README.md',*svg_paths,*HERE.glob('*.csv')]
-    for p in reviewed:
-        content=re.sub(r'data:image/[^;]+;base64,[A-Za-z0-9+/=]+','[source image]',p.read_text(encoding='utf-8-sig'))
-        for stale in ['R9','R8','干岛无水','干岛台','无新增水槽','岛北桌南','南北相连岛桌','餐桌向南连接','客厅北侧过渡吊顶','\ufffd']:
-            assert stale not in content,(p.name,stale)
-    for term in ['1000×750','1600×800','独立蒸箱','独立烤箱','重力排水未成立','未确认合规','AC05','W0']:
+    page_count=len(re.findall('<section class="page"',doc));assert page_count==manifest['pages']
+    for term in [REVISION,'1800','401','正常就座可使用咖啡','重力排水未成立','未确认合规','原26条','600mm']:
         assert term in doc,term
+    for p in [HERE/'README.md',ROOT/'README.md',*svg_paths,*HERE.glob('*.csv')]:
+        content=p.read_text(encoding='utf-8-sig')
+        for stale in ('1600×800','1800×800','咖啡1300','全拉椅650','局部624','仅余24','\ufffd'):
+            assert stale not in content,(p.name,stale)
+    # Relative local links, anchors and images are available offline.
+    for href in re.findall(r'(?:href|src)="([^"]+)"',doc):
+        if href.startswith('data:'):continue
+        if href.startswith('#'):assert 'id="'+href[1:]+'"' in doc,href
+        else:assert (HERE/href).exists(),href
     candidates=[os.getenv('FURNISH_BROWSER','')]
     candidates += [str(p) for p in Path('C:/Program Files (x86)/Microsoft/EdgeCore').glob('*/msedge.exe')]
     candidates += ['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe']
@@ -164,16 +167,19 @@ def main():
     assert before==pdf_hashes(),'An existing PDF changed'
     baseline=HERE/'protected-pdf-baseline.json'
     if baseline.exists():
-        for path,digest in json.loads(baseline.read_text(encoding='utf-8')).items():
-            assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest,path
-    (HERE/'PDF文件保护说明.txt').write_text(f'R10.1最新{page_count}页A3横向内容已通过内存PDF渲染核查。本轮不生成磁盘PDF，不修改已有PDF。请阅读方案册.html、SVG、CSV及预览图；原有受保护PDF可能为旧版本，均保持原样。PDF、ZIP及加密文件不纳入Git发布。\n',encoding='utf-8',newline='\n')
-    report={'file_checks':{'status':'passed','scope':'文件、回归、渲染及分页'},'geometry_findings':{'details':trial['r101'],'use_states':trial['states']},'site_verification':{'status':'pending','items':trial['r101']['site_pending']},'revision':'R10.1','scope':'文件/模型/渲染核查；不代表现场安装、结构、燃气或重力排水通过。',
-      'model_sha256':g.model_digest(),'pdf_pages':page_count,'pdf_storage':'in-memory only; all existing PDFs untouched',
-      'pdf_page_format':'A3 landscape','svg_parse':len(svg_paths),'svg_text_bounds':'passed',
-      'source_alignment':'11 independently estimated image landmarks; max residual <4px, not survey accuracy',
-      'trial_geometry':trial,'csv_counts':counts,'page_layout':layout,'mobile_sizes':mobile,
-      'existing_pdfs_preserved':before,'browser_errors':errors,'svg_previews':[p.name for p in svg_paths]}
-    (HERE/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
-    print(json.dumps({'file_checks':'passed','site_verification':'pending','pages':page_count,'svgs':len(svg_paths),'mobile':mobile,'source_residual_px':trial['source_landmark_max_residual_px']},ensure_ascii=False))
+        for path,expected_digest in json.loads(baseline.read_text(encoding='utf-8')).items():
+            assert digest(Path(path))==expected_digest,path
+    (HERE/'PDF文件保护说明.txt').write_text(f'R10.2最新{page_count}页A3横向内容已通过内存PDF渲染核查。本轮不生成磁盘PDF，不修改已有PDF。请阅读方案册.html、SVG、CSV及预览图；原有受保护PDF可能为旧版本，均保持原样。PDF、ZIP及加密文件不纳入Git发布。\n',encoding='utf-8',newline='\n')
+    protected()
+    report=dict(revision=REVISION,file_checks=dict(status='passed',svg_parse=15,csv_counts=counts,links='passed',svg_text_bounds='passed',browser_errors=errors),
+        consistency_2d_3d=dict(status='passed',details=trial,source_files=g.M.report['files']),
+        physical_collisions=dict(status='passed',checks={k:v for k,v in g.M.report['checks'].items() if 'clear' in k}),
+        normal_operations=dict(status='passed',states=[s for s in g.M.states if s['state']=='normal']),
+        temporary_restrictions=dict(states=[s for s in g.M.states if s['state']!='normal'],basket=trial['baskets']),
+        site_conditions=dict(status='pending',items=[i for i in g.M.report['issues'] if i['category'] in ('unconfirmed_structural','conditional_equipment','bathroom_assumptions')],note='燃气、厂家设备及人体选型、安装硬件与现场接点仍待核'),
+        pdf_pages=page_count,pdf_storage='in-memory only',page_layout=layout,mobile_sizes=mobile,protected_artifacts=before,
+        svg_previews=[p.name for p in svg_paths],scope='文件及概念模型检查，不替代结构、燃气、安装和排水验收')
+    (HERE/'verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(dict(file_checks='passed',pages=page_count,svgs=15,csvs=8,mobile=mobile),ensure_ascii=False))
 
 if __name__=='__main__':main()

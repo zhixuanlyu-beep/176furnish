@@ -1,175 +1,155 @@
-"""Publish all R10.1 drawings and schedules from one geometry/data model."""
+"""Deterministic offline booklet and schedules; preserve IDs and user-entry columns."""
+import copy
 import csv
 import html
 import json
 from pathlib import Path
 import r10_geometry as g
+from sync_model import ROOT,MODEL,REVISION,read,digest,require_verified
 
 HERE=Path(__file__).resolve().parent
+def table(headers,rows):
+    return '<table><thead><tr>'+''.join('<th>'+html.escape(str(v))+'</th>' for v in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+html.escape(str(v))+'</td>' for v in r)+'</tr>' for r in rows)+'</tbody></table>'
+def overlay_rows():return read(HERE/'schedule_baseline.json')['底图对位核验.csv'][1:]
+def position(n):return '('+','.join(str(round(v)) for v in g.BOXES[n])+') mm'
+def schedules():
+    data=copy.deepcopy(read(HERE/'schedule_baseline.json'))
+    dims={r[0]:r for r in data['家具尺寸表.csv'][1:]}
+    def dim(id,name,size,nature,condition):dims[id][:]=[id,name,size,nature,condition]
+    dim('F01','家庭厅书桌',g.dimensions('desk'),position('desk'),'电脑椅正常与后退500mm；线缆随桌、不跨卧室通行线')
+    dim('F02','家庭厅北段大件柜',g.dimensions('study_storage'),position('study_storage'),'朝东使用；桌上旧书柜不作为当前家具')
+    dim('F03','家庭厅卧室通行','1000mm概念净宽','家庭厅内部不分隔','内部路线1000mm；卧室门洞单独报告净宽')
+    dim('F04','四／六人桌',g.dimensions('table4')+'；'+g.dimensions('table6'),position('table4')+'；'+position('table6'),'正常就座可使用咖啡、蒸烤；完整拉出500mm后操作须分时')
+    dim('F05','北侧通道','正常1100mm；全部拉出600mm','发布值见验证计算','600mm衣篮在全拉出状态余量0，不判舒适通过')
+    dim('F06','横向岛桌',g.dimensions('island'),position('island'),'岛东桌西，六人向西伸200mm；岛东缝不作通路')
+    for ident,n in [('F07','bedA'),('F08','bedB'),('F09','bedD')]:
+        dim(ident,g.LABELS[n],g.dimensions(n),position(n),'当前床架平齐床垫，床侧900mm；D床尾1000mm，实物外挑需重算')
+    dim('F10','卧室移门衣柜','；'.join(n+':'+g.dimensions(n) for n in ('wardrobeA','wardrobeB','wardrobeD')),'；'.join(position(n) for n in ('wardrobeA','wardrobeB','wardrobeD')),'A/D朝西、B朝东，移门与内嵌拉手；D柜在东墙')
+    dim('F11','西墙沙发',g.dimensions('sofa'),position('sofa'),'面向幕布，入户及阳台通行现场放样')
+    dim('F13','南墙柜','；'.join(g.LABELS[n]+':'+g.dimensions(n) for n in ('fridge','tower','coffee')),'西至东顺序不变','正常就座设备开启及操作已模型复核；型号待定')
+    dim('F14','入户鞋柜',g.dimensions('shoe'),position('shoe'),'门扇全行程已概念核查，换鞋人位现场放样')
+    dim('F16','带水岛台及连接',g.dimensions('island'),'桌高750；支撑70×120，端距15，梁底680mm','六人端膝余15mm、梁下30mm；独立承载、连接及排水待核')
+    dim('F17','幕布',g.dimensions('screen'),position('screen'),'幕布后1000mm；画幅、投距、幕盒及吊架按实际选型')
+    eq={r[0]:r for r in data['设备预留表.csv'][1:]}
+    eq['E08'][3]=g.dimensions('coffee');eq['E08'][6]='正常就座可取水箱及废水盘；拉椅后人员操作区临时受限'
+    for r in eq.values():
+        if r[0]=='E10':r[2]='AC01客厅；AC02 A；AC03 B；AC04 D；AC05家庭厅'
+        r[5]+='；图示管线路由仅补充概念示意，接点未确认'
+    pts={r[0]:r for r in data['水电点位表.csv'][1:]}
+    point_owner={'K01':'sink','K02':'hob','K03':'prep','K04':'tower','K05':'tower','C01':'fridge','C02':'island','H02':'table4','H03':'coffee','H05':'screen','S01':'desk','T01':'study_storage','L01':'laundry','R01':'robot_R01','L02':'robot_L02'}
+    for id,n in point_owner.items():
+        if id in pts:
+            pts[id][1]=g.LABELS.get(n,n)+' '+position(n);pts[id][6]=position(n)+'；现场待测'
+    pts['H02'][5]='四／六人1600／1800×750；岛1000×750；灯位随配置及现场放样'
+    pts['H03'][2]='1800咖啡台＋磨豆机＋台式微波炉';pts['H03'][5]='正常就座可操作；抽屉500＋人位600，高度与选型分别核查'
+    pts['K03'][5]='门650＋装卸600；600衣篮路线与洗碗装卸/岛槽操作交叠见状态计算，携篮时暂停操作'
+    pts['C03'][5]='食品柜取消，取消柜内照明及电源预留；旧编号保留'
+    pts['S02'][1]='家庭厅顶面'
+    pts['AC05'][1]='家庭厅北侧、A门洞以西实墙高位';pts['AC05'][2]='书房挂机'
+    pts['S01'][5]='1700×700电脑桌原位；电源及线缆随桌；AC05维护待厂家'
+    pts['S02'][5]='家庭厅照明、温控与通风；旧桌上书柜不作为当前家具'
+    pts['T01'][5]='缩短深柜朝东；柜体、书桌和移门操作分别核查'
+    pts['H05'][5]='模型幕布后净距1000mm；幕盒及画面实物放样'
+    for id,r in pts.items():
+        if id.startswith('AC'):r[5]='补充概念路由；厂家维护净距、孔位、排水、外机及现场安装条件待核'
+        r[9]=REVISION+'；概念预留，未确认接点'
+    checks={r[0]:r for r in data['现场核验表.csv'][1:]}
+    checks['V08'][2:6]=['家庭厅通行、阅读、隔声与通风','入口有框子母门；周边及下沉密封；桌椅后退与南浅北深柜放样','家庭厅连续通行、房门实际净宽分别核查','现场待测，隔声及空气交换未确认']
+    checks['V09'][4:6]=['正常北带1100、全部拉出600mm；恢复就座再携600mm衣篮','正常就座咖啡/蒸烤操作通过；全拉出临时占人位；携篮与洗碗装卸/岛槽错时，现场待测']
+    checks['V13'][4]='咖啡1800mm；取消食品柜，原柜列余401mm留空；微波炉散热待厂家'
+    checks['V14'][2:6]=['家庭厅与卧室入口','1700×700桌、南浅北深柜、入口子母门及改位鞋柜共同放样','房门洞口、门框每端45mm及门扇全运动见模型快照','硬件、门槛、安装余量及现场净宽待核']
+    checks['V20'][2:6]=['AC05与家庭厅北墙及书桌','实测顶侧距、滤网、孔位、排水及外机','旧书柜不作为已建家具，管线仅补充概念','厂家安装条件待核']
+    checks['V22'][2:6]=['岛桌支撑70×120、端距15、梁底680mm','膝顶650、梁下30、六人端膝15mm；实际人体及家具复核','承载、伸缩锁止、可拆收口及水槽检修','待厂家安装图；座面入桌不等于碰撞']
+    for r in data['新图面积标注.csv'][1:]:
+        if r[0]=='原餐厅':r[2]='原图面积保留；家庭厅内部不分隔，不重新编造面积'
+    for r in data['新图尺寸标注.csv'][1:]:
+        if r[0]=='餐厅/B对应纵向段':r[2]='保留原图尺寸线；当前家庭厅及通道布局不改变原图标注'
+    pts['C03'][1:6]=['原食品柜点位（取消）','取消','无','不新增预留','取消食品柜照明及电源；编号保留']
+    for name,rows in data.items():
+        if name in ('设备预留表.csv','电器上下水表.csv'):
+            for r in rows[1:]:
+                if any('食品柜' in v for v in r):
+                    for j in range(1,min(len(r),7)):r[j]='取消食品柜及对应预留'
+    additions=[('F18','浅柜','study_shallow'),('F19','边几','side_table'),('F20','单椅（旋转45°）','lounge_chair'),('F21','落地灯','floor_lamp'),('F22','台式微波炉','microwave')]
+    for ident,label,n in additions:data['家具尺寸表.csv'].append([ident,label,g.dimensions(n),position(n),'概念初排；实际外沿及厂家条件见验证报告'])
+    data['设备预留表.csv'].append(['E16','微波炉','咖啡台面东端',g.dimensions('microwave'),'独立台式、朝北','厂家散热及安装图待核','门扇、热食取放与散热分别校核','','',''])
+    data['电器上下水表.csv'].append(['微波炉','无固定给水','无排水','咖啡台面东端、朝北；按铭牌配电；厂家散热及热食取放净距待核'])
+    data['水电点位表.csv'].append(['H06','微波炉 '+position('microwave'),'独立台式设备电源','按铭牌核定','台面可检修','不封入未经核定柜格；厂家安装图替换概念包络','','','',REVISION])
+    data['水电点位表.csv'].append(['H07','边几／单椅附近','落地灯插座','按选型','沿家具和墙边','线缆见配置；不跨客厅主通路','','','',REVISION])
+    data['现场核验表.csv'].append(['V24','本轮新增','M03北侧180×120mm孤立块','仅拟拆北块；保留C/D端墙120×300mm','现场确认结构性质后才可实施','未确认','','','',''])
+    data['现场核验表.csv'].append(['V25','本轮新增','有框子母安全玻璃门','整门隔声检测、安装缝、周边及下沉密封、关门通风','主副扇与五金按选型替换净宽','未确认','','','',''])
+    # Preserve hand-entered columns by stable ID, without preserving stale generated defaults.
+    manual={'设备预留表.csv':range(7,10),'水电点位表.csv':range(6,10),'现场核验表.csv':range(6,10)}
+    old_generated=read(HERE/'generated_schedule_state.json') if (HERE/'generated_schedule_state.json').exists() else read(HERE/'schedule_baseline.json')
+    generated=copy.deepcopy(data)
+    for name,cols in manual.items():
+        if not (HERE/name).exists():continue
+        old={r[0]:r for r in csv.reader((HERE/name).open(encoding='utf-8-sig',newline=''))}
+        defaults={r[0]:r for r in old_generated[name][1:]}
+        for r in data[name][1:]:
+            if r[0] not in old:continue
+            for col in cols:
+                if old[r[0]][col] and old[r[0]][col]!=defaults.get(r[0],r)[col]:r[col]=old[r[0]][col]
+    return data,generated
 
-def family_svg():
-    p=g.start('R10.1 家庭厅 · AC05在A门洞西侧，书柜集中西侧',740)
-    content=g.architecture()+g.furniture(whole=True)+g.ac_plan()
-    p.append('<svg x="30" y="75" width="610" height="575" viewBox="-3900 -6600 5000 4700">'+g.project(content,0,0,1)+'</svg>')
-    notes=['AC05：普通独立分体挂机，无新增风管。',
-      '安装段x=-1400至-550，位于A门洞以西。',
-      'A门洞x=-420至420；挂机与洞口净余130。',
-      '桌上书柜宽600、深280集中西部。',
-      '柜右端x=-1500，挂机左端x=-1400。',
-      '横向间隙100，须按厂家加宽或缩柜。',
-      '安装高度、顶距和滤网抽出方向待选型。',
-      '出风朝东南通行侧，避开西部办公椅。',
-      '冷媒、电源、冷凝水独立线型分别表示。',
-      '孔位、排水接点、外机均为核验端点。',
-      '西柜门、办公椅、鞋柜及入户转弯共核。',
-      '桌1650×700；桌端至B墙980，净宽待测。']
-    p += [g.text(880,110+i*46,t,14,g.AMBER if i in (5,6,9) else g.INK) for i,t in enumerate(notes)]
-    p.append(g.text(575,698,'挂机横向位置已调整；厂家维护净距、管线穿墙及室外机条件尚未通过安装验收。',15,g.AMBER))
-    return ''.join(p+['</g></svg>'])
+def protected():
+    manifest=read(HERE/'protected_artifacts.json')
+    for n,h in manifest.items():assert digest(ROOT/n)==h,n+' changed'
+    return manifest
 
-def overlay_rows():
-    # Independently read source landmarks (pixels); not generated from model.
-    anchors=[('A东北外角', (6860,-10197),(834,64)),
-      ('A西北外角',(-660,-10197),(503,64)),
-      ('B飘窗外上角',(4726,-5400),(740,277)),
-      ('C飘窗外下角',(4726,2200),(740,614)),
-      ('D飘窗外下角',(2760,6962),(654,825)),
-      ('阳台B外东北',(5213,-2844),(764,390)),
-      ('阳台A西南外角',(-4412,6470),(337,805)),
-      ('入户下转折',(-3650,-1370),(371,457)),
-      ('公卫东南墙外角',(1720,-1250),(609,462)),
-      ('C西北端',(0,0),(532,516)),
-      ('C/D东侧交点',(3976,2998),(707,649))]
-    sx,sy=g.SOURCE_TRANSFORM['px_per_mm'];rows=[]
-    for name,(x,y),(px,py) in anchors:
-        mx,my=532+x*sx,516+y*sy
-        rows.append([name,x,y,px,py,round(mx,2),round(my,2),round(((mx-px)**2+(my-py)**2)**.5,2),'原图目视估读；非现场验收'])
-    return rows
-
-def build(data):
-    eq=data['EQUIPMENT'];points=data['POINTS'];checks=data['CHECKS'];water=data['WATER_NEEDS']
-    eq.append(['E15','岛台辅助小水槽','C02岛台东部','槽340×360初排；岛1000×750',
-      '柜内冷热独立阀、存水弯、清扫检修与漏水探测','原厨房引冷热水；C东侧向北回合法生活污水支管',
-      '重力排水未成立；测接入标高/构造厚度，不默认地台或提升泵'])
-    points.append(['W0','原厨房主水槽合法生活污水支管核验端点','岛台重力排水接入',
-      '平面长3452；2%落差69.04；接入内底z0及地面H待测','无；检修可达','不预设结构开槽，条件未成立继续协调带水需求'])
-    water.append(['E15 岛台辅助水槽','冷/热水，独立可关阀','合法生活污水，存水弯、检修、漏水探测',
-      'C02东部；经C东侧向北回W0，3.452m初排；重力排水未成立'])
-    checks += [
-      ['V17','测绘/设计师','底图对位及墙厚、B/C/D飘窗、入户转折、公卫门洞',
-       '11图与底图对位核验CSV逐点核，补实测净尺寸','所有专业使用同一模型；窗台不计净宽','原图对位已文件核查，现场待测'],
-      ['V18','给排水/结构/物业','C02至W0管路、地面H和接入内底z0',
-       '逐段长度、坡度、落差、支管属性、结构障碍及剖面签认','13图；平地保留带水需求','重力排水未成立；不得擅自改干岛或提升泵'],
-      ['V19','暖通/幕墙/影音','阳台A封窗、AC01梁窗头机身吊顶与检修',
-       '12图实测净高、厂家安装图、站人检修、投影灯具窗帘共同放样','向客厅北送风、客厅侧回风','吊顶高度/冷凝水接点/外机待核'],
-      ['V20','暖通/柜体商','AC05北实墙、A门洞西侧与西部书柜',
-       '顶距/侧距/滤网抽取、实际孔位、冷媒电线冷凝水及外机记录','06/10图；普通挂机','维护间距尚待厂家验证']]
-    # Revise AC-specific rows instead of retaining generic routing assertions.
-    for row in points:
-        if row[0]=='AC01':
-            row[3]='冷凝水沿阳台A侧至合法接点核验端点；标高坡度待测'
-            row[5]='客厅侧回风，向北送风；检修站位1000×850；梁窗头及吊顶底见12图'
-        if row[0]=='AC05':
-            row[3]='普通挂机冷凝水单独核高差；不增加通风管道'
-            row[5]='书柜集中西侧；冷媒孔位/外机/排水均待核，滤网检修按厂家'
-    checks += [
-      ['V21','设备/给排水/业主','R01主选研究，L02备选','14图核洁具、干湿边界、门槛、进出、托盘及阀门；L02开门/洗烘维护/搬机/携篮','不移动洁具或压缩洗烘前场','R01尚未成立；L02旧占位冲突'],
-      ['V22','家具厂家/业主','岛桌独立支承、腿/膝/轨道、76可拆收口','15图核四/六人平面和膝高、承载、伸缩锁止、清洁及管线检修','固定岛不承未经核算的悬挑','待安装图与放样'],
-      ['V23','暖通/测绘','AC02/03沿东墙800×240候选','AC02(6380,-7250,240,800)；AC03(3736,-3750,240,800)；核背板实墙、飘窗及衣柜','送风向西；三类管线起点随设备','平面试排；高度及维护净距待厂家']]
-    for row in points:
-        if row[0] in ('AC02','AC03'):row[1]='东实墙靠床尾800×240候选；坐标见10图统一模型';row[5]='背板避飘窗/衣柜；安装高度及维护距离待厂家'
-        if row[0]=='R01':row[5]='550×450试排；洁具、干湿界、门槛、进出/托盘/阀门前场待测，尚未成立'
-        if row[0]=='L02':row[5]='旧650×450与门扇连续扫掠冲突；不占洗烘装卸、过滤器、携篮转向及搬机'
-    table=data['table'];write=data['write_csv']
-    schedules=[
-      ('家具尺寸表.csv',['编号','家具或空间','尺寸目标_mm','尺寸性质','锁定条件'],data['DIMENSIONS']),
-      ('设备预留表.csv',['编号','设备','候选位置','规划起点_非下单尺寸','型号安装图需锁定','水电及检修条件','验收动作','候选品牌型号','安装图版本','最终柜体尺寸_mm'],[r+['待选型','待提供','待实测及选型'] for r in eq]),
-      ('水电点位表.csv',['点号','候选区域','用途','给排水要求','电气及控制要求','检修及限制','水平定位_mm','标高_mm','回路及保护','状态'],[r+['统一模型估读；待实测','待设备/柜图锁定','待负荷计算','R10.1概念预留'] for r in points]),
-      ('现场核验表.csv',['编号','建议负责方','待核内容','证据或通过记录','影响交付','状态','实测值或结论','证据链接或图号','签认人','日期'],[r+['','','',''] for r in checks]),
-      ('新图面积标注.csv',['空间','新图面积_平方米','设计影响'],data['NEW_AREAS']),
-      ('新图尺寸标注.csv',['尺寸线对应区域','图注_mm_非实测净尺寸','使用边界'],data['NEW_SPANS']),
-      ('电器上下水表.csv',['设备','固定给水需求','排水或废水处理','位置与锁定条件'],water),
-      ('底图对位核验.csv',['核对点','模型x_mm','模型y_mm','原图x_px','原图y_px','投影x_px','投影y_px','残差_px','性质'],overlay_rows())]
-    for name,headers,rows in schedules:write(name,headers,rows)
-    svgs={'01-furniture.svg':g.floorplan('家具平面'),'02-alterations-review.svg':g.floorplan('拆改'),
-      '03-services.svg':g.floorplan('水电'),'04-cabinet-access.svg':data['cabinet_svg'](),
-      '05-coffee-sideboard.svg':data['coffee_svg'](),'06-utility-storage.svg':family_svg(),
-      '07-island-dining.svg':g.island_svg(),'08-appliance-clearance.svg':g.clearance_svg(),
-      '09-workflows.svg':g.workflow_svg(),'10-air-conditioning.svg':g.floorplan('空调'),
-      '11-source-overlay.svg':g.overlay_svg(),'12-ac01-ceiling-section.svg':g.ceiling_svg(),
-      '13-island-water-section.svg':g.water_svg(),'14-robot-station-review.svg':g.robot_svg(),'15-island-table-connection.svg':g.connection_svg()}
-    for name,svg in svgs.items():(HERE/name).write_text(svg,encoding='utf-8',newline='\n')
-    pages=[];names=[]
-    def page(title,sub,body):
-        n=len(pages);names.append(title)
-        pages.append(f'<section class="page" id="p{n:02d}"><header><b>丽水嘉园 · 176㎡ / LISHUI JIAYUAN</b><span>R10.1 · 2026.09.09</span></header><h1><b>{n:02d}</b>{title}</h1><p class="subtitle">{sub}</p>{body}<footer><span>原图估读 · 未实测 · 非施工图 · 不用于下单、拆墙或预埋</span><span>R10.1 / {n:02d}</span></footer></section>')
-    def cards(items):return ''.join(f'<div class="card"><h3>{html.escape(a)}</h3><p>{html.escape(b)}</p></div>' for a,b in items)
-    def draw(name):return '<div class="wide-drawing">'+svgs[name]+'</div>'
-    common=[('已确定布局','南墙整排柜保持冰箱950–1000、必配独立蒸箱与独立烤箱高柜600、咖啡1300、食品余量的顺序。岛1000×750在东，桌1600×800在西并向西延伸1800。'),
-      ('使用边界','北侧为去上部厨房和阳台B主路线。南排就座与蒸烤/咖啡取物须错时。就座装卸局部624，600衣篮仅余24；携篮与装卸、岛槽错时。'),
-      ('水路与空调','岛东部加辅助小水槽及冷热水，主槽、洗碗、800净备菜保留。重力排水未成立。AC01移至封窗连通阳台A交界顶面，向北送风；AC05在家庭厅北侧A门洞以西。'),
-      ('底图与现场','B/C/D飘窗、入户转折、两阳台与公卫门洞逐项复核；所有全屋和局部共用毫米模型。原图估读不等于实测净尺寸，燃气使用条件未确认合规。')]
-    page('横向带水岛桌与南侧风管机','R10.1评审方案：先核底图，再核布局、设备与管线。','<div class="plan-grid"><div class="drawing">'+svgs['01-furniture.svg']+'</div><div>'+cards(common)+'</div></div>')
-    details={
-      '01-furniture.svg':('完成平面',common[:2]),
-      '02-alterations-review.svg':('拆改与原门洞',[('M01 / M02 / M03','红长虚线为拟拆实体：C北细墙、厨房西南短墙、C西细墙；原门口缺口不虚构成实墙。保留粗墙梁柱、公卫和C/D墙，结构与墙内管线待核。'),('燃气与封窗','开放餐厨保留燃气，使用条件单列待核。阳台A封窗与客厅连通；原交界梁、端墙及封窗审批和热工条件现场确认。')]),
-      '03-services.svg':('水电定位',[('C02 / W0','岛槽冷热阀、存水弯、检修和探漏同柜排布；管线经C东侧向北，连接合法生活污水支管。高差未成立见13图。'),('电源与控制','蒸箱K04、烤箱K05分别供电；H03咖啡仅接电。L01洗烘、L02/R01机器人二选一；H04投影与H05幕盒协同空调，回路按负荷核算。')]),
-      '04-cabinet-access.svg':('南墙柜立面',[('J01 / J02','主水槽邻柜阀电可达，存水弯与滤芯独立检修。冰箱、上下两台蒸烤分别拆出；热盘依次取，不跨下层热门。'),('J03 / J04','阳台B洗烘按机型留阀门、过滤器和整机前抽；L02旧基站位已检出门扫掠冲突。狭长净宽、门窗开启及搬出尚未确认。')]),
-      '05-coffee-sideboard.svg':('蒸烤取物与咖啡立剖面',[('高度和散热','取热盘650/1150与蒸箱取箱1350为算例，按使用者和厂家安装图调整；独立供电、散热、检修。南侧有人就座时先离座取物。')]),
-      '06-utility-storage.svg':('家庭厅与AC05',[('书柜与挂机','桌上书柜集中西侧；现有横向间隙100mm，须按机型留足维护余量，可缩书柜宽度。AC05普通挂机不增加通风管道。')]),
-      '07-island-dining.svg':('四人、六人和南移边界',[('坐标与取舍','四人桌(1300,200)，六人桌(1100,200)，岛(2900,225)。南移再48mm即触及蒸烤全开门投影；不再向南挤压。全拉椅的650北侧净带仍需现场放样。')]),
-      '08-appliance-clearance.svg':('满开与操作占用',[('分别验收','柜门、抽屉全开不碰四/六人椅；南排就座占用蒸烤/咖啡人位。两台蒸烤热盘依次取，取上层时收下层门。实际铰链开角、热盘宽度及维护包络待替换。')]),
-      '09-workflows.svg':('北侧通行与七类工作顺序',[('携篮条件','600方形包络计算至阳台B入口内侧，原门洞850估读；柜椅不需移动。进门后关门、转向洗烘及搬机需实物验证。就座装卸局部624、600衣篮余24；携篮与装卸、岛槽操作错时。')]),
-      '10-air-conditioning.svg':('五套独立空调',[('AC01 南侧风管机','阳台A靠客厅交界，向客厅北侧送风、客厅侧取回风；检修口位于可站人维护区，吊顶剖面见12图。公共区负荷含连通餐区。'),('线型与核验端点','橙长虚线冷媒、红点线电源、蓝短虚线冷凝水；各线起于对应机组。末端“？”为穿墙孔/外机/接点待核，不表示已确认安装位。'),('设备协调','AC02–AC05均普通独立挂机；AC05出风朝东南避办公座席。梁窗头、投影、灯具、幕盒、窗帘、室外机及冷凝水标高由专业深化。')]),
-      '11-source-overlay.svg':('原图半透明叠合',[('对位记录','原图11个可辨节点独立估读残差列入底图对位核验.csv；此检查只证实模型与图片关系，不是测绘或结构鉴定。'),('待现场替换','120/240墙厚、门洞、B/C/D窗台深度及梁柱为估读，窗台不计通路。拟拆墙边界在拆改图单列。')]),
-      '12-ac01-ceiling-section.svg':('风管机局部吊顶剖面',[('高度不预设','梁底、窗头、机身、保温风管、送回风口、检修口和吊顶底均建立关系；具体高度按净高和设备安装图确定。检修梯位不落在沙发、幕布或固定柜上。')]),
-      '13-island-water-section.svg':('岛槽给排水平面与剖面',[('保持带水和平地需求','z0和H缺实测，图示坡度仅研究场景；重力排水未成立。不得预设开凿结构板、梁或飘窗台，不默认地台或提升泵，保留需求继续协调。')])}
-    details.update({'14-robot-station-review.svg':('机器人基站核验',[('R01主选研究，尚未成立','东北角仅见疑似洁具轮廓；其余洁具、干湿分界及门槛待测。不改变湿区或洁具。L02旧占位与连续门扫掠冲突，降为备选。')]),'15-island-table-connection.svg':('岛桌连接',[('独立支承与维护','岛850–900、桌约750；向西伸200不移岛。桌腿/膝部/轨道为候选包络，承载及维护净距待厂家。76缝可拆收口。')])})
-    for name,(title,notes) in details.items():
-        if name in ['01-furniture.svg','02-alterations-review.svg','03-services.svg','10-air-conditioning.svg']:
-            body='<div class="plan-grid"><div class="drawing">'+svgs[name]+'</div><div>'+cards(notes)+'</div></div>'
-        else:body=draw(name)+cards(notes)
-        page(title,'统一坐标与对象；全部标注为原图估读或设备初排，单位mm。',body)
-    state_rows=[]
-    for state in g.trial_metrics()['states']:
-        state_rows.append([str(state['seats'])+'人'+('全拉椅' if state['pulled'] else '就座'),
-          '餐区算例无相交；房门另核','北带'+('650' if state['pulled'] else '1000'),
-          '、'.join(sorted({k for _,k in state['chair_operator_conflicts']})),
-          '洗碗装卸、岛槽操作（错时）'])
-    page('状态验证与现场动作','英文对象编号对应verification.json；冲突须错时使用，不算成净通路。',
-      table(['状态','固定柜及满开门','北侧净距','需离座操作的设备','携篮需暂停的操作'],state_rows)+cards([
-      ('冰箱与两台蒸烤','冰箱90°齐平铰链及全抽需选型支持；两台蒸烤分别开门取盘、取箱、拆机，依次操作，不能跨热门。'),
-      ('洗碗、岛槽与携篮','洗碗门650＋装卸600；岛槽北站位600。两条携篮路径按椅子状态调整，端点到B门内，不把门后转向洗烘视为已验收。'),
-      ('同时使用的边界','四/六人就座可保留主厨房备菜及单人洗碗；携篮时暂停洗碗装卸与岛槽操作，南排就座时暂停蒸烤/咖啡取物。全拉椅650、南侧48均仅估读，不证明舒适通行或安装余量。'),
-      ('现场验收','燃气、结构、封窗、排水试验、空调排水与检修、断网实体控制和漏水报警单列；PDF/页面校验不替代现场验收。')]))
-    # Complete schedules are also readable in the booklet, chunked to prevent clipping.
-    for filename,headers,rows in schedules:
-        if filename=='设备预留表.csv': headers=headers[:7];rows=[r[:7] for r in rows]
-        if filename=='水电点位表.csv': headers=headers[:6];rows=[r[:6] for r in rows]
-        if filename=='现场核验表.csv': headers=headers[:6];rows=[r[:6] for r in rows]
-        size=10 if len(headers)>=6 else 12
-        for i in range(0,len(rows),size):
-            page(filename.removesuffix('.csv')+f' · {i//size+1}','配套CSV保留型号、测量、签认与日期填写栏；全部使用R10.1布局。',table(headers,[[str(v) for v in r] for r in rows[i:i+size]],'compact'))
+def build():
+    require_verified();protected();validation=g.M.validation()
+    data,generated=schedules();svgs=g.drawings()
+    for name,rows in data.items():
+        assert len({r[0] for r in rows[1:]})==len(rows)-1,name
+        with (HERE/name).open('w',encoding='utf-8-sig',newline='') as f:csv.writer(f,lineterminator='\n').writerows(rows)
+    (HERE/'generated_schedule_state.json').write_text(json.dumps(generated,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    for n,s in svgs.items():(HERE/n).write_text(s,encoding='utf-8',newline='\n')
+    pages=[];titles=[]
+    def page(title,body):
+        i=len(pages);titles.append(title)
+        pages.append(f'<section class="page" id="p{i:02d}"><header><b>丽水嘉园 · 176㎡</b><span>{REVISION}</span></header><h1><b>{i:02d}</b>{html.escape(title)}</h1><p class="subtitle">配置与已验证实际网格同步 · 单位mm · 原图估读，未实测</p>{body}<footer><span>原图估读 · 非施工图 · 不用于下单、拆墙或预埋</span><span>{i:02d}</span></footer></section>')
+    intro=g.conclusion()+['全屋同步：三张床、卧室移门衣柜、D东墙柜、幕布、家庭厅和卫浴概念占位均随当前模型。',
+      '床侧900mm、D床尾1000mm、幕布后1000mm；B床垫1200mm。实际床架外挑、人体、设备及硬件选型需重算。',
+      'M01/M02/M03恢复开放边界，C西开口2698mm。燃气使用条件未确认合规，梁柱及拆改结构现场核验。',
+      '独立蒸箱、独立烤箱保留；咖啡柜1800×600，取消食品柜并留空401mm；微波炉放台面东端。',
+      '旧管线路由仅补充概念示意，三维未建管线，W0为待确认接点。岛槽重力排水未成立；洗烘接管、空调安装待核。',
+      '卫浴未确认原点位，机器人为候选未落实。原图面积和尺寸线、原26条问题记录保留。',
+      '三维、SVG、CSV、HTML方案册及预览纳入GitHub交付；历史PDF、ZIP原样保留本地，本轮仅内存PDF检查。']
+    page('全屋同步说明',''.join('<p>'+html.escape(s)+'</p>' for s in intro)+'<p><a href="../model3d/README.md">三维交付入口</a> · <a href="../model3d/CHECK_REPORT.md">三维中文冲突对照</a> · <a href="../model3d/geometry_snapshot.json">几何快照</a></p>')
+    for i,(n,s) in enumerate(svgs.items()):
+        page(g.TITLES[i],'<div class="wide-drawing">'+s+'</div><p class="caption">'+('补充概念示意：路由、剖面接点及安装条件未确认，不表示三维已建管线。' if i+1 in (3,10,12,13) else '实线为正常实体，虚线标明开启、拉出或候选状态；高度关系与中文冲突对照一并阅读。')+'</p>')
+    rows=[]
+    for s,b in zip(g.M.states,validation['baskets']):
+        state='正常就座' if s['state']=='normal' else '全部拉出' if s['state']=='all_pulled' else '单椅拉出 '+s['state'].split(':')[1]
+        rows.append([str(s['seats']),state,s['north_route_mm'],f"{s['physical']} / {s['human']} / {s['travel']} / {s['service']}",b['lateral_allowance_mm'],'恢复就座再携篮' if not b['comfortable_passage'] else '与洗碗/岛槽操作错时'])
+    for i in range(0,len(rows),8):page('正常、单椅与全部拉出状态',table(['人数','状态','北带mm','实体/人体/运动/设备相交数','衣篮北带余量mm','使用限制'],rows[i:i+8])+'<p>相交数依据三维部件及高度包络；临时操作区占用单列，正常咖啡/蒸烤操作无冲突。</p>')
+    basket_rows=[]
+    for s,b in zip(g.M.states,validation['baskets']):
+        if s['state'] not in ('normal','all_pulled'):continue
+        basket_rows.append([s['seats'],s['state'],'装卸人位至北椅',str(b['dishwasher_loading_to_chair_mm'])+'mm净距','局部净距不等于整条路线通行宽度'])
+        basket_rows.append([s['seats'],s['state'],'岛槽操作区',str(b['island_operator_route_gap_mm'])+'mm净距','路线无平面交叠，正常余量小；携篮仍先暂停操作'])
+        for n,overlaps in b['service_overlaps_mm'].items():
+            basket_rows.append([s['seats'],s['state'],n,'；'.join(f'{v[2]:.0f}×{v[3]:.0f}' for v in overlaps),'携篮时暂停该操作/开启；现场检查终点转向'])
+    for i in range(0,len(basket_rows),10):page('衣篮路线与操作交叠计算',table(['人数','状态','操作/开启对象','交叠宽×深mm或净距','限制'],basket_rows[i:i+10])+'<p>房门完全打开后携篮，行走中不同时转动门扇；终点洗烘转向仍待现场演示。</p>')
+    family=g.M.report['metrics']['family']
+    page('本轮家庭厅调整与验证',table(['使用状态','连续通行检查'],[[r['state'],'通过' if r['passed'] else '未通过'] for r in family['states']])+'<p>内部主要路线1000mm；主扇入口通行包络800mm。关闭时允许门阻断，门两侧均可接近操作。浅柜人员操作与进门错时；柜门、抽屉展开仍可通行。</p>'+table(['门洞','扣框扇概念净宽mm'],[['家庭厅主扇',family['entrance']['main_net_mm']],['家庭厅双扇',family['entrance']['both_net_mm']],*[[n,d['net_mm']] for n,d in family['bedroom_doors'].items()]])+'<p>旧1100mm鞋柜堵路、电脑椅堵卧室路线及门扇侵柜反例均检出。硬件、整门隔声检测与关门通风待厂家。</p>')
+    page('本轮客厅、咖啡区与拆改','<p>取消中央900×600茶几；保留沙发、幕布，增边几、朝西北单椅及落地灯。旋转后的实际外沿纳入碰撞检查。</p><p>咖啡柜1800×600，取消食品柜及预留，原柜列余401mm留空；微波炉520×420×320放台面东端朝北，厂家安装条件待核。</p><p>M03仅拟拆北侧180×120mm孤立块，保留C/D端墙120×300mm；结构性质须现场确认。</p><p>修改前已验证配置、网格和结果保存在 model3d/history/r10_1；原26条问题记录继续保留。</p>')
+    old=read(MODEL/'previous_verification.json')['issues'];assert len(old)==26
+    for i in range(0,26,7):
+        page('原26条问题记录 · '+str(i//7+1),table(['原序号','类别','对象','原始详情'],[[j+1,o['category'],', '.join(o['objects']),json.dumps(o['detail'],ensure_ascii=False)] for j,o in enumerate(old[i:i+7],i)])+'<p>本页为历史记录，调整后结果见三维中文冲突对照；历史净距不作为本次发布值。</p>')
+    for n,rs in data.items():
+        # Small chunks retain every manual-entry column and stay within A3 print bounds.
+        for i in range(1,len(rs),6):page(n[:-4]+' · '+str((i-1)//6+1),table(rs[0],rs[i:i+6]))
     css=(HERE/'booklet.css').read_text(encoding='utf-8')
-    doc='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>丽水嘉园176㎡ R10.1</title><style>'+css+'</style></head><body><nav><button onclick="window.print()">打印 / 另存PDF</button>'+''.join(f'<a href="#p{i:02d}">{i:02d} {html.escape(t)}</a>' for i,t in enumerate(names))+'</nav><main>'+''.join(pages)+'</main></body></html>'
+    doc='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+REVISION+'</title><style>'+css+'</style></head><body><nav><button onclick="window.print()">打印 / 另存PDF</button>'+''.join(f'<a href="#p{i:02d}">{i:02d} {html.escape(t)}</a>' for i,t in enumerate(titles))+'</nav><main>'+''.join(pages)+'</main></body></html>'
     (HERE/'方案册.html').write_text(doc,encoding='utf-8',newline='\n')
-    intro='''# 丽水嘉园176㎡ · R10.1 横向带水岛桌与南侧风管机
-
-南墙柜保持冰箱、必配分体蒸烤、咖啡、食品的原位置与顺序。岛1000×750在东，桌1600×800在西、向西延伸1800；岛东部增加辅助小水槽及冷热水，原主水槽、洗碗机和800净备菜保留。
-
-机器人优先研究公卫R01（550×450试排，尚未成立），L02阳台B降为备选；旧占位与门扇连续扫掠冲突。新增14机器人核验及15岛桌连接详图。
-
-北侧主路线：就座净带1000、全拉椅650，均为估读算例。南排就座与蒸烤/咖啡取物须错时；携600衣篮时，就座装卸局部624、衣篮600仅余24；携篮与装卸及岛槽操作错时。南移仅余48即碰蒸烤全开门，不计作通道。
-
-岛槽排水初排3.452m，2%需69.04mm落差。接入标高和可用地面厚度待测，**重力排水未成立**；保留带水和平地需求，不默认地台、提升泵或结构开槽。
-
-阳台A封窗并连通客厅，AC01在交界顶面局部吊顶内向北送风、客厅侧回风；公共区冷量含餐区。AC05普通挂机在家庭厅北侧A门洞以西，桌上书柜集中西侧。吊顶高度、维护净距、孔位、冷凝水及外机均待核。
-
-B/C/D飘窗、门窗、入户转折、公卫和阳台恢复为统一毫米模型，新增原图半透明叠合、风管机吊顶和岛槽给排水剖面。原图估读不是实测净尺寸；燃气使用条件未确认合规。文件验证不替代现场安装验收。
-'''
-    entries=[('方案册.html',f'{len(pages)}页离线方案册'),*[(k,v[0]) for k,v in details.items()],
-      *[(name,name) for name,_,_ in schedules],('verification.json','渲染、几何及分页核查')]
-    instructions='\n运行 `python deliverables/build_package.py` 与 `python deliverables/render_verify.py`。依赖Playwright、PyMuPDF、Pillow及Chromium/Edge（可设FURNISH_BROWSER）。几何统一于 `deliverables/r10_geometry.py`。PDF仅在内存验证，不写入或修改已有PDF；Git继续排除PDF、ZIP、加密文件及缓存。\n'
-    for path,prefix in [(HERE.parent/'README.md','deliverables/'),(HERE/'README.md','')]:
-        path.write_text(intro+'\n![R10.1平面]('+prefix+'preview-furniture.png)\n\n'+'\n'.join(f'- [{title}]({prefix}{name})' for name,title in entries)+'\n'+instructions,encoding='utf-8',newline='\n')
-    print(json.dumps({'revision':'R10.1','pages':len(pages),'svg_count':len(svgs),'model':g.model_digest()},ensure_ascii=False))
+    for path,prefix,model_prefix in [(ROOT/'README.md','deliverables/','model3d/'),(HERE/'README.md','','../model3d/')]:
+        links=[('方案册.html',f'{len(pages)}页离线方案册'),*zip(g.FILES,g.TITLES),*[(n,n) for n in data],('verification.json','交付验证报告')]
+        body='# 丽水嘉园176㎡ · '+REVISION+'\n\n'+'\n\n'.join(intro)+'\n\n'+f'[三维交付入口]({model_prefix}README.md) · [中文冲突对照]({model_prefix}CHECK_REPORT.md)\n\n![全屋平面]({prefix}preview-furniture.png)\n\n'+'\n'.join(f'- [{t}]({prefix}{n})' for n,t in links)
+        body+='\n\n以 `model3d/scene_config.json` 为唯一布局配置，实际部件外沿读已验证快照。`model3d/r10_baseline.json` 仅用于历史配置重建，由历史基线确定性重建R10.2，重复应用不追加对象；修改前成果见 model3d/history/r10_1。\n\n运行 `powershell -File model3d/run_background.ps1` 后，运行 `python deliverables/build_package.py`、`python deliverables/render_verify.py`。缺失或过期验证会阻止发布。需要 Blender、Playwright、PyMuPDF、Pillow 和 Chromium/Edge。所有PDF仅内存检查，不新建磁盘PDF。\n'
+        path.write_text(body,encoding='utf-8',newline='\n')
+    manifest=dict(revision=REVISION,model_files=g.M.report['files'],outputs={n:digest(HERE/n) for n in [*svgs,*data,'方案册.html','README.md']},root_readme=digest(ROOT/'README.md'),generators={n:digest(HERE/n) for n in ['build_package.py','r10_booklet.py','r10_geometry.py','sync_model.py','concept_details.py','booklet.css','schedule_baseline.json']},pages=len(pages))
+    (HERE/'publication_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (HERE/'verification.json').write_text(json.dumps(dict(revision=REVISION,file_checks=dict(status='pending',action='运行 python deliverables/render_verify.py 完成本次渲染检查'),publication_manifest_sha256=digest(HERE/'publication_manifest.json')),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    protected();print(json.dumps(dict(revision=REVISION,pages=len(pages),svgs=len(svgs),csvs=len(data)),ensure_ascii=False))
