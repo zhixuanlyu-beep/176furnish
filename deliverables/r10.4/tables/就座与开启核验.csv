@@ -1,0 +1,15 @@
+﻿人数,状态,实体冲突,设备开启冲突,需错时人员操作,北侧名义通道_mm
+4,正常,[],[],[],1100
+4,单椅:chair4_0,[],[],[],600
+4,单椅:chair4_1,[],[],[],600
+4,单椅:chair4_2,[],[],"[[""chair4_2"", ""coffee_operator""]]",1100
+4,单椅:chair4_3,[],[],"[[""chair4_3"", ""tower_operator""], [""chair4_3"", ""coffee_operator""], [""chair4_3"", ""microwave_hot_food""]]",1100
+4,全部拉出,[],[],"[[""chair4_2"", ""coffee_operator""], [""chair4_3"", ""tower_operator""], [""chair4_3"", ""coffee_operator""], [""chair4_3"", ""microwave_hot_food""]]",600
+6,正常,[],[],[],1100
+6,单椅:chair6_0,[],[],[],600
+6,单椅:chair6_1,[],[],[],600
+6,单椅:chair6_2,[],[],[],600
+6,单椅:chair6_3,[],[],"[[""chair6_3"", ""coffee_operator""]]",1100
+6,单椅:chair6_4,[],[],"[[""chair6_4"", ""coffee_operator""]]",1100
+6,单椅:chair6_5,[],[],"[[""chair6_5"", ""tower_operator""], [""chair6_5"", ""coffee_operator""], [""chair6_5"", ""microwave_hot_food""]]",1100
+6,全部拉出,[],[],"[[""chair6_3"", ""coffee_operator""], [""chair6_4"", ""coffee_operator""], [""chair6_5"", ""tower_operator""], [""chair6_5"", ""coffee_operator""], [""chair6_5"", ""microwave_hot_food""]]",600

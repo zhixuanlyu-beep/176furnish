@@ -1,0 +1,108 @@
+{
+  "revision": "R10.4",
+  "status": "通过，含明确现场及五金条件项",
+  "errors": [],
+  "actual_svg_max_coordinate_error_mm": 0.069821,
+  "actual_svg_furniture_checked": 33,
+  "actual_svg_wall_segments_checked": 39,
+  "furniture_csv_rows": 41,
+  "area_rows": 12,
+  "svg_png_count": 18,
+  "png_dimensions": {
+    "01-furniture.svg": [
+      2800,
+      2500
+    ],
+    "13-family-entry.svg": [
+      2800,
+      2100
+    ],
+    "14-shoe-elevation.svg": [
+      2800,
+      2100
+    ],
+    "15-cabinet-section.svg": [
+      2800,
+      2100
+    ],
+    "16-entry-alterations.svg": [
+      2800,
+      2100
+    ],
+    "10-workflows.svg": [
+      2800,
+      2300
+    ],
+    "17-room-routes.svg": [
+      2800,
+      2100
+    ],
+    "02-dining.svg": [
+      2800,
+      2100
+    ],
+    "03-seating-4.svg": [
+      2800,
+      2100
+    ],
+    "03-seating-6.svg": [
+      2800,
+      2100
+    ],
+    "04-cabinet-elevation.svg": [
+      2800,
+      2100
+    ],
+    "05-master-suite.svg": [
+      2800,
+      2100
+    ],
+    "06-alterations.svg": [
+      2800,
+      2100
+    ],
+    "07-wardrobe.svg": [
+      2800,
+      2100
+    ],
+    "08-island-robot.svg": [
+      2800,
+      2100
+    ],
+    "09-appliance-clearance.svg": [
+      2800,
+      2100
+    ],
+    "11-services.svg": [
+      2800,
+      2100
+    ],
+    "12-public-bath.svg": [
+      2800,
+      2100
+    ]
+  },
+  "local_links_checked": 94,
+  "historical_route_recomputed": 8,
+  "basket_states": 112,
+  "repeat_generation_artifacts": 39,
+  "repeat_generation_differences": [],
+  "protected_files": {
+    "count": 15,
+    "changed": [],
+    "missing": []
+  },
+  "visual_review": {
+    "method": "实际PNG人工查看并检查SVG画布边界；网页做离线链接与结构检查",
+    "browser_automation": "内置浏览器检查工具启动异常，本轮未获得桌面／手机浏览器自动化复核，不沿用旧版结果"
+  },
+  "conditions": [
+    "A门50mm把手87–90°碰原墙，五金定稿暂停",
+    "柜墙可改性及固定／线路待现场",
+    "鞋柜关闭、门固定、餐椅状态及设备错时条件详见检查说明"
+  ],
+  "png_repeat_generation": {
+    "count": 18,
+    "differences": []
+  }
+}

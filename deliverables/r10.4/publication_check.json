@@ -1,0 +1,17 @@
+{
+  "scope": "R10.4二维展示包；不含历史完整几何和重建工具",
+  "diagrams": 18,
+  "previews": 18,
+  "tables": 15,
+  "three_dimensional_files": 0,
+  "excluded": [
+    "history/",
+    "source/build.py",
+    "source/base.py",
+    "source/validate_r104.py",
+    "source/check_package.py",
+    "source/protected_before.json",
+    "source/render_previews.cjs"
+  ],
+  "local_source_package_unchanged": true
+}
