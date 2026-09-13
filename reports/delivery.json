@@ -1,0 +1,17 @@
+{
+  "revision": "R10.4",
+  "passed": true,
+  "drawings": 18,
+  "tagged_geometry_count": 818,
+  "max_svg_world_error_mm": 0.0697247706430062,
+  "furniture_rows": 41,
+  "table_count": 14,
+  "basket_states": 112,
+  "checked_local_links": 88,
+  "errors": [],
+  "limits": [
+    "SVG annotations and actual geometry checked at 1mm; not a site survey.",
+    "No 3D render or full-scene continuous collision certification.",
+    "A-door hardware and operation conditions remain unresolved."
+  ]
+}

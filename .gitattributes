@@ -1,0 +1,5 @@
+# Keep CSV bytes stable for manifest checks, including Excel-compatible BOM/CRLF.
+*.csv -text whitespace=cr-at-eol
+*.blend binary
+*.glb binary
+*.png binary

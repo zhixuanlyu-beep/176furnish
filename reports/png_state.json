@@ -1,0 +1,78 @@
+{
+  "engine": "sharp 0.35.4",
+  "density": 144,
+  "assets": {
+    "01-furniture.svg": {
+      "svg_sha256": "9f7a6070d65ea2f4b09b03059a89ec86c6edfd2b510c7e215884230f7552ad45",
+      "png_sha256": "1ba07e39d1718a414eddb9a26e2c92b0080d5687c6e39271c4ca588f9f184bed"
+    },
+    "02-dining.svg": {
+      "svg_sha256": "d5b4f955bf915a3da42073d670059f48f2e7510092592bb7c03bc55378003477",
+      "png_sha256": "2cf3dc46466644a0ea66cb1ea28a15c7408072c1d02c5aa06f3cb05d9f7d4b0b"
+    },
+    "03-seating-4.svg": {
+      "svg_sha256": "7e24199008d97b6fe8592bbce1e87cca79796c0c7626302a99f4fea71fc31401",
+      "png_sha256": "218f174386490c7a48d095eae7245221a49786671435c28223a07e7ffb1a2917"
+    },
+    "03-seating-6.svg": {
+      "svg_sha256": "0998f169808aead2b5243f8298837be6e11feb05cb27329c0b33a71ded004c6b",
+      "png_sha256": "564485b82a42f177272a54bc85dc7e8af455e901a53ec56af50079adddf76306"
+    },
+    "04-cabinet-elevation.svg": {
+      "svg_sha256": "74ba811a7140c96783e35fa051e5499d609563fd6bd41ffd6c08b9939a14c6d8",
+      "png_sha256": "b20eeac97bc4f600f4c828ed364f863384dfa146643ff1ad750649aa2adc0931"
+    },
+    "05-master-suite.svg": {
+      "svg_sha256": "33c130da8a64ecef3bbab065d754a775ddc0c8b3180f4714c6129050edab7fc7",
+      "png_sha256": "fb3725068fb861847d469783bc3324c0e955681a77513f3e7da4ca2ecd5356dd"
+    },
+    "06-alterations.svg": {
+      "svg_sha256": "b538d49a236c9e3bf33d7ab6e11c34fb14298290350dcd6541e42f8693699614",
+      "png_sha256": "d3fdbfcbd37795ce51458a58ffb9aa894dba17511f4946af02496ffcf5c98908"
+    },
+    "07-wardrobe.svg": {
+      "svg_sha256": "1b4b4183a19ee5f1897874f914f1ce8874c9e5caa5f39fbfd5d1226015867357",
+      "png_sha256": "8245723065f8c0526c746c8135e12751890daa4e188b8958e48100237bdab7f5"
+    },
+    "08-island-robot.svg": {
+      "svg_sha256": "d68b564cb49339bbf823f56371138d47d247c2eafc4a649c8c83c5681958c3f0",
+      "png_sha256": "d5bdcc9be7a3614aaf35a2b9ba2d343cd64379e87cc5fecab6908e419a715ef1"
+    },
+    "09-appliance-clearance.svg": {
+      "svg_sha256": "1c1b68fad57a49a0afc86df80cf4f39e69c31b6a8d5f190df08c7979bb160fbe",
+      "png_sha256": "c52045b98f5848fe84e958bd45d0745a8c8bc0e18a32f06ec7cda6ca9d428e80"
+    },
+    "10-workflows.svg": {
+      "svg_sha256": "a8a5a8f87c80875d602237977724d8a06e220e52a65b0cde499a889b94b32829",
+      "png_sha256": "58d57a6af65d5863e6f333d82c563b6fa57311c024ac2a77750fe8c1f2459521"
+    },
+    "11-services.svg": {
+      "svg_sha256": "d7803e8a080acc3639da6b96c86364f7c267593645a6093f80a5b3ec00b2efe8",
+      "png_sha256": "da0d2ec74e6f7491c40148d4caf260775f2a4cced0193515d44f4204bd389f0c"
+    },
+    "12-public-bath.svg": {
+      "svg_sha256": "4f3dd712109b25bf16b487eb30d2a93b92f2a6dda0887ddd0380992b39dc869b",
+      "png_sha256": "9b86a0736bc35bafb4ff66563dde61a5ca57494847321fe574524d2df4346b20"
+    },
+    "13-family-entry.svg": {
+      "svg_sha256": "e902cf0494c5b4aa009e38d41340122a57d205cd9e6a39ee7fdf757e28eb9697",
+      "png_sha256": "061a056d178088db08476d9a2180e0da7e9fb1c3038beb2533c76841823fcafd"
+    },
+    "14-shoe-elevation.svg": {
+      "svg_sha256": "a6437145a796049393e7529eb2196bd0fa391ac5cc390ab928aebb9f3ff032bb",
+      "png_sha256": "4a214a67dd65dc1e6b01751db515865913de552d99f7a5a96532d764463de30c"
+    },
+    "15-cabinet-section.svg": {
+      "svg_sha256": "3e77d1b8b2a0dd5c08380a1b27a7fd59f19951c67ab0a23f12e4ff6b1d3382c8",
+      "png_sha256": "c09a4106ac4dd05f069b48117d9214c7ba2a20c697a0c9e8758d10cf7d86a184"
+    },
+    "16-entry-alterations.svg": {
+      "svg_sha256": "d567b10175c27fbb4dbe35d2f63487089f9f2784364c3000c6f496dd2258bfaf",
+      "png_sha256": "417e1c6121bbe28f46c186d07fbcd2d0238b3f9be0ce4cb73d7af587fd9e9e17"
+    },
+    "17-room-routes.svg": {
+      "svg_sha256": "1c6b201fb4a97a080d6e3941768e6ca77e56f4559e9c98578370d8979aba8b64",
+      "png_sha256": "8da20e96f2bfef2234d1eb00295676a99162651e55dd23e824bb7b50017f19ee"
+    }
+  }
+}

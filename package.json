@@ -1,0 +1,15 @@
+{
+  "name": "176furnish-r10-4",
+  "private": true,
+  "version": "10.4.0",
+  "description": "R10.4 editable drawings and model, no rendered 3D images",
+  "scripts": {
+    "preview:2d": "node scripts/preview_2d.cjs"
+  },
+  "dependencies": {
+    "sharp": "0.35.4"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

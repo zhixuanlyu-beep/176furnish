@@ -1,0 +1,256 @@
+{
+  "defaults": {
+    "wall_height": 2.8,
+    "thick_wall": 0.22,
+    "thin_wall": 0.12,
+    "door_height": 2.1,
+    "bedroom_door": 0.9,
+    "bath_door": 0.8,
+    "study_door": 0.85,
+    "window_sill": 0.9,
+    "window_height": 1.5,
+    "bay_sill": 0.45,
+    "bay_height": 1.8
+  },
+  "materials": {
+    "warm_white": [
+      0.86,
+      0.82,
+      0.73,
+      1
+    ],
+    "oak": [
+      0.64,
+      0.43,
+      0.23,
+      1
+    ],
+    "walnut": [
+      0.22,
+      0.1,
+      0.045,
+      1
+    ],
+    "linen": [
+      0.69,
+      0.61,
+      0.48,
+      1
+    ],
+    "olive": [
+      0.26,
+      0.3,
+      0.16,
+      1
+    ],
+    "brick": [
+      0.46,
+      0.16,
+      0.085,
+      1
+    ],
+    "black": [
+      0.025,
+      0.028,
+      0.025,
+      1
+    ],
+    "stone": [
+      0.73,
+      0.7,
+      0.61,
+      1
+    ],
+    "glass": [
+      0.64,
+      0.8,
+      0.83,
+      0.28
+    ],
+    "metal": [
+      0.4,
+      0.42,
+      0.43,
+      1
+    ]
+  },
+  "cameras": {
+    "01_Axonometric": {
+      "position": [
+        14,
+        -17,
+        34
+      ],
+      "target": [
+        0.9,
+        1.6,
+        0.5
+      ],
+      "ortho": 25.5
+    },
+    "02_Top": {
+      "position": [
+        1.1,
+        1.6,
+        26
+      ],
+      "target": [
+        1.1,
+        1.6,
+        0
+      ],
+      "ortho": 24
+    },
+    "03_Living_to_C": {
+      "position": [
+        -3.6,
+        -0.4,
+        1.65
+      ],
+      "target": [
+        2.4,
+        -1.0,
+        1.15
+      ],
+      "lens": 23
+    },
+    "04_C_to_Living": {
+      "position": [
+        0.65,
+        -0.7,
+        1.65
+      ],
+      "target": [
+        -3.1,
+        -3.1,
+        1.15
+      ],
+      "lens": 24
+    },
+    "05_Coffee": {
+      "position": [
+        2.4,
+        -0.4,
+        1.65
+      ],
+      "target": [
+        1.3,
+        -2.8,
+        1.15
+      ],
+      "lens": 24
+    },
+    "06_Dining_Kitchen": {
+      "position": [
+        -0.2,
+        -2.0,
+        1.7
+      ],
+      "target": [
+        2.4,
+        1.1,
+        1.2
+      ],
+      "lens": 22
+    },
+    "07_Study": {
+      "position": [
+        0.25,
+        3.08,
+        1.65
+      ],
+      "target": [
+        -2.05,
+        4.9,
+        1.3
+      ],
+      "lens": 22
+    }
+  },
+  "equipment": {
+    "coffee_machine": {
+      "water": "manual tank",
+      "waste": "manual drip tray",
+      "power": true,
+      "top_clearance": 0.35,
+      "front_clearance": 0.6
+    },
+    "grinder": {
+      "water": "none",
+      "waste": "manual grounds cleaning",
+      "power": true,
+      "top_clearance": 0.3
+    },
+    "dishwasher": {
+      "water": "fixed supply",
+      "waste": "fixed sanitary drain",
+      "power": true
+    },
+    "purifier": {
+      "water": "fixed supply",
+      "waste": "RO reject to sanitary drain, model pending",
+      "power": true
+    },
+    "laundry": {
+      "water": "conditional fixed supply",
+      "waste": "conditional sanitary drain / dryer tank",
+      "power": true,
+      "status": "conditional"
+    },
+    "island_sink": {
+      "water": "conditional hot/cold",
+      "waste": "gravity drain not established",
+      "power": false,
+      "status": "conditional"
+    },
+    "robot": {
+      "water": "unconfirmed",
+      "waste": "unconfirmed",
+      "power": true,
+      "status": "candidate_hidden"
+    }
+  },
+  "furniture_materials": {
+    "bedA": "linen",
+    "bedB": "linen",
+    "bedD": "linen",
+    "wardrobeB": "oak",
+    "wardrobeD": "oak",
+    "sofa": "linen",
+    "screen": "warm_white",
+    "desk": "walnut",
+    "study_chair": "olive",
+    "study_storage": "oak",
+    "shoe": "oak",
+    "fridge": "walnut",
+    "tower": "walnut",
+    "coffee": "walnut",
+    "island": "walnut",
+    "table4": "walnut",
+    "chair4_0": "linen",
+    "chair4_1": "linen",
+    "chair4_2": "linen",
+    "chair4_3": "linen",
+    "table6": "walnut",
+    "chair6_0": "linen",
+    "chair6_1": "linen",
+    "chair6_2": "linen",
+    "chair6_3": "linen",
+    "chair6_4": "linen",
+    "chair6_5": "linen",
+    "hob": "olive",
+    "prep": "olive",
+    "sink": "olive",
+    "Bath_A_basin": "warm_white",
+    "Bath_A_wc": "warm_white",
+    "Bath_Public_basin": "warm_white",
+    "Bath_Public_wc": "warm_white",
+    "shower_public": "glass",
+    "laundry": "warm_white",
+    "study_shallow": "oak",
+    "side_table": "walnut",
+    "lounge_chair": "olive",
+    "floor_lamp": "walnut",
+    "entry_wardrobe": "oak"
+  }
+}

@@ -1,0 +1,15 @@
+﻿人数,椅状态,实体命中,设备开启命中,错时人员操作
+4,正常,[],[],[]
+4,单椅:chair4_0,[],[],[]
+4,单椅:chair4_1,[],[],[]
+4,单椅:chair4_2,[],[],"[['chair4_2', 'coffee_operator']]"
+4,单椅:chair4_3,[],[],"[['chair4_3', 'tower_operator'], ['chair4_3', 'coffee_operator'], ['chair4_3', 'microwave_hot_food']]"
+4,全部拉出,[],[],"[['chair4_2', 'coffee_operator'], ['chair4_3', 'tower_operator'], ['chair4_3', 'coffee_operator'], ['chair4_3', 'microwave_hot_food']]"
+6,正常,[],[],[]
+6,单椅:chair6_0,[],[],[]
+6,单椅:chair6_1,[],[],[]
+6,单椅:chair6_2,[],[],[]
+6,单椅:chair6_3,[],[],"[['chair6_3', 'coffee_operator']]"
+6,单椅:chair6_4,[],[],"[['chair6_4', 'coffee_operator']]"
+6,单椅:chair6_5,[],[],"[['chair6_5', 'tower_operator'], ['chair6_5', 'coffee_operator'], ['chair6_5', 'microwave_hot_food']]"
+6,全部拉出,[],[],"[['chair6_3', 'coffee_operator'], ['chair6_4', 'coffee_operator'], ['chair6_5', 'tower_operator'], ['chair6_5', 'coffee_operator'], ['chair6_5', 'microwave_hot_food']]"
