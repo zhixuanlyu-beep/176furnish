@@ -10,6 +10,7 @@ def fail(b,s):
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def rows(n):return list(csv.DictReader((R/'tables'/n).open(encoding='utf-8-sig')))
 svgerrors=[];labels=0;figures=json.loads((R/'reports/drawing_index.json').read_text())
+png_state=json.loads((R/'reports/png_state.json').read_text())['assets']
 for n,title in figures:
  p=R/'drawings/svg'/n;root=ET.parse(p).getroot();panels=0
  for group in root.iter():
@@ -32,7 +33,8 @@ for n,title in figures:
  png=R/'drawings/png'/Path(n).with_suffix('.png');fail(png.exists(),str(png)+' missing')
  if png.exists():
   data=png.read_bytes();fail(data[:8]==b'\x89PNG\r\n\x1a\n' and min(struct.unpack_from('>II',data,16))>=1000,n+' PNG format/size')
-fail(len(figures)==18,'18 drawings required');fail(labels>0,'no tagged geometry checked')
+  fail(png_state.get(n,{}).get('svg_sha256')==sha(p) and png_state.get(n,{}).get('png_sha256')==sha(png),n+' stale PNG or provenance')
+fail(len(figures)==18+len(D['room_functions']),'base and per-room drawings required');fail(labels>0,'no tagged geometry checked')
 furn=rows('家具尺寸表.csv');fail(len(furn)==len(D['furniture']),'furniture row count')
 for v in furn:
  f=D['furniture'][v['编号']];actual=[float(v[k]) for k in ['西X_mm','南Y_mm','宽X_mm','深Y_mm','高_mm']];fail(max(abs(a-b) for a,b in zip(actual,[*f['box'],f['height']]))<=1,'furniture CSV '+v['编号'])
@@ -40,6 +42,9 @@ areas=rows('新图面积标注.csv');fail(len(areas)==len(D['rooms']),'area row 
 for v,(n,bs) in zip(areas,D['rooms'].items()):fail(abs(float(v['几何面积_m2'])-sum(b[2]*b[3]/1e6 for b in bs))<.0001,'area '+n)
 two=json.loads((R/'reports/verification_2d.json').read_text());three=json.loads((R/'reports/verification_3d.json').read_text());config=json.loads((R/'model/scene_config.json').read_text())
 fail(not two['hard_errors'],'2D hard errors');fail(three['checks_passed'],'3D errors');fail(three['layout_sha256']==config['layout_sha256']==sha(R/'data/layout.json'),'stale model layout')
+fail(two.get('layout_sha256')==sha(R/'data/layout.json'),'stale 2D verification')
+fail(set(two['evidence']['room_function_coverage'])==set(D['rooms']),'all rooms must have function coverage')
+fail(len(rows('辅助设施尺寸表.csv'))==len(D['accessories']),'accessory table count')
 for ext in ['blend','glb']:fail(three[ext+'_sha256']==sha(R/f'model/whole_home_R10.4.{ext}'),'changed '+ext)
 fail(len(two['evidence']['basket_routes'])==112,'112 route states required')
 class Links(HTMLParser):
@@ -55,13 +60,15 @@ for p in [R/'README.md',R/'AGENTS.md',*(R/'docs').glob('*')]:
   if link.startswith('#') or urlsplit(link).scheme:continue
   target=(p.parent/unquote(urlsplit(link).path)).resolve();fail(target.exists(),str(p.relative_to(R))+' broken '+link);checkedlinks+=1
 # Current source/outputs must not depend on an older revision or user's home directory.
-for p in R.rglob('*'):
+delivery_roots=['data','scripts','drawings','tables','model','reports','docs']
+delivery_files=[R/'README.md',R/'AGENTS.md',R/'package.json',R/'.gitignore',*[p for n in delivery_roots for p in (R/n).rglob('*') if p.is_file()]]
+for p in delivery_files:
  if not p.is_file() or any(k in p.parts for k in ['.git','__pycache__','node_modules']):continue
  if p.suffix in ['.py','.json','.csv','.svg','.html','.md','.cjs']:
   t=p.read_text();fail(not re.search(r'R10\.[23]',t),str(p.relative_to(R))+' obsolete version reference');fail(not re.search(r'/(?:Users|home)/[^/]+/',t),str(p.relative_to(R))+' machine absolute path')
 report={'revision':'R10.4','passed':not errors,'drawings':len(figures),'tagged_geometry_count':labels,'max_svg_world_error_mm':max(svgerrors,default=None),'furniture_rows':len(furn),'table_count':len(list((R/'tables').glob('*.csv'))),'basket_states':112,'checked_local_links':checkedlinks,'errors':errors,'limits':['SVG annotations and actual geometry checked at 1mm; not a site survey.','No 3D render or full-scene continuous collision certification.','A-door hardware and operation conditions remain unresolved.']}
 (R/'reports/delivery.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-paths=sorted(p for p in R.rglob('*') if p.is_file() and not any(x in p.parts for x in ['.git','__pycache__','node_modules']) and p.name!='manifest.sha256' and p.suffix not in ['.blend1','.pyc'])
+paths=sorted(p for p in delivery_files if p.is_file() and not any(x in p.parts for x in ['.git','__pycache__','node_modules']) and p.name!='manifest.sha256' and p.suffix not in ['.blend1','.pyc'])
 (R/'reports/manifest.sha256').write_text(''.join(sha(p)+'  '+p.relative_to(R).as_posix()+'\n' for p in paths))
 print(json.dumps(report,ensure_ascii=False,indent=2))
 if errors:raise SystemExit(1)

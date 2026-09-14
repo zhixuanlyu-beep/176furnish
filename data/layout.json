@@ -172,16 +172,16 @@
       120.0
     ],
     "wall_bath_south1_0": [
-      -780.0,
-      1250.0,
-      80.0,
-      120.0
+      -780,
+      1250,
+      980,
+      120
     ],
     "wall_bath_south2_0": [
-      100.0,
-      1250.0,
-      1500.0,
-      120.0
+      1000,
+      1250,
+      600,
+      120
     ],
     "wall_bath_west_0": [
       -900.0,
@@ -451,10 +451,10 @@
     "bath_door": {
       "kind": "door",
       "box": [
-        -700.0,
-        1250.0,
-        800.0,
-        120.0
+        200,
+        1250,
+        800,
+        120
       ]
     },
     "balconyB_door": {
@@ -646,7 +646,7 @@
       "room": "Living",
       "box": [
         -1200.0,
-        -3450.0,
+        -3200.0,
         80.0,
         2450.0
       ],
@@ -670,7 +670,7 @@
       "room": "Study",
       "facing": "north",
       "box": [
-        -1400.0,
+        -1180.0,
         4997.0,
         500.0,
         500.0
@@ -984,39 +984,42 @@
       "room": "Bath_Public",
       "status": "assumed_fixture_position",
       "box": [
-        700.0,
-        2250.0,
-        700.0,
-        430.0
+        1170,
+        1400,
+        430,
+        600
       ],
       "height": 850,
-      "z": 0
+      "z": 0,
+      "front": "west"
     },
     "Bath_Public_wc": {
       "kind": "wc",
       "room": "Bath_Public",
       "status": "assumed_fixture_position",
       "box": [
-        700.0,
-        1380.0,
-        400.0,
-        650.0
+        450,
+        2024,
+        400,
+        650
       ],
       "height": 750,
-      "z": 0
+      "z": 0,
+      "front": "south"
     },
     "shower_public": {
       "kind": "shower",
       "room": "Bath_Public",
       "status": "assumed_fixture_position",
       "box": [
-        -750.0,
-        1830.0,
-        850.0,
-        850.0
+        -780,
+        1370,
+        900,
+        1354
       ],
       "height": 2100,
-      "z": 0
+      "z": 0,
+      "entry_gap_mm": 700
     },
     "laundry": {
       "kind": "laundry",
@@ -1063,10 +1066,10 @@
     "lounge_chair": {
       "kind": "chair",
       "room": "Living",
-      "facing": "north",
+      "facing": "east",
       "box": [
         -2100.0,
-        -4500.0,
+        -4750,
         800.0,
         850.0
       ],
@@ -1102,6 +1105,95 @@
       "side_panel": 18,
       "door_leaf_width": 400,
       "drawer_travel": 450
+    },
+    "child_desk": {
+      "room": "Bedroom_B",
+      "kind": "table",
+      "box": [
+        2776,
+        2844,
+        1200,
+        600
+      ],
+      "height": 750,
+      "z": 0,
+      "front": "north",
+      "status": "可调桌；安装高度随成长调整"
+    },
+    "child_chair": {
+      "room": "Bedroom_B",
+      "kind": "chair",
+      "box": [
+        3376,
+        2994,
+        500,
+        500
+      ],
+      "height": 800,
+      "z": 0,
+      "facing": "south"
+    },
+    "family_reading_chair": {
+      "room": "Study",
+      "kind": "chair",
+      "box": [
+        -2060,
+        4200,
+        750,
+        850
+      ],
+      "height": 800,
+      "z": 0,
+      "facing": "west"
+    },
+    "family_side_table": {
+      "room": "Study",
+      "kind": "table",
+      "box": [
+        -2650,
+        3820,
+        350,
+        350
+      ],
+      "height": 500,
+      "z": 0
+    },
+    "A_bedside_west": {
+      "room": "Bedroom_A",
+      "kind": "table",
+      "box": [
+        3370,
+        9227,
+        350,
+        350
+      ],
+      "height": 550,
+      "z": 0
+    },
+    "A_bedside_east": {
+      "room": "Bedroom_A",
+      "kind": "table",
+      "box": [
+        5520,
+        9227,
+        350,
+        350
+      ],
+      "height": 550,
+      "z": 0
+    },
+    "D_bedside": {
+      "room": "Bedroom_D",
+      "kind": "shelf",
+      "box": [
+        1040,
+        -3258,
+        400,
+        120
+      ],
+      "height": 40,
+      "z": 650,
+      "status": "床头北侧壁面薄搁板，保持柜前900及床西主要通路"
     }
   },
   "doors": {
@@ -1113,12 +1205,13 @@
         35.0
       ],
       "open_box": [
-        -410.0,
+        435,
         6189.5,
-        35.0,
-        810.0
+        35,
+        810
       ],
-      "opening": "A_door"
+      "opening": "A_door",
+      "hinge": "east"
     },
     "master_bath_door_leaf": {
       "closed_box": [
@@ -1167,18 +1260,21 @@
     },
     "bath_door_leaf": {
       "closed_box": [
-        -655.0,
-        1292.5,
-        710.0,
-        35.0
+        150,
+        1195,
+        900,
+        35
       ],
       "open_box": [
-        -655.0,
-        582.5,
-        35.0,
-        710.0
+        -750,
+        1195,
+        900,
+        35
       ],
-      "opening": "bath_door"
+      "opening": "bath_door",
+      "kind": "sliding",
+      "handle_projection_mm": 0,
+      "status": "外置上吊，西停靠；凹入拉手、隐私锁及应急解锁待核"
     },
     "balconyB_door_leaf": {
       "closed_box": [
@@ -1521,11 +1617,11 @@
         3800
       ],
       [
-        100,
+        0,
         3800
       ],
       [
-        100,
+        0,
         6600
       ]
     ],
@@ -1555,5 +1651,925 @@
         3700
       ]
     ]
+  },
+  "optimization": {
+    "household": "夫妻与一名学龄前孩子；A主卧、B儿童房、D客房",
+    "status": "逐室优化条件方案；非施工通过",
+    "route_target_mm": 900,
+    "basket_mm": 600,
+    "basket_reserve_each_side_mm": 10,
+    "resolved_conflicts": [
+      "阅读单椅候选Y3900与原携篮中心线Y3800的620扫掠重叠；单椅北移300，朝西坐，腿部避开东侧穿行。",
+      "幕布原南端Y−3450与D房全开门北沿Y−3938仅488净距；幕布整体北移250，尺寸保持，形成738名义间距；投影对位待深化。",
+      "客厅单椅面东，腿部区域位于全开客房门南侧，西侧保留阳台路径。",
+      "客厅单椅南移250，避免客房入口620扫掠与座椅北沿重叠；西侧阳台通路保留。",
+      "客房东侧床头落地几占用衣柜前900操作带；改北侧400×120壁面薄搁板，底标高650，保留柜前及床西通路。",
+      "原儿童东墙600×1200候选北端Y4044与床尾Y4047仅差3，窗边无法步行到达；改南墙1200×600，椅背归入至桌北沿，床尾至椅北沿553；500路径每侧约26.5名义余量，600及900不通过；坐人拉椅时窗帘操作错时。"
+    ]
+  },
+  "historical_issues": [
+    {
+      "id": "A_handle_west_hinge",
+      "finding": "原西铰A门50mm突出把手在87–90°碰西墙",
+      "closed_box": [
+        -375.0,
+        6189.5,
+        810.0,
+        35.0
+      ],
+      "open_box": [
+        -410.0,
+        6189.5,
+        35.0,
+        810.0
+      ],
+      "resolution": "东铰内开后重新逐度复算；实际门框、开关及五金仍待现场"
+    },
+    {
+      "id": "public_bath_old",
+      "finding": "原850×850淋浴、700×400换衣区及外开门绕行",
+      "resolution": "边界不变，改西侧淋浴及南侧外置移门；排污、防水、隐私锁待核"
+    }
+  ],
+  "room_functions": {
+    "Hall": [
+      "鞋柜中格：钥匙与随身小物",
+      "西墙挂钩：包和外套；底标高1100/1600",
+      "壁挂折叠换鞋座：收起后通行，展开换鞋与穿行错时"
+    ],
+    "Study": [
+      "北桌共享学习，书椅东移220",
+      "中西阅读单椅朝西，小边几置杯",
+      "浅柜北段低层300–900：儿童常用书"
+    ],
+    "Bedroom_A": [
+      "双侧床头置物，壁灯和充电沿床头墙布置",
+      "入口衣柜西一模块下层：脏衣篮",
+      "东侧换铰内开，门框开关五金待核"
+    ],
+    "Bedroom_B": [
+      "东南南墙1200×600可调桌，书椅面南",
+      "书包挂东墙桌上侧；玩具在桌下西段低格",
+      "衣柜下部300–900常用衣物；床尾中央活动；窗帘操作与坐人拉椅错时"
+    ],
+    "Bedroom_D": [
+      "床头局部置物、充电及壁灯",
+      "行李放衣柜北端下层，取用后归位",
+      "衣柜北半挂衣、南半备用床品"
+    ],
+    "Living": [
+      "保留沙发、投影、单椅；边几置物",
+      "阅读灯靠家具，电线沿墙固定",
+      "幕布放下状态核验D门及阳台通路"
+    ],
+    "Kitchen": [
+      "水槽—800备菜面—灶台；备菜台不放常驻电器",
+      "灶下锅具，灶侧调味；水槽下垃圾与清洁品",
+      "备菜柜抽屉餐具；小电器归南墙电器柜"
+    ],
+    "C_Prep_Dining": [
+      "四人日常、六人临时，岛桌相连及独立椅保留",
+      "咖啡机手动加水、磨豆、放热盘各用既有分区",
+      "北排拉椅时携篮在西侧等待；冰箱门加人不算旁通道"
+    ],
+    "Bath_A": [
+      "盆上镜柜；毛巾靠盆侧墙",
+      "纸品靠坐便侧墙；清洁用品入盆柜",
+      "地面不增加收纳，关门后顺序使用"
+    ],
+    "Bath_Public": [
+      "西侧整条淋浴，东侧南端700入口",
+      "中央800×600擦身换衣；单人洗漱如厕顺序共享",
+      "外置上吊门西停靠；锁、排污、防水和玻璃深化待核"
+    ],
+    "Balcony_B": [
+      "端部叠放洗烘；洗涤剂入上部壁柜",
+      "脏衣篮送洗即装机，避免长期占设备前",
+      "少量挂晾与折叠整理台展开单列；检修前收起"
+    ],
+    "Balcony_A": [
+      "休闲与到窗清洁为主",
+      "东端壁挂临时晾晒，收起保通路"
+    ]
+  },
+  "use_zones": {
+    "child_seated": {
+      "room": "Bedroom_B",
+      "box": [
+        3276,
+        3444,
+        700,
+        600
+      ],
+      "state": "坐人",
+      "owner": "child_chair"
+    },
+    "child_pull": {
+      "room": "Bedroom_B",
+      "box": [
+        3376,
+        3494,
+        500,
+        500
+      ],
+      "state": "拉椅",
+      "owner": "child_chair"
+    },
+    "child_play": {
+      "room": "Bedroom_B",
+      "box": [
+        1740,
+        2844,
+        900,
+        900
+      ],
+      "state": "床尾活动",
+      "owner": null
+    },
+    "child_bay_access": {
+      "room": "Bedroom_B",
+      "box": [
+        3376,
+        4144,
+        600,
+        1100
+      ],
+      "state": "飘窗窗帘操作",
+      "owner": null
+    },
+    "family_legs": {
+      "room": "Study",
+      "box": [
+        -2610,
+        4200,
+        550,
+        850
+      ],
+      "state": "阅读坐人",
+      "owner": "family_reading_chair"
+    },
+    "study_pull": {
+      "room": "Study",
+      "box": [
+        -1180,
+        4497,
+        500,
+        500
+      ],
+      "state": "拉椅",
+      "owner": "study_chair"
+    },
+    "public_changing": {
+      "room": "Bath_Public",
+      "box": [
+        250,
+        1400,
+        800,
+        600
+      ],
+      "state": "擦身换衣",
+      "owner": null
+    },
+    "public_wc_use": {
+      "room": "Bath_Public",
+      "box": [
+        350,
+        1424,
+        600,
+        600
+      ],
+      "state": "坐便",
+      "owner": "Bath_Public_wc"
+    },
+    "public_basin_use": {
+      "room": "Bath_Public",
+      "box": [
+        570,
+        1400,
+        600,
+        600
+      ],
+      "state": "洗手",
+      "owner": "Bath_Public_basin"
+    },
+    "shower_entry": {
+      "room": "Bath_Public",
+      "box": [
+        120,
+        1370,
+        600,
+        600
+      ],
+      "state": "进出淋浴",
+      "owner": "shower_public"
+    },
+    "shoe_seat_folded": {
+      "room": "Hall",
+      "box": [
+        -3410,
+        1420,
+        60,
+        400
+      ],
+      "state": "收起",
+      "owner": null,
+      "z": 450,
+      "height": 420
+    },
+    "shoe_seat_open": {
+      "room": "Hall",
+      "box": [
+        -3410,
+        1420,
+        420,
+        400
+      ],
+      "state": "展开换鞋",
+      "owner": null,
+      "z": 430,
+      "height": 20
+    },
+    "basket_wait": {
+      "room": "Living",
+      "box": [
+        -2600,
+        250,
+        620,
+        620
+      ],
+      "state": "北排拉椅时等待",
+      "owner": null
+    },
+    "laundry_loading": {
+      "room": "Balcony_B",
+      "box": [
+        4216,
+        1190,
+        750,
+        650
+      ],
+      "state": "装卸清滤网",
+      "owner": "laundry"
+    },
+    "laundry_folded": {
+      "room": "Balcony_B",
+      "box": [
+        5033,
+        100,
+        60,
+        600
+      ],
+      "state": "整理台收起",
+      "owner": null,
+      "z": 800,
+      "height": 400
+    },
+    "laundry_table_open": {
+      "room": "Balcony_B",
+      "box": [
+        4693,
+        100,
+        400,
+        600
+      ],
+      "state": "整理台展开",
+      "owner": null,
+      "z": 780,
+      "height": 20
+    },
+    "laundry_hanging": {
+      "room": "Balcony_B",
+      "box": [
+        4393,
+        100,
+        700,
+        600
+      ],
+      "state": "少量挂晾展开",
+      "owner": null,
+      "z": 1700,
+      "height": 800
+    },
+    "balconyA_hanging": {
+      "room": "Balcony_A",
+      "box": [
+        -1767,
+        -6250,
+        600,
+        800
+      ],
+      "state": "临时晾晒展开",
+      "owner": null
+    },
+    "screen_down": {
+      "room": "Living",
+      "box": [
+        -1200.0,
+        -3200.0,
+        80.0,
+        2450.0
+      ],
+      "state": "幕布放下",
+      "owner": "screen",
+      "z": 650,
+      "height": 1550
+    },
+    "lounge_legs": {
+      "room": "Living",
+      "box": [
+        -1300,
+        -4625,
+        550,
+        600
+      ],
+      "state": "单椅坐人",
+      "owner": "lounge_chair"
+    },
+    "B_wardrobe_access": {
+      "room": "Bedroom_B",
+      "box": [
+        1240,
+        4547,
+        900,
+        1500
+      ],
+      "state": "移门取衣",
+      "owner": "wardrobeB"
+    },
+    "D_wardrobe_access": {
+      "room": "Bedroom_D",
+      "box": [
+        2476,
+        -5750,
+        900,
+        2400
+      ],
+      "state": "移门取衣及取行李",
+      "owner": "wardrobeD"
+    },
+    "A_bed_west": {
+      "room": "Bedroom_A",
+      "box": [
+        3120,
+        7577,
+        600,
+        1500
+      ],
+      "state": "西侧上下床",
+      "owner": "bedA"
+    },
+    "A_bed_east": {
+      "room": "Bedroom_A",
+      "box": [
+        5520,
+        7577,
+        600,
+        1500
+      ],
+      "state": "东侧上下床",
+      "owner": "bedA"
+    }
+  },
+  "workflow_routes": {
+    "入户收纳": {
+      "rooms": [
+        "Hall",
+        "Study"
+      ],
+      "points": [
+        [
+          -3950,
+          2300
+        ],
+        [
+          -1950,
+          2300
+        ],
+        [
+          -1950,
+          3800
+        ],
+        [
+          -300,
+          3800
+        ]
+      ],
+      "states": [
+        "shoe_seat_open"
+      ]
+    },
+    "孩子睡眠与学习": {
+      "rooms": [
+        "Bedroom_B"
+      ],
+      "points": [
+        [
+          1000,
+          3700
+        ],
+        [
+          1740,
+          3700
+        ],
+        [
+          1740,
+          4300
+        ],
+        [
+          1740,
+          3700
+        ],
+        [
+          2350,
+          3700
+        ]
+      ],
+      "states": [
+        "child_seated",
+        "child_pull"
+      ]
+    },
+    "家庭共读": {
+      "rooms": [
+        "Study"
+      ],
+      "points": [
+        [
+          0,
+          3800
+        ],
+        [
+          0,
+          5100
+        ]
+      ],
+      "states": [
+        "family_legs",
+        "study_pull"
+      ]
+    },
+    "夜间如厕": {
+      "rooms": [
+        "Bedroom_A",
+        "Bath_A"
+      ],
+      "points": [
+        [
+          3200,
+          8200
+        ],
+        [
+          3200,
+          8800
+        ],
+        [
+          1800,
+          8800
+        ],
+        [
+          1800,
+          9080
+        ],
+        [
+          950,
+          9080
+        ]
+      ],
+      "states": []
+    },
+    "备餐就餐": {
+      "rooms": [
+        "Kitchen",
+        "C_Prep_Dining"
+      ],
+      "points": [
+        [
+          3500,
+          1500
+        ],
+        [
+          2800,
+          1500
+        ],
+        [
+          2100,
+          1500
+        ],
+        [
+          2100,
+          875
+        ],
+        [
+          1500,
+          875
+        ]
+      ],
+      "states": [
+        "basket_wait"
+      ]
+    },
+    "洗浴换衣": {
+      "rooms": [
+        "Bath_Public"
+      ],
+      "points": [
+        [
+          600,
+          800
+        ],
+        [
+          600,
+          1700
+        ],
+        [
+          -200,
+          1700
+        ]
+      ],
+      "states": [
+        "public_changing",
+        "public_wc_use",
+        "public_basin_use"
+      ],
+      "walkable_surfaces": [
+        "shower_public"
+      ]
+    },
+    "洗烘归柜": {
+      "rooms": [
+        "Balcony_B",
+        "C_Prep_Dining",
+        "Study",
+        "Bedroom_A"
+      ],
+      "points": [
+        [
+          4500,
+          875
+        ],
+        [
+          200,
+          875
+        ],
+        [
+          200,
+          200
+        ],
+        [
+          -2600,
+          200
+        ],
+        [
+          -2600,
+          2300
+        ],
+        [
+          -1950,
+          2300
+        ],
+        [
+          -1950,
+          3800
+        ],
+        [
+          0,
+          3800
+        ],
+        [
+          0,
+          7400
+        ],
+        [
+          2000,
+          7400
+        ]
+      ],
+      "states": [
+        "laundry_loading",
+        "laundry_table_open",
+        "laundry_hanging"
+      ]
+    },
+    "客房与阳台休闲": {
+      "rooms": [
+        "Living",
+        "Bedroom_D",
+        "Balcony_A"
+      ],
+      "points": [
+        [
+          -2650,
+          -500
+        ],
+        [
+          -2650,
+          -4800
+        ],
+        [
+          -2700,
+          -4800
+        ],
+        [
+          -2700,
+          -5800
+        ]
+      ],
+      "states": [
+        "screen_down",
+        "lounge_legs",
+        "balconyA_hanging"
+      ]
+    },
+    "客房入口": {
+      "rooms": [
+        "Living",
+        "Bedroom_D"
+      ],
+      "points": [
+        [
+          -2650,
+          -3570
+        ],
+        [
+          500,
+          -3570
+        ]
+      ],
+      "states": [
+        "screen_down",
+        "lounge_legs"
+      ]
+    },
+    "主卧东侧夜间路线": {
+      "rooms": [
+        "Bedroom_A",
+        "Bath_A"
+      ],
+      "points": [
+        [
+          6000,
+          8200
+        ],
+        [
+          6000,
+          7100
+        ],
+        [
+          3200,
+          7100
+        ],
+        [
+          3200,
+          8800
+        ],
+        [
+          1800,
+          8800
+        ],
+        [
+          1800,
+          9080
+        ],
+        [
+          950,
+          9080
+        ]
+      ],
+      "states": []
+    },
+    "儿童飘窗到达": {
+      "rooms": [
+        "Bedroom_B"
+      ],
+      "points": [
+        [
+          1740,
+          3770.5
+        ],
+        [
+          3650,
+          3770.5
+        ],
+        [
+          3650,
+          4700
+        ]
+      ],
+      "states": [
+        "child_seated",
+        "child_pull"
+      ],
+      "required_state": "书椅正常归入桌下且无人就座；帘操作与坐人拉椅错时"
+    }
+  },
+  "accessories": {
+    "entry_hooks": {
+      "room": "Hall",
+      "box": [
+        -3410,
+        1450,
+        35,
+        350
+      ],
+      "z": 1100,
+      "height": 550,
+      "label": "包与外套挂钩区",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "A_west_charge": {
+      "room": "Bedroom_A",
+      "box": [
+        3470,
+        9837,
+        100,
+        40
+      ],
+      "z": 650,
+      "height": 80,
+      "label": "床头充电插座",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "A_west_light": {
+      "room": "Bedroom_A",
+      "box": [
+        3470,
+        9837,
+        100,
+        40
+      ],
+      "z": 1200,
+      "height": 180,
+      "label": "床头阅读壁灯",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "A_east_charge": {
+      "room": "Bedroom_A",
+      "box": [
+        5650,
+        9837,
+        100,
+        40
+      ],
+      "z": 650,
+      "height": 80,
+      "label": "床头充电插座",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "A_east_light": {
+      "room": "Bedroom_A",
+      "box": [
+        5650,
+        9837,
+        100,
+        40
+      ],
+      "z": 1200,
+      "height": 180,
+      "label": "床头阅读壁灯",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "D_charge": {
+      "room": "Bedroom_D",
+      "box": [
+        2590,
+        -3168,
+        100,
+        40
+      ],
+      "z": 650,
+      "height": 80,
+      "label": "床头充电插座",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "D_light": {
+      "room": "Bedroom_D",
+      "box": [
+        2590,
+        -3168,
+        100,
+        40
+      ],
+      "z": 1200,
+      "height": 180,
+      "label": "床头阅读壁灯",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "A_dirty_linen": {
+      "room": "Bedroom_A",
+      "box": [
+        -350,
+        7930,
+        600,
+        400
+      ],
+      "z": 120,
+      "height": 550,
+      "label": "衣柜西模块内脏衣篮",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "child_bag": {
+      "room": "Bedroom_B",
+      "box": [
+        3906,
+        2944,
+        70,
+        250
+      ],
+      "z": 900,
+      "height": 350,
+      "label": "书包挂放区",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "child_toys": {
+      "room": "Bedroom_B",
+      "box": [
+        2826,
+        2944,
+        400,
+        350
+      ],
+      "z": 100,
+      "height": 350,
+      "label": "桌下北段玩具盒",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "family_low_books": {
+      "room": "Study",
+      "box": [
+        -3350,
+        3800,
+        330,
+        450
+      ],
+      "z": 300,
+      "height": 600,
+      "label": "浅柜北段低层童书",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "D_luggage": {
+      "room": "Bedroom_D",
+      "box": [
+        3460,
+        -3960,
+        430,
+        550
+      ],
+      "z": 120,
+      "height": 550,
+      "label": "衣柜北段内行李位",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "master_mirror": {
+      "room": "Bath_A",
+      "box": [
+        550,
+        9917,
+        600,
+        40
+      ],
+      "z": 1100,
+      "height": 700,
+      "label": "镜面收纳",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "master_towel": {
+      "room": "Bath_A",
+      "box": [
+        1235,
+        9520,
+        35,
+        300
+      ],
+      "z": 1000,
+      "height": 400,
+      "label": "盆侧毛巾",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "public_mirror": {
+      "room": "Bath_Public",
+      "box": [
+        1560,
+        1430,
+        40,
+        540
+      ],
+      "z": 1100,
+      "height": 700,
+      "label": "盆上镜柜",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    },
+    "laundry_detergent": {
+      "room": "Balcony_B",
+      "box": [
+        4216,
+        2490,
+        700,
+        200
+      ],
+      "z": 1850,
+      "height": 500,
+      "label": "洗涤剂壁柜",
+      "status": "壁面或柜内分区概念；固定与电气待核"
+    }
   }
 }

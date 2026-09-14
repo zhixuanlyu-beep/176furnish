@@ -9,6 +9,7 @@ F=D['furniture']; W=D['walls']; DOORS=D['doors']
 LABELS={'Dining_4':'四人就座组','Dining_6':'六人替代组','Bedroom_A':'主卧 A','Bedroom_B':'卧室 B','Bedroom_D':'卧室 D','Bath_A':'主卫·无淋浴','Bath_Public':'客卫·唯一淋浴','Study':'家庭厅','Hall':'玄关／走道','Kitchen':'厨房','Living':'客厅','C_Prep_Dining':'餐区','Balcony_A':'阳台 A','Balcony_B':'洗烘阳台','bedA':'主卧床','bedB':'B床','bedD':'D床','wardrobeA':'原主卧衣柜','wardrobeB':'B衣柜','wardrobeD':'D衣柜','entry_wardrobe':'入口衣柜','sofa':'沙发','screen':'升降幕布','desk':'书桌','study_chair':'书椅','study_storage':'大件柜','study_shallow':'浅柜','shoe':'鞋柜','fridge':'冰箱','tower':'电器高柜','coffee':'咖啡柜','island':'岛台','table4':'四人桌','table6':'六人桌','hob':'灶台','prep':'备菜柜','sink':'主槽柜','Bath_A_basin':'主卫洗手盆','Bath_A_wc':'主卫马桶','Bath_Public_basin':'客卫洗手盆','Bath_Public_wc':'客卫马桶','shower_public':'客卫淋浴','laundry':'洗烘','side_table':'边几','lounge_chair':'单椅','floor_lamp':'落地灯','A_door_leaf':'主卧门','master_bath_door_leaf':'主卫门','bath_door_leaf':'客卫门','entry_leaf':'入户门','balconyB_door_leaf':'洗烘阳台门','combi_steam_oven':'蒸烤一体机','built_in_microwave':'嵌入式微波炉','robot_station':'基站预留','coffee_machine':'咖啡机','grinder':'磨豆机','coffee_landing':'放盘区','island_sink_recess':'岛槽','dishwasher':'洗碗机','purifier':'净水预留'}
 changed={'bedA','entry_wardrobe','Bath_A_wc','Bath_A_basin','island','table4','table6','fridge','tower','coffee'}
 C={'ink':'#233e38','green':'#34735e','light':'#e0e9df','orange':'#b36b36','red':'#b6473b','blue':'#467896','paper':'#fbfaf5'}
+LABELS.update(child_desk='儿童书桌',child_chair='儿童书椅',family_reading_chair='阅读单椅',family_side_table='阅读边几',A_bedside_west='床头置物',A_bedside_east='床头置物',D_bedside='客房置物',Bedroom_B='儿童房 B',Bedroom_D='客房 D')
 def name(n):return LABELS.get(n, '餐椅 '+n.split('_')[-1] if n.startswith('chair') else n)
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def dump(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -32,6 +33,9 @@ def collision(a,b,tol=1):
  return True
 
 def door_motion(v):
+ if v.get('kind')=='sliding':
+  cb,ob=v['closed_box'],v['open_box']
+  return (cb[0],cb[1]),0,[rectpoly([cb[0]+(ob[0]-cb[0])*i/90,cb[1]+(ob[1]-cb[1])*i/90,*cb[2:]]) for i in range(91)]
  cb,ob=v['closed_box'],v['open_box'];cc=(cb[0]+cb[2]/2,cb[1]+cb[3]/2);oc=(ob[0]+ob[2]/2,ob[1]+ob[3]/2)
  candidates=[]
  for s in [1,-1]:
@@ -60,6 +64,7 @@ def operation_boxes():
   r[k+'_open']=[x,front,w,opening];r[k+'_operator']=[x,front+opening,w,oper]
  x,y,w,h=F['tower']['box'];r['microwave_open']=[x,y+h,w,520];r['microwave_hot_food']=[x,y+h+520,w,600]
  r.update(dishwasher_open=[2600,1474,600,650],dishwasher_operator=[2600,874,600,600],robot_approach=D['appliances']['robot_station']['approach'],island_operator=[3300,-225,600,600],wardrobe_drawer=[1980,7387,800,450],wardrobe_operator=[-420,6837,3200,600],master_wc_operator=[-380,8600,600,600],master_basin_operator=[530,8900,700,600],public_changing=[-680,1400,700,400])
+ r['public_changing']=D['use_zones']['public_changing']['box']
  return r
 OPS=operation_boxes()
 
@@ -158,7 +163,7 @@ def validate():
  if any(equipment_solid_hits.values()):hard.append('设备开启与固定实体冲突')
  evidence['equipment_open_to_solids']=equipment_solid_hits
 
- evidence['public_bath']={'area_m2':sum(area(b) for b in D['rooms']['Bath_Public']),'shower_mm':F['shower_public']['box'][2:],'dry_changing_placeholder_mm':OPS['public_changing'][2:],'status':'概念净空可画出；400mm深换衣位偏窄，不认定为舒适换衣区；无独立更衣隔间；唯一淋浴需错峰'}
+ evidence['public_bath']={'area_m2':sum(area(b) for b in D['rooms']['Bath_Public']),'shower_mm':F['shower_public']['box'][2:],'dry_changing_placeholder_mm':OPS['public_changing'][2:],'status':'西侧淋浴、中央换衣，单人顺序共享；具体尺寸与条件见逐室复算'}
  for n in ['Bath_A_wc','Bath_A_basin']:
   b=F[n]['box'];r=D['rooms']['Bath_A'][0]
   if not (r[0]<=b[0] and r[1]<=b[1] and b[0]+b[2]<=r[0]+r[2] and b[1]+b[3]<=r[1]+r[3]):hard.append(n+' 超出主卫')
@@ -318,7 +323,7 @@ def drawings():
  save(q,'11-services.svg','新版水电概念点位')
  q=Drawing('客卫唯一淋浴与使用限制')
  q.plan([-1000,1100,2850,1850],[70,130,1050,640],ops=True)
- q.notes(['客卫边界保持：2380×1354，约3.223㎡；淋浴占位850×850。门向外开启，通道需保持空闲。','可画出的700×400mm干区候选换衣位偏窄，不认定为舒适换衣区；没有独立更衣隔间。','全家淋浴需错峰；洗澡时其他卧室使用客卫受影响，可等待或借用主卫。检修停用时无第二淋浴。'])
+ q.notes(['客卫边界2380×1354保持；西侧900×1354淋浴，东侧南端名义700入口。','中央800×600换衣占位，单人顺序共享；南侧800门洞，外置上吊门向西停靠。','全家淋浴需错峰；洗澡时其他卧室使用客卫受影响，可等待或借用主卫。检修停用时无第二淋浴。'])
  save(q,'12-public-bath.svg','唯一淋浴与换衣限制')
  return items
 

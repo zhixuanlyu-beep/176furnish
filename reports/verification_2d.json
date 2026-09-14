@@ -200,10 +200,10 @@
     "doors_0_to_90_degrees": {
       "A_door_leaf": {
         "pivot": [
-          -375.0,
+          435.0,
           6189.5
         ],
-        "direction": 1,
+        "direction": -1,
         "furniture_hits": {}
       },
       "master_bath_door_leaf": {
@@ -232,10 +232,10 @@
       },
       "bath_door_leaf": {
         "pivot": [
-          -655.0,
-          1292.5
+          150,
+          1195
         ],
-        "direction": -1,
+        "direction": 0,
         "furniture_hits": {}
       },
       "balconyB_door_leaf": {
@@ -342,14 +342,20 @@
     "public_bath": {
       "area_m2": 3.22252,
       "shower_mm": [
-        850.0,
-        850.0
+        900,
+        1354
       ],
+      "shower_entry_nominal_mm": 700,
       "dry_changing_placeholder_mm": [
-        700,
-        400
+        800,
+        600
       ],
-      "status": "概念净空可画出；400mm深换衣位偏窄，不认定为舒适换衣区；无独立更衣隔间；唯一淋浴需错峰"
+      "door_opening_mm": 800,
+      "jamb_assumption_each_mm": 45,
+      "door_clear_assumed_mm": 710,
+      "sliding_travel_mm": 900,
+      "central_turning_circle_900_fits": false,
+      "status": "800×600占位非900转身圆；单人顺序共享；700淋浴入口须扣五金实测；门锁应急解锁、墙体承载、排污、防水坡度与挡水待核"
     },
     "metrics": {
       "island_length_mm": 1600,
@@ -370,11 +376,11 @@
       "microwave_counter_released_mm": 520
     },
     "limitations": [
-      "R10.4二维与三维已同步；渲染尚未生成。",
-      "所有通行结论仅适用于明确门、餐椅、鞋柜状态；设备操作及取物须错时。",
-      "主卧A门50mm把手假设在接近全开时与原墙相交；需实际五金及限位复核，不认定全开安装通过。",
-      "短墙可改性、门框固定、线路及柜背构造需现场核实。",
-      "原结构、燃气、岛槽重力排水、唯一淋浴及设备安装条件保留。"
+      "主卧原西铰门50mm把手87–90°碰墙记录保留；东铰结果见A_door_revision，实际五金未获施工确认。",
+      "固定实体、使用占位与候选路线结果分列；候选中心线受阻不等于整个房间不可达。",
+      "900mm是通路目标，800门洞扣门框假设仅710；浴室中央非900mm转身圆。",
+      "淋浴隔断700入口为名义尺寸，门锁隐私、排污、防水与结构须现场深化。",
+      "未生成三维渲染；状态几何及1°采样不等于连续实体或人体工学认证。"
     ],
     "approved_fixed_coordinates_checked": {
       "shoe": [
@@ -402,7 +408,7 @@
         1000
       ],
       "study_chair": [
-        -1400,
+        -1180,
         4997,
         500,
         500
@@ -427,14 +433,7 @@
       "shoe_family_angle_hits": [],
       "method": "0–90°每1°离散采样；小于1°的运动区间未作解析证明"
     },
-    "room_handle_hits_site_review": {
-      "A_door_leaf": {
-        "wall_A_west_0": [
-          87,
-          90
-        ]
-      }
-    },
+    "room_handle_hits_site_review": {},
     "sliding_doors": {
       "panels_mm": 618,
       "travel_mm": 558,
@@ -459,7 +458,9 @@
         ]
       },
       "shallow_north_operator": {
-        "fixed_hits": [],
+        "fixed_hits": [
+          "family_side_table"
+        ],
         "open_door_hits": []
       }
     },
@@ -2946,11 +2947,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -2984,11 +2985,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3032,11 +3033,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3070,11 +3071,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3118,11 +3119,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3156,11 +3157,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3204,11 +3205,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3242,11 +3243,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3290,11 +3291,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3328,11 +3329,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3376,11 +3377,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3414,11 +3415,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3462,11 +3463,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3500,11 +3501,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3548,11 +3549,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3586,11 +3587,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3634,11 +3635,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3672,11 +3673,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3720,11 +3721,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3758,11 +3759,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3806,11 +3807,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3844,11 +3845,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3892,11 +3893,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3930,11 +3931,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -3978,11 +3979,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -4016,11 +4017,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -4064,11 +4065,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -4102,11 +4103,11 @@
             3800
           ],
           [
-            100,
+            0,
             3800
           ],
           [
-            100,
+            0,
             6600
           ]
         ],
@@ -5472,6 +5473,2090 @@
       "infill_mm": 400,
       "returns_sum_mm": 1010,
       "shallow_length_reduction_mm": 224
+    },
+    "historical_issues": [
+      {
+        "id": "A_handle_west_hinge",
+        "finding": "原西铰A门50mm突出把手在87–90°碰西墙",
+        "closed_box": [
+          -375.0,
+          6189.5,
+          810.0,
+          35.0
+        ],
+        "open_box": [
+          -410.0,
+          6189.5,
+          35.0,
+          810.0
+        ],
+        "resolution": "东铰内开后重新逐度复算；实际门框、开关及五金仍待现场"
+      },
+      {
+        "id": "public_bath_old",
+        "finding": "原850×850淋浴、700×400换衣区及外开门绕行",
+        "resolution": "边界不变，改西侧淋浴及南侧外置移门；排污、防水、隐私锁待核"
+      }
+    ],
+    "whole_home_fixed_hits": [],
+    "height_checked_nesting": [
+      {
+        "pair": [
+          "desk",
+          "study_chair"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      },
+      {
+        "pair": [
+          "table4",
+          "chair4_0"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      },
+      {
+        "pair": [
+          "table4",
+          "chair4_1"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      },
+      {
+        "pair": [
+          "table4",
+          "chair4_2"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      },
+      {
+        "pair": [
+          "table4",
+          "chair4_3"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      },
+      {
+        "pair": [
+          "child_desk",
+          "child_chair"
+        ],
+        "seat_top_mm": 500,
+        "table_underside_mm": 705,
+        "back_clear": true
+      }
+    ],
+    "room_use_states": {
+      "child_seated": {
+        "room": "Bedroom_B",
+        "box": [
+          3276,
+          3444,
+          700,
+          600
+        ],
+        "state": "坐人",
+        "owner": "child_chair",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "child_pull": {
+        "room": "Bedroom_B",
+        "box": [
+          3376,
+          3494,
+          500,
+          500
+        ],
+        "state": "拉椅",
+        "owner": "child_chair",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "child_play": {
+        "room": "Bedroom_B",
+        "box": [
+          1740,
+          2844,
+          900,
+          900
+        ],
+        "state": "床尾活动",
+        "owner": null,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "child_bay_access": {
+        "room": "Bedroom_B",
+        "box": [
+          3376,
+          4144,
+          600,
+          1100
+        ],
+        "state": "飘窗窗帘操作",
+        "owner": null,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "family_legs": {
+        "room": "Study",
+        "box": [
+          -2610,
+          4200,
+          550,
+          850
+        ],
+        "state": "阅读坐人",
+        "owner": "family_reading_chair",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "study_pull": {
+        "room": "Study",
+        "box": [
+          -1180,
+          4497,
+          500,
+          500
+        ],
+        "state": "拉椅",
+        "owner": "study_chair",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "public_changing": {
+        "room": "Bath_Public",
+        "box": [
+          250,
+          1400,
+          800,
+          600
+        ],
+        "state": "擦身换衣",
+        "owner": null,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "public_wc_use": {
+        "room": "Bath_Public",
+        "box": [
+          350,
+          1424,
+          600,
+          600
+        ],
+        "state": "坐便",
+        "owner": "Bath_Public_wc",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "public_basin_use": {
+        "room": "Bath_Public",
+        "box": [
+          570,
+          1400,
+          600,
+          600
+        ],
+        "state": "洗手",
+        "owner": "Bath_Public_basin",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "shower_entry": {
+        "room": "Bath_Public",
+        "box": [
+          120,
+          1370,
+          600,
+          600
+        ],
+        "state": "进出淋浴",
+        "owner": "shower_public",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "shoe_seat_folded": {
+        "room": "Hall",
+        "box": [
+          -3410,
+          1420,
+          60,
+          400
+        ],
+        "state": "收起",
+        "owner": null,
+        "z": 450,
+        "height": 420,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "shoe_seat_open": {
+        "room": "Hall",
+        "box": [
+          -3410,
+          1420,
+          420,
+          400
+        ],
+        "state": "展开换鞋",
+        "owner": null,
+        "z": 430,
+        "height": 20,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "basket_wait": {
+        "room": "Living",
+        "box": [
+          -2600,
+          250,
+          620,
+          620
+        ],
+        "state": "北排拉椅时等待",
+        "owner": null,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "laundry_loading": {
+        "room": "Balcony_B",
+        "box": [
+          4216,
+          1190,
+          750,
+          650
+        ],
+        "state": "装卸清滤网",
+        "owner": "laundry",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "laundry_folded": {
+        "room": "Balcony_B",
+        "box": [
+          5033,
+          100,
+          60,
+          600
+        ],
+        "state": "整理台收起",
+        "owner": null,
+        "z": 800,
+        "height": 400,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "laundry_table_open": {
+        "room": "Balcony_B",
+        "box": [
+          4693,
+          100,
+          400,
+          600
+        ],
+        "state": "整理台展开",
+        "owner": null,
+        "z": 780,
+        "height": 20,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "laundry_hanging": {
+        "room": "Balcony_B",
+        "box": [
+          4393,
+          100,
+          700,
+          600
+        ],
+        "state": "少量挂晾展开",
+        "owner": null,
+        "z": 1700,
+        "height": 800,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "balconyA_hanging": {
+        "room": "Balcony_A",
+        "box": [
+          -1767,
+          -6250,
+          600,
+          800
+        ],
+        "state": "临时晾晒展开",
+        "owner": null,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "screen_down": {
+        "room": "Living",
+        "box": [
+          -1200.0,
+          -3200.0,
+          80.0,
+          2450.0
+        ],
+        "state": "幕布放下",
+        "owner": "screen",
+        "z": 650,
+        "height": 1550,
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "lounge_legs": {
+        "room": "Living",
+        "box": [
+          -1300,
+          -4625,
+          550,
+          600
+        ],
+        "state": "单椅坐人",
+        "owner": "lounge_chair",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "B_wardrobe_access": {
+        "room": "Bedroom_B",
+        "box": [
+          1240,
+          4547,
+          900,
+          1500
+        ],
+        "state": "移门取衣",
+        "owner": "wardrobeB",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "D_wardrobe_access": {
+        "room": "Bedroom_D",
+        "box": [
+          2476,
+          -5750,
+          900,
+          2400
+        ],
+        "state": "移门取衣及取行李",
+        "owner": "wardrobeD",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "A_bed_west": {
+        "room": "Bedroom_A",
+        "box": [
+          3120,
+          7577,
+          600,
+          1500
+        ],
+        "state": "西侧上下床",
+        "owner": "bedA",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      },
+      "A_bed_east": {
+        "room": "Bedroom_A",
+        "box": [
+          5520,
+          7577,
+          600,
+          1500
+        ],
+        "state": "东侧上下床",
+        "owner": "bedA",
+        "fixed_hits": [],
+        "open_door_hits": [],
+        "status": "矩形占位无固定命中；非人体工学认证"
+      }
+    },
+    "operation_state_overlaps": [
+      {
+        "states": [
+          "child_seated",
+          "child_pull"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_changing",
+          "public_wc_use"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_changing",
+          "public_basin_use"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_changing",
+          "shower_entry"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_wc_use",
+          "public_basin_use"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_wc_use",
+          "shower_entry"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "public_basin_use",
+          "shower_entry"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "shoe_seat_folded",
+          "shoe_seat_open"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "laundry_folded",
+          "laundry_table_open"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "laundry_folded",
+          "laundry_hanging"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      },
+      {
+        "states": [
+          "laundry_table_open",
+          "laundry_hanging"
+        ],
+        "classification": "操作时间重叠，非固定家具碰撞"
+      }
+    ],
+    "whole_home_workflows": [
+      {
+        "workflow": "入户收纳",
+        "width_mm": 500,
+        "points": [
+          [
+            -3950,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            -300,
+            3800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "入户收纳",
+        "width_mm": 600,
+        "points": [
+          [
+            -3950,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            -300,
+            3800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "入户收纳",
+        "width_mm": 620,
+        "points": [
+          [
+            -3950,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            -300,
+            3800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "入户收纳",
+        "width_mm": 900,
+        "points": [
+          [
+            -3950,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            -300,
+            3800
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "entry_jamb_0",
+          "entry_jamb_1",
+          "entry_leaf",
+          "entry_leaf_handle_0",
+          "entry_leaf_handle_1",
+          "family_entry_jamb_0",
+          "family_entry_main_leaf",
+          "family_entry_main_leaf_handle_0",
+          "family_entry_main_leaf_handle_1",
+          "family_entry_secondary_leaf",
+          "family_entry_secondary_leaf_handle_0",
+          "family_entry_secondary_leaf_handle_1",
+          "family_reading_chair",
+          "family_side_table",
+          "shoe",
+          "shoe_wall_door_return",
+          "shoe_wall_west_return",
+          "wall_family_west_0"
+        ],
+        "operation_overlaps": [
+          "family_legs"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "孩子睡眠与学习",
+        "width_mm": 500,
+        "points": [
+          [
+            1000,
+            3700
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            1740,
+            4300
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            2350,
+            3700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "B_wardrobe_access",
+          "child_play"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "孩子睡眠与学习",
+        "width_mm": 600,
+        "points": [
+          [
+            1000,
+            3700
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            1740,
+            4300
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            2350,
+            3700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "B_wardrobe_access",
+          "child_play"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "孩子睡眠与学习",
+        "width_mm": 620,
+        "points": [
+          [
+            1000,
+            3700
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            1740,
+            4300
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            2350,
+            3700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "B_wardrobe_access",
+          "child_play"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "孩子睡眠与学习",
+        "width_mm": 900,
+        "points": [
+          [
+            1000,
+            3700
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            1740,
+            4300
+          ],
+          [
+            1740,
+            3700
+          ],
+          [
+            2350,
+            3700
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "B_door_jamb_0",
+          "B_door_jamb_1",
+          "B_door_leaf",
+          "bedB",
+          "child_desk",
+          "wall_B_west1_0"
+        ],
+        "operation_overlaps": [
+          "B_wardrobe_access",
+          "child_play"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "家庭共读",
+        "width_mm": 500,
+        "points": [
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            5100
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "家庭共读",
+        "width_mm": 600,
+        "points": [
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            5100
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "家庭共读",
+        "width_mm": 620,
+        "points": [
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            5100
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "家庭共读",
+        "width_mm": 900,
+        "points": [
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            5100
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "夜间如厕",
+        "width_mm": 500,
+        "points": [
+          [
+            3200,
+            8200
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "A_bed_west"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "夜间如厕",
+        "width_mm": 600,
+        "points": [
+          [
+            3200,
+            8200
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf_handle_1"
+        ],
+        "operation_overlaps": [
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "夜间如厕",
+        "width_mm": 620,
+        "points": [
+          [
+            3200,
+            8200
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf_handle_1"
+        ],
+        "operation_overlaps": [
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "夜间如厕",
+        "width_mm": 900,
+        "points": [
+          [
+            3200,
+            8200
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "A_bedside_west",
+          "Bath_A_basin",
+          "entry_wardrobe",
+          "master_bath_door_jamb_0",
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf",
+          "master_bath_door_leaf_handle_0",
+          "master_bath_door_leaf_handle_1",
+          "wall_master_bath_east1_0",
+          "wall_master_bath_east2_0"
+        ],
+        "operation_overlaps": [
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "备餐就餐",
+        "width_mm": 500,
+        "points": [
+          [
+            3500,
+            1500
+          ],
+          [
+            2800,
+            1500
+          ],
+          [
+            2100,
+            1500
+          ],
+          [
+            2100,
+            875
+          ],
+          [
+            1500,
+            875
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "备餐就餐",
+        "width_mm": 600,
+        "points": [
+          [
+            3500,
+            1500
+          ],
+          [
+            2800,
+            1500
+          ],
+          [
+            2100,
+            1500
+          ],
+          [
+            2100,
+            875
+          ],
+          [
+            1500,
+            875
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "备餐就餐",
+        "width_mm": 620,
+        "points": [
+          [
+            3500,
+            1500
+          ],
+          [
+            2800,
+            1500
+          ],
+          [
+            2100,
+            1500
+          ],
+          [
+            2100,
+            875
+          ],
+          [
+            1500,
+            875
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "备餐就餐",
+        "width_mm": 900,
+        "points": [
+          [
+            3500,
+            1500
+          ],
+          [
+            2800,
+            1500
+          ],
+          [
+            2100,
+            1500
+          ],
+          [
+            2100,
+            875
+          ],
+          [
+            1500,
+            875
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "wall_bath_east_0",
+          "wall_bath_south2_0"
+        ],
+        "operation_overlaps": [],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "洗浴换衣",
+        "width_mm": 500,
+        "points": [
+          [
+            600,
+            800
+          ],
+          [
+            600,
+            1700
+          ],
+          [
+            -200,
+            1700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "public_basin_use",
+          "public_changing",
+          "public_wc_use",
+          "shower_entry"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗浴换衣",
+        "width_mm": 600,
+        "points": [
+          [
+            600,
+            800
+          ],
+          [
+            600,
+            1700
+          ],
+          [
+            -200,
+            1700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "public_basin_use",
+          "public_changing",
+          "public_wc_use",
+          "shower_entry"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗浴换衣",
+        "width_mm": 620,
+        "points": [
+          [
+            600,
+            800
+          ],
+          [
+            600,
+            1700
+          ],
+          [
+            -200,
+            1700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "public_basin_use",
+          "public_changing",
+          "public_wc_use",
+          "shower_entry"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗浴换衣",
+        "width_mm": 900,
+        "points": [
+          [
+            600,
+            800
+          ],
+          [
+            600,
+            1700
+          ],
+          [
+            -200,
+            1700
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "Bath_Public_wc",
+          "bath_door_jamb_0",
+          "bath_door_jamb_1",
+          "wall_bath_south1_0",
+          "wall_bath_south2_0"
+        ],
+        "operation_overlaps": [
+          "public_basin_use",
+          "public_changing",
+          "public_wc_use",
+          "shower_entry"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "洗烘归柜",
+        "width_mm": 500,
+        "points": [
+          [
+            4500,
+            875
+          ],
+          [
+            200,
+            875
+          ],
+          [
+            200,
+            200
+          ],
+          [
+            -2600,
+            200
+          ],
+          [
+            -2600,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            7400
+          ],
+          [
+            2000,
+            7400
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "basket_wait",
+          "laundry_hanging",
+          "laundry_table_open"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗烘归柜",
+        "width_mm": 600,
+        "points": [
+          [
+            4500,
+            875
+          ],
+          [
+            200,
+            875
+          ],
+          [
+            200,
+            200
+          ],
+          [
+            -2600,
+            200
+          ],
+          [
+            -2600,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            7400
+          ],
+          [
+            2000,
+            7400
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "basket_wait",
+          "laundry_hanging",
+          "laundry_table_open"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗烘归柜",
+        "width_mm": 620,
+        "points": [
+          [
+            4500,
+            875
+          ],
+          [
+            200,
+            875
+          ],
+          [
+            200,
+            200
+          ],
+          [
+            -2600,
+            200
+          ],
+          [
+            -2600,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            7400
+          ],
+          [
+            2000,
+            7400
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "basket_wait",
+          "laundry_hanging",
+          "laundry_table_open"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "洗烘归柜",
+        "width_mm": 900,
+        "points": [
+          [
+            4500,
+            875
+          ],
+          [
+            200,
+            875
+          ],
+          [
+            200,
+            200
+          ],
+          [
+            -2600,
+            200
+          ],
+          [
+            -2600,
+            2300
+          ],
+          [
+            -1950,
+            2300
+          ],
+          [
+            -1950,
+            3800
+          ],
+          [
+            0,
+            3800
+          ],
+          [
+            0,
+            7400
+          ],
+          [
+            2000,
+            7400
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "A_door_jamb_0",
+          "A_door_jamb_1",
+          "A_door_leaf",
+          "A_door_leaf_handle_0",
+          "A_door_leaf_handle_1",
+          "balconyB_door_jamb_0",
+          "balconyB_door_jamb_1",
+          "balconyB_door_leaf",
+          "balconyB_door_leaf_handle_0",
+          "balconyB_door_leaf_handle_1",
+          "bath_door_jamb_0",
+          "bath_door_jamb_1",
+          "bath_door_leaf",
+          "entry_wardrobe",
+          "family_entry_jamb_0",
+          "family_entry_main_leaf",
+          "family_entry_main_leaf_handle_0",
+          "family_entry_main_leaf_handle_1",
+          "family_entry_secondary_leaf",
+          "family_entry_secondary_leaf_handle_0",
+          "family_entry_secondary_leaf_handle_1",
+          "family_reading_chair",
+          "family_side_table",
+          "shoe",
+          "shoe_wall_door_return",
+          "wall_A_west_0",
+          "wall_balconyB_div1_0",
+          "wall_bath_east_0",
+          "wall_bath_south1_0",
+          "wall_bath_south2_0",
+          "wall_family_north_0"
+        ],
+        "operation_overlaps": [
+          "basket_wait",
+          "family_legs",
+          "laundry_hanging",
+          "laundry_loading",
+          "laundry_table_open",
+          "shoe_seat_open"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "客房与阳台休闲",
+        "width_mm": 500,
+        "points": [
+          [
+            -2650,
+            -500
+          ],
+          [
+            -2650,
+            -4800
+          ],
+          [
+            -2700,
+            -4800
+          ],
+          [
+            -2700,
+            -5800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房与阳台休闲",
+        "width_mm": 600,
+        "points": [
+          [
+            -2650,
+            -500
+          ],
+          [
+            -2650,
+            -4800
+          ],
+          [
+            -2700,
+            -4800
+          ],
+          [
+            -2700,
+            -5800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房与阳台休闲",
+        "width_mm": 620,
+        "points": [
+          [
+            -2650,
+            -500
+          ],
+          [
+            -2650,
+            -4800
+          ],
+          [
+            -2700,
+            -4800
+          ],
+          [
+            -2700,
+            -5800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房与阳台休闲",
+        "width_mm": 900,
+        "points": [
+          [
+            -2650,
+            -500
+          ],
+          [
+            -2650,
+            -4800
+          ],
+          [
+            -2700,
+            -4800
+          ],
+          [
+            -2700,
+            -5800
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房入口",
+        "width_mm": 500,
+        "points": [
+          [
+            -2650,
+            -3570
+          ],
+          [
+            500,
+            -3570
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房入口",
+        "width_mm": 600,
+        "points": [
+          [
+            -2650,
+            -3570
+          ],
+          [
+            500,
+            -3570
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房入口",
+        "width_mm": 620,
+        "points": [
+          [
+            -2650,
+            -3570
+          ],
+          [
+            500,
+            -3570
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "客房入口",
+        "width_mm": 900,
+        "points": [
+          [
+            -2650,
+            -3570
+          ],
+          [
+            500,
+            -3570
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "D_door_jamb_0",
+          "D_door_jamb_1",
+          "D_door_leaf",
+          "D_door_leaf_handle_0",
+          "D_door_leaf_handle_1",
+          "lounge_chair",
+          "screen_down",
+          "wall_D_west2_0"
+        ],
+        "operation_overlaps": [
+          "screen_down"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "主卧东侧夜间路线",
+        "width_mm": 500,
+        "points": [
+          [
+            6000,
+            8200
+          ],
+          [
+            6000,
+            7100
+          ],
+          [
+            3200,
+            7100
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "A_bed_east",
+          "A_bed_west"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "主卧东侧夜间路线",
+        "width_mm": 600,
+        "points": [
+          [
+            6000,
+            8200
+          ],
+          [
+            6000,
+            7100
+          ],
+          [
+            3200,
+            7100
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf_handle_1"
+        ],
+        "operation_overlaps": [
+          "A_bed_east",
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "主卧东侧夜间路线",
+        "width_mm": 620,
+        "points": [
+          [
+            6000,
+            8200
+          ],
+          [
+            6000,
+            7100
+          ],
+          [
+            3200,
+            7100
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf_handle_1"
+        ],
+        "operation_overlaps": [
+          "A_bed_east",
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "主卧东侧夜间路线",
+        "width_mm": 900,
+        "points": [
+          [
+            6000,
+            8200
+          ],
+          [
+            6000,
+            7100
+          ],
+          [
+            3200,
+            7100
+          ],
+          [
+            3200,
+            8800
+          ],
+          [
+            1800,
+            8800
+          ],
+          [
+            1800,
+            9080
+          ],
+          [
+            950,
+            9080
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "A_bedside_west",
+          "Bath_A_basin",
+          "entry_wardrobe",
+          "master_bath_door_jamb_0",
+          "master_bath_door_jamb_1",
+          "master_bath_door_leaf",
+          "master_bath_door_leaf_handle_0",
+          "master_bath_door_leaf_handle_1",
+          "wall_master_bath_east1_0",
+          "wall_master_bath_east2_0"
+        ],
+        "operation_overlaps": [
+          "A_bed_east",
+          "A_bed_west"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "儿童飘窗到达",
+        "width_mm": 500,
+        "points": [
+          [
+            1740,
+            3770.5
+          ],
+          [
+            3650,
+            3770.5
+          ],
+          [
+            3650,
+            4700
+          ]
+        ],
+        "fixed_or_open_door_hits": [],
+        "operation_overlaps": [
+          "child_bay_access",
+          "child_play",
+          "child_pull",
+          "child_seated"
+        ],
+        "status": "该宽度候选线无实体命中；操作重叠须错时"
+      },
+      {
+        "workflow": "儿童飘窗到达",
+        "width_mm": 600,
+        "points": [
+          [
+            1740,
+            3770.5
+          ],
+          [
+            3650,
+            3770.5
+          ],
+          [
+            3650,
+            4700
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "bedB",
+          "child_chair"
+        ],
+        "operation_overlaps": [
+          "child_bay_access",
+          "child_play",
+          "child_pull",
+          "child_seated"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "儿童飘窗到达",
+        "width_mm": 620,
+        "points": [
+          [
+            1740,
+            3770.5
+          ],
+          [
+            3650,
+            3770.5
+          ],
+          [
+            3650,
+            4700
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "bedB",
+          "child_chair"
+        ],
+        "operation_overlaps": [
+          "child_bay_access",
+          "child_play",
+          "child_pull",
+          "child_seated"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      },
+      {
+        "workflow": "儿童飘窗到达",
+        "width_mm": 900,
+        "points": [
+          [
+            1740,
+            3770.5
+          ],
+          [
+            3650,
+            3770.5
+          ],
+          [
+            3650,
+            4700
+          ]
+        ],
+        "fixed_or_open_door_hits": [
+          "bedB",
+          "child_chair",
+          "child_desk",
+          "wall_B_east2_0"
+        ],
+        "operation_overlaps": [
+          "child_bay_access",
+          "child_play",
+          "child_pull",
+          "child_seated"
+        ],
+        "status": "候选中心线受阻；不作通行通过"
+      }
+    ],
+    "room_function_coverage": {
+      "Hall": {
+        "functions": [
+          "鞋柜中格：钥匙与随身小物",
+          "西墙挂钩：包和外套；底标高1100/1600",
+          "壁挂折叠换鞋座：收起后通行，展开换鞋与穿行错时"
+        ],
+        "use_states": [
+          "shoe_seat_folded",
+          "shoe_seat_open"
+        ]
+      },
+      "Study": {
+        "functions": [
+          "北桌共享学习，书椅东移220",
+          "中西阅读单椅朝西，小边几置杯",
+          "浅柜北段低层300–900：儿童常用书"
+        ],
+        "use_states": [
+          "family_legs",
+          "study_pull"
+        ]
+      },
+      "Bedroom_A": {
+        "functions": [
+          "双侧床头置物，壁灯和充电沿床头墙布置",
+          "入口衣柜西一模块下层：脏衣篮",
+          "东侧换铰内开，门框开关五金待核"
+        ],
+        "use_states": [
+          "A_bed_west",
+          "A_bed_east"
+        ]
+      },
+      "Bedroom_B": {
+        "functions": [
+          "东南南墙1200×600可调桌，书椅面南",
+          "书包挂东墙桌上侧；玩具在桌下西段低格",
+          "衣柜下部300–900常用衣物；床尾中央活动；窗帘操作与坐人拉椅错时"
+        ],
+        "use_states": [
+          "child_seated",
+          "child_pull",
+          "child_play",
+          "child_bay_access",
+          "B_wardrobe_access"
+        ]
+      },
+      "Bedroom_D": {
+        "functions": [
+          "床头局部置物、充电及壁灯",
+          "行李放衣柜北端下层，取用后归位",
+          "衣柜北半挂衣、南半备用床品"
+        ],
+        "use_states": [
+          "D_wardrobe_access"
+        ]
+      },
+      "Living": {
+        "functions": [
+          "保留沙发、投影、单椅；边几置物",
+          "阅读灯靠家具，电线沿墙固定",
+          "幕布放下状态核验D门及阳台通路"
+        ],
+        "use_states": [
+          "basket_wait",
+          "screen_down",
+          "lounge_legs"
+        ]
+      },
+      "Kitchen": {
+        "functions": [
+          "水槽—800备菜面—灶台；备菜台不放常驻电器",
+          "灶下锅具，灶侧调味；水槽下垃圾与清洁品",
+          "备菜柜抽屉餐具；小电器归南墙电器柜"
+        ],
+        "use_states": []
+      },
+      "C_Prep_Dining": {
+        "functions": [
+          "四人日常、六人临时，岛桌相连及独立椅保留",
+          "咖啡机手动加水、磨豆、放热盘各用既有分区",
+          "北排拉椅时携篮在西侧等待；冰箱门加人不算旁通道"
+        ],
+        "use_states": []
+      },
+      "Bath_A": {
+        "functions": [
+          "盆上镜柜；毛巾靠盆侧墙",
+          "纸品靠坐便侧墙；清洁用品入盆柜",
+          "地面不增加收纳，关门后顺序使用"
+        ],
+        "use_states": []
+      },
+      "Bath_Public": {
+        "functions": [
+          "西侧整条淋浴，东侧南端700入口",
+          "中央800×600擦身换衣；单人洗漱如厕顺序共享",
+          "外置上吊门西停靠；锁、排污、防水和玻璃深化待核"
+        ],
+        "use_states": [
+          "public_changing",
+          "public_wc_use",
+          "public_basin_use",
+          "shower_entry"
+        ]
+      },
+      "Balcony_B": {
+        "functions": [
+          "端部叠放洗烘；洗涤剂入上部壁柜",
+          "脏衣篮送洗即装机，避免长期占设备前",
+          "少量挂晾与折叠整理台展开单列；检修前收起"
+        ],
+        "use_states": [
+          "laundry_loading",
+          "laundry_folded",
+          "laundry_table_open",
+          "laundry_hanging"
+        ]
+      },
+      "Balcony_A": {
+        "functions": [
+          "休闲与到窗清洁为主",
+          "东端壁挂临时晾晒，收起保通路"
+        ],
+        "use_states": [
+          "balconyA_hanging"
+        ]
+      }
+    },
+    "A_door_revision": {
+      "historical": {
+        "id": "A_handle_west_hinge",
+        "finding": "原西铰A门50mm突出把手在87–90°碰西墙",
+        "closed_box": [
+          -375.0,
+          6189.5,
+          810.0,
+          35.0
+        ],
+        "open_box": [
+          -410.0,
+          6189.5,
+          35.0,
+          810.0
+        ],
+        "resolution": "东铰内开后重新逐度复算；实际门框、开关及五金仍待现场"
+      },
+      "current_handle_hits": {},
+      "current_leaf_hits": {
+        "pivot": [
+          435.0,
+          6189.5
+        ],
+        "direction": -1,
+        "furniture_hits": {}
+      },
+      "status": "东铰内开逐度概念复算；门框与开关及真实五金仍待核"
     }
-  }
+  },
+  "layout_sha256": "9f3e01ffaa302b986a77874666fa97dd8d3eee53f78f7ae45a2db703786723c9"
 }

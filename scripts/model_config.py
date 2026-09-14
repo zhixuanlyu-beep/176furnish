@@ -6,6 +6,7 @@ def make_config():
  d=json.loads((ROOT/'data/layout.json').read_text());s=json.loads((ROOT/'data/style3d.json').read_text())
  def m(b):return [v/1000 for v in b]
  def swing(v):
+  if v.get('kind')=='sliding':return 0
   cb,ob=v['closed_box'],v['open_box'];cc=(cb[0]+cb[2]/2,cb[1]+cb[3]/2);oc=(ob[0]+ob[2]/2,ob[1]+ob[3]/2);cand=[]
   for sign in [1,-1]:
    dx,dy=oc[0]+sign*cc[1],oc[1]-sign*cc[0];p=((dx-sign*dy)/2,(sign*dx+dy)/2)
@@ -19,5 +20,7 @@ def make_config():
  c['furniture']={n:{**f,'box':m(f['box']),'height':f['height']/1000,'z':f.get('z',0)/1000,'material':s['furniture_materials'].get(n,'oak'),'rotation_deg':f.get('rotation_degrees',0)} for n,f in d['furniture'].items()}
  c['appliances']={n:{**a,'box':m(a['box']),'z':a['z']/1000,'height':a['height']/1000} for n,a in d['appliances'].items()}
  c['parts']={n:m(b) for n,b in d['parts'].items()};c['assumptions']=d['concept_assumptions']
+ c['use_zones']={n:{**v,'box':m(v['box']),'z':v.get('z',0)/1000,'height':v.get('height',1800)/1000} for n,v in d['use_zones'].items()}
+ c['accessories']={n:{**v,'box':m(v['box']),'z':v['z']/1000,'height':v['height']/1000} for n,v in d['accessories'].items()}
  (ROOT/'model/scene_config.json').write_text(json.dumps(c,ensure_ascii=False,indent=2)+'\n');return c
 if __name__=='__main__':make_config()

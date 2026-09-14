@@ -70,5 +70,53 @@
   [
     "17-room-routes.svg",
     "家庭厅与A／B卧室衣篮路线"
+  ],
+  [
+    "19-room-Hall.svg",
+    "玄关／走道逐室功能与状态"
+  ],
+  [
+    "20-room-Study.svg",
+    "家庭厅逐室功能与状态"
+  ],
+  [
+    "21-room-Bedroom_A.svg",
+    "主卧 A逐室功能与状态"
+  ],
+  [
+    "22-room-Bedroom_B.svg",
+    "儿童房 B逐室功能与状态"
+  ],
+  [
+    "23-room-Bedroom_D.svg",
+    "客房 D逐室功能与状态"
+  ],
+  [
+    "24-room-Living.svg",
+    "客厅逐室功能与状态"
+  ],
+  [
+    "25-room-Kitchen.svg",
+    "厨房逐室功能与状态"
+  ],
+  [
+    "26-room-C_Prep_Dining.svg",
+    "餐区逐室功能与状态"
+  ],
+  [
+    "27-room-Bath_A.svg",
+    "主卫·无淋浴逐室功能与状态"
+  ],
+  [
+    "28-room-Bath_Public.svg",
+    "客卫·唯一淋浴逐室功能与状态"
+  ],
+  [
+    "29-room-Balcony_B.svg",
+    "洗烘阳台逐室功能与状态"
+  ],
+  [
+    "30-room-Balcony_A.svg",
+    "阳台 A逐室功能与状态"
   ]
 ]

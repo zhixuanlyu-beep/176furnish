@@ -1,8 +1,9 @@
 {
   "revision": "R10.4",
   "same_machine_repeatable": true,
-  "checked_files": 55,
-  "scope": "18 SVG + 18 PNG, current CSV tables, offline booklet/documents and 2D reports; 3D binary reproducibility not asserted",
+  "checked_files": 83,
+  "scope": "Current SVG, PNG, CSV, offline booklet and 2D reports; one repeated build; no 3D binary reproducibility claim",
   "different_files": [],
+  "layout_sha256": "9f3e01ffaa302b986a77874666fa97dd8d3eee53f78f7ae45a2db703786723c9",
   "png_engine": "sharp 0.35.4"
 }

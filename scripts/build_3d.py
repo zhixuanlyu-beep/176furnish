@@ -204,8 +204,10 @@ for name,f in C['furniture'].items():
         else: legs(name,b,h-.045,room)
     elif kind=='chair':
         box(name+'_seat',b,.43,.07,mat,room,.035);legs(name,b,.43,room)
-        yy=y+d-.05 if f.get('facing')=='south' else y
-        box(name+'_back',[x,yy,w,.05],.50,.30,'walnut',room,.02)
+        facing=f.get('facing','north')
+        back=[x,y+d-.05 if facing=='south' else y,w,.05]
+        if facing in ('east','west'):back=[x if facing=='east' else x+w-.05,y,.05,d]
+        box(name+'_back',back,.50,.30,'walnut',room,.02)
     elif kind=='sliding_wardrobe':
         box(name+'_carcass',b,.10,h-.1,mat,room,.006)
         east=f['front']=='east'
@@ -249,14 +251,15 @@ for name,f in C['furniture'].items():
         cylinder(name+'_seat',(x+w/2,y+d*.45,.54),w*.44,.03,'linen',room)
     elif kind=='shower':
         box(name+'_tray',b,.01,.04,'stone',room)
-        frame(name+'_screen',[x+w-.025,y,.025,d],.05,h,room)
+        gap=f.get('entry_gap_mm',0)/1000
+        frame(name+'_screen',[x+w-.025,y+gap,.025,d-gap],.05,h,room)
         cylinder(name+'_riser',(x+.12,y+.06,1.3),.012,1.3,'metal',room)
         cylinder(name+'_head',(x+.12,y+.16,1.95),.1,.025,'metal',room)
     elif kind=='laundry':
         for i in range(2):
             box(name+f'_machine{i}',b,.06+i*.86,.84,'warm_white',room,.03)
             cylinder(name+f'_port{i}',(x+w/2,y-.01,.46+i*.86),.24,.04,'black',room,(math.pi/2,0,0))
-    else:box(name+'_body',b,0,h,mat,room,.03)
+    else:box(name+'_body',b,z,h,mat,room,.003)
     for o in set(bpy.data.objects)-before:
         if o.parent is None:o.parent=root
     if f.get('rotation_deg'):
@@ -327,6 +330,12 @@ for name,spec in C['cameras'].items():
 sys.path.insert(0,str(ROOT))
 from details_3d import complete_scene
 complete_scene(globals())
+for n,v in C['use_zones'].items():
+    box('use_'+n,v['box'],v['z'],v['height'],'glass','Clearance_Envelopes')
+for n in ['shoe_seat_folded','laundry_folded']:
+    v=C['use_zones'][n];box(n,v['box'],v['z'],v['height'],'oak',v['room'],.003)
+for n,v in C['accessories'].items():
+    box('accessory_'+n,v['box'],v['z'],v['height'],'oak',v['room'],.003)
 scene.camera=bpy.data.objects['01_Axonometric']
 scene.frame_set(1)
 scene.frame_start=1;scene.frame_end=90

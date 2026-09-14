@@ -3,6 +3,7 @@ import json, math
 import plan2d as g
 
 def handles(v,projection=50):
+ if v.get('kind')=='sliding':return [[] for _ in range(91)]
  p,s,_=g.door_motion(v);x,y,w,h=v['closed_box']
  if w>h:
   start=x+w-120 if p[0]<x+w/2 else x+20
@@ -32,7 +33,7 @@ def jambs():
 def validate():
  g.changed={'shoe','study_shallow'}
  report=g.validate();e=report['evidence'];hard=report['hard_errors']
- expected={'shoe':[-3380,2724,900,400],'study_shallow':[-3410,3174,450,1176],'desk':[-2280,5447,1700,700],'study_storage':[-3410,4350,650,1000],'study_chair':[-1400,4997,500,500]}
+ expected={'shoe':[-3380,2724,900,400],'study_shallow':[-3410,3174,450,1176],'desk':[-2280,5447,1700,700],'study_storage':[-3410,4350,650,1000],'study_chair':[-1180,4997,500,500]}
  for k,b in expected.items():
   if g.F[k]['box']!=b:hard.append(k+'不符合确认坐标')
  e['approved_fixed_coordinates_checked']=expected
@@ -102,6 +103,9 @@ def validate():
  e['r104_metrics']={'shoe_shallow_gap_mm':50,'shoe_full_main_leaf_gap_mm':87.5,'shoe_main_handle_gap_mm':37.5,'after_10mm_reserve_mm':27.5,'hall_reclaimed_mm':350,'family_intrusion_mm':280,'infill_mm':400,'returns_sum_mm':1010,'shallow_length_reduction_mm':224}
  e['limitations']=['R10.4二维与三维已同步；渲染尚未生成。','所有通行结论仅适用于明确门、餐椅、鞋柜状态；设备操作及取物须错时。','主卧A门50mm把手假设在接近全开时与原墙相交；需实际五金及限位复核，不认定全开安装通过。','短墙可改性、门框固定、线路及柜背构造需现场核实。','原结构、燃气、岛槽重力排水、唯一淋浴及设备安装条件保留。']
  report['status']='二维方案已生成；实体检查与条件项分列，非施工定稿'
+ from room_validation import verify_rooms
+ verify_rooms(report)
+ report['layout_sha256']=g.digest(g.ROOT/'data/layout.json')
  return report
 
 if __name__=='__main__':

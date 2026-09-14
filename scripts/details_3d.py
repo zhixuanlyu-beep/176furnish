@@ -8,6 +8,13 @@ def complete_scene(g):
     # Rebuild door hinges from the published closed and fully-open rectangles.
     for name,d in C['doors'].items():
         x,y,w,depth=d['closed_box'];ox,oy,ow,od=d['open_box']
+        if d.get('kind')=='sliding':
+            o=box(name,[x,y,w,depth],d['z'],d['height'],'oak','Doors',.003)
+            o.keyframe_insert(data_path='location',frame=1)
+            o.location.x+=ox-x;o.location.y+=oy-y;o.keyframe_insert(data_path='location',frame=90)
+            o.location.x-=ox-x;o.location.y-=oy-y
+            box(name+'_track',[ox,y,min(x+w-ox,2*w),depth],2.08,.06,'metal','Door_Frames',.003)
+            continue
         cc=Vector((x+w/2,y+depth/2));oc=Vector((ox+ow/2,oy+od/2))
         angle=d['swing_sign']*math.pi/2
         R=Matrix.Rotation(angle,2); hinge=(Matrix.Identity(2)-R).inverted()@(oc-R@cc)

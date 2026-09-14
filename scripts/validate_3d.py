@@ -17,7 +17,7 @@ def err(a,b):return max(abs(x-y) for x,y in zip(a,b))*1000
 check('configuration_current',json.loads(s['configuration'])==C and C['revision']=='R10.4' and C['layout_sha256']==hashlib.sha256((R/'data/layout.json').read_bytes()).hexdigest())
 check('metric_units',s.unit_settings.system=='METRIC' and s.unit_settings.scale_length==1)
 wall_errors={n:err(rect(bpy.data.objects[n]),[v/1000 for v in b]) for n,b in D['walls'].items()};check('walls_1mm',max(wall_errors.values())<=1,wall_errors)
-proxies={'bed':'_mattress','sofa':'_base','table':'_top','chair':'_seat','cabinet':'_carcass','fridge':'_carcass','basin':'_vanity','laundry':'_machine0','sliding_wardrobe':'_carcass'}
+proxies={'bed':'_mattress','sofa':'_base','table':'_top','chair':'_seat','cabinet':'_carcass','fridge':'_carcass','basin':'_vanity','laundry':'_machine0','sliding_wardrobe':'_carcass','shelf':'_body'}
 ferrors={}
 for n,f in C['furniture'].items():
  o=bpy.data.objects[n];check('layout_root_'+n,json.loads(o['footprint'])==f['box'] and abs(o['height']-f['height'])<1e-6)
@@ -26,6 +26,7 @@ for n,f in C['furniture'].items():
   if f.get('rotation_deg'):ferrors[n]=err(list(ob.dimensions)[:2],f['box'][2:])
   else:ferrors[n]=err(rect(ob),f['box'])
 check('principal_furniture_1mm',max(ferrors.values())<=1,ferrors)
+check('D_bedside_shelf_height',abs(bounds(bpy.data.objects['D_bedside_body'])[2]-.65)<.001)
 special={}
 for n in ['shoe','entry_wardrobe','study_shallow','tower']:
  def descendants(o):
@@ -58,6 +59,11 @@ for frame,key in [(1,'closed_box'),(90,'open_box')]:
  s.frame_set(frame);bpy.context.view_layer.update()
  for n,v in C['doors'].items():doors[n+'_'+key]=err(rect(bpy.data.objects[n]),v[key])
 check('room_door_endpoints_1mm',max(doors.values())<=1,doors)
+state_errors={n:err(rect(bpy.data.objects['use_'+n]),v['box']) for n,v in C['use_zones'].items()}
+check('whole_home_use_zones_1mm',max(state_errors.values())<=1,state_errors)
+accessory_errors={n:err(rect(bpy.data.objects['accessory_'+n]),v['box']) for n,v in C['accessories'].items()}
+check('accessory_positions_1mm',max(accessory_errors.values())<=1,accessory_errors)
+check('public_shower_700mm_entry',abs(bounds(bpy.data.objects['shower_public_screen_glass'])[1]-(C['furniture']['shower_public']['box'][1]+.7))<.001)
 # Sliding fronts must remain inside total cabinet footprint over their complete linear travel.
 outside=[]
 for frame in range(1,91):
@@ -75,7 +81,7 @@ check('materials_present',not missing,missing)
 raw=(R/'model/whole_home_R10.4.glb').read_bytes();size=struct.unpack_from('<I',raw,12)[0];glb=json.loads(raw[20:20+size]);names={n.get('name') for n in glb['nodes']}
 check('glb_current_objects',{'shoe_west_side','entry_wardrobe_module0_side0','combi_steam_oven_body','built_in_microwave_body'}.issubset(names) and not {'wardrobeA','shower_A','former_C_door_header','C_west_opening_header'}.intersection(names))
 check('glb_alternatives_excluded',not any(n and (n.startswith(('table6','chair6')) or n=='robot_station_reservation') for n in names))
-conditions=['主卧A门50mm把手概念在87–90°与西墙相交；实际五金未建为获准安装方案，保持暂停定稿。','三维尺寸和门端点核验通过不替代2D全状态／实体操作条件；见verification_2d.json。','柜门、层板、设备均为概念模型，五金、通风、电源、结构、给排水及现场安装未确认。','床头板等细节高度沿用概念造型，家具表高度主要描述基体；非柜体下单图。','未生成或检查三维渲染图；灯光、材质观感、曝光和相机构图待后续渲染验收。']
+conditions=['原西铰A门50mm把手87–90°碰墙记录保留；本轮东铰复算无该命中，实际五金、开关及门框仍待核。','三维尺寸和门端点核验通过不替代2D全状态／实体操作条件；见verification_2d.json。','柜门、层板、设备均为概念模型，五金、通风、电源、结构、给排水及现场安装未确认。','床头板等细节高度沿用概念造型，家具表高度主要描述基体；非柜体下单图。','未生成或检查三维渲染图；灯光、材质观感、曝光和相机构图待后续渲染验收。']
 report={'revision':'R10.4','checks_passed':all(checks.values()),'check_count':len(checks),'checks':checks,'details':detail,'conditions':conditions,'blender':bpy.app.version_string,'layout_sha256':C['layout_sha256'],'blend_sha256':hashlib.sha256((R/'model/whole_home_R10.4.blend').read_bytes()).hexdigest(),'glb_sha256':hashlib.sha256(raw).hexdigest()}
 (R/'reports/verification_3d.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'passed':report['checks_passed'],'checks':len(checks),'failed':[n for n,v in checks.items() if not v],'special':special},ensure_ascii=False))

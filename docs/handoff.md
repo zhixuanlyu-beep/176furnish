@@ -55,3 +55,9 @@ reports/delivery.json 记录 SVG 实际坐标与配置误差、CSV／面积一�
 保留七个相机命名及观察方向。未来可运行 `render_3d.py -- --device METAL --preview` 出低分辨率预览，再检查构图、柜顶遮挡、门状态、材质和曝光后正式出图。脚本逐张执行，不自动轮询后台进程；默认正式 2400×1866、128 采样、降噪。顶视与轴测隐藏顶棚，室内启用。渲染前应逐视角设置所需门状态；默认关闭可能遮挡视线。明显噪点视角可用 256 采样单独补图；Metal 失败需先单张 CPU 验证，再决定回退。
 
 本次交付没有运行此脚本，没有包含任何旧版或新生成的三维效果图。
+
+## 本轮逐室优化接手
+
+新增 scripts/room_validation.py 和 scripts/room_drawings.py；layout.json 中 room_functions、use_zones、workflow_routes、accessories 和 historical_issues 分别保存功能、状态、过程路径、壁面/柜内设施与旧问题记录。模型配置统一换算这些坐标到米，使用包络默认隐藏。推拉门用线性位移动画，不能按铰链弧处理。
+
+30张二维图包括12张逐室功能与状态局部图。逐室路线同时报告500单人、600方篮、620带余量方篮和900目标；不把路径失败删去。主卫585保守门口净距与客卫条件方案在constraints.md公开。未运行render_3d.py。
