@@ -1,4 +1,4 @@
-"""R10.4 concept geometry checks; standard library, no 3D inputs."""
+"""R10.5 concept geometry checks; standard library, no 3D inputs."""
 import json, math
 import plan2d as g
 
@@ -101,7 +101,7 @@ def validate():
  e['basket_routes']=routes
  e['shoe_capacity']={'net_width_mm':864,'effective_depth_mm':330,'layers':8,'template_mm':[240,330,180],'pairs_per_layer':3,'theoretical_pairs':24,'lower_clear_layer_height_mm':(800-4*18)/3,'upper_clear_layer_height_mm':(1100-6*18)/5,'scenarios':[{'name':'标准240×330×180','pairs':24},{'name':'宽鞋280×330×180','pairs':24},{'name':'宽鞋300×330×180','pairs':16},{'name':'长鞋240×350×180','pairs':None,'note':'350深模板不能按水平放置适配330深柜；待实鞋试放，不保证容量'},{'name':'一组下层拆板为双层高靴位','pairs':21,'note':'靴高须≤503mm；3双靴占原两层，非任意长靴保证'},{'name':'鞋盒300×330×220','pairs':6,'note':'仅下部3层×2盒；上部198.4mm层高不容220高盒，需重新调层'}]}
  e['r104_metrics']={'shoe_shallow_gap_mm':50,'shoe_full_main_leaf_gap_mm':87.5,'shoe_main_handle_gap_mm':37.5,'after_10mm_reserve_mm':27.5,'hall_reclaimed_mm':350,'family_intrusion_mm':280,'infill_mm':400,'returns_sum_mm':1010,'shallow_length_reduction_mm':224}
- e['limitations']=['R10.4二维与三维已同步；渲染尚未生成。','所有通行结论仅适用于明确门、餐椅、鞋柜状态；设备操作及取物须错时。','主卧A门50mm把手假设在接近全开时与原墙相交；需实际五金及限位复核，不认定全开安装通过。','短墙可改性、门框固定、线路及柜背构造需现场核实。','原结构、燃气、岛槽重力排水、唯一淋浴及设备安装条件保留。']
+ e['limitations']=['R10.5二维与三维已同步；渲染尚未生成。','所有通行结论仅适用于明确门、餐椅、鞋柜状态；设备操作及取物须错时。','主卧A门50mm把手假设在接近全开时与原墙相交；需实际五金及限位复核，不认定全开安装通过。','短墙可改性、门框固定、线路及柜背构造需现场核实。','原结构、燃气、岛槽重力排水、唯一淋浴及设备安装条件保留。']
  report['status']='二维方案已生成；实体检查与条件项分列，非施工定稿'
  from room_validation import verify_rooms
  verify_rooms(report)

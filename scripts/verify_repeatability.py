@@ -12,7 +12,7 @@ def snapshot():
     paths = [p for directory in ('drawings/svg', 'drawings/png', 'tables')
              for p in (ROOT / directory).iterdir() if p.is_file()]
     paths += [ROOT / p for p in ('docs/方案册.html', 'reports/verification_2d.json',
-                                'reports/drawing_index.json', 'reports/png_state.json')]
+                                'reports/drawing_index.json', 'reports/png_state.json', 'reports/ventilation.json', 'reports/dimension_review.json')]
     return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted(paths)}
 
@@ -26,7 +26,7 @@ def main():
             raise RuntimeError(result.stdout + result.stderr)
     after = snapshot()
     different = [p for p in sorted(before.keys() | after.keys()) if before.get(p) != after.get(p)]
-    report = {'revision': 'R10.4', 'same_machine_repeatable': not different,
+    report = {'revision': 'R10.5', 'same_machine_repeatable': not different,
               'checked_files': len(after), 'scope': 'Current SVG, PNG, CSV, offline booklet and 2D reports; one repeated build; no 3D binary reproducibility claim',
               'different_files': different,
               'layout_sha256': hashlib.sha256((ROOT/'data/layout.json').read_bytes()).hexdigest(),

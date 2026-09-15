@@ -1,0 +1,145 @@
+{
+  "revision": "R10.5",
+  "sources": [
+    {
+      "id": "GB3326",
+      "kind": "国家推荐标准",
+      "title": "GB/T 3326—2016 桌椅凳",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=0C497FF8C85FCAE7A6D790CE5D4F8BA5",
+      "version": "2016",
+      "accessed": "2026-09-14",
+      "evidence": "本轮官方检索确认现行版本；本轮未取得条款全文，不能据此写强制尺寸",
+      "status": "本轮官方检索确认现行；具体条款全文待核"
+    },
+    {
+      "id": "GB3327",
+      "kind": "国家推荐标准",
+      "title": "GB/T 3327—2016 柜类",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=12568928D20700CCAD1EFF9CD43B35A6",
+      "version": "2016",
+      "accessed": "2026-09-14",
+      "evidence": "本轮官方检索确认现行版本；本轮未取得条款全文，不能据此写强制尺寸",
+      "status": "本轮官方检索确认现行；具体条款全文待核"
+    },
+    {
+      "id": "GB3328",
+      "kind": "国家推荐标准",
+      "title": "GB/T 3328—2016 床类",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=E27B477533A5AA2D371853F067258E60",
+      "version": "2016",
+      "accessed": "2026-09-14",
+      "evidence": "本轮官方检索确认现行版本；本轮未取得条款全文，不能据此写强制尺寸",
+      "status": "本轮官方检索确认现行；具体条款全文待核"
+    },
+    {
+      "id": "GB28007",
+      "kind": "国家强制标准",
+      "title": "GB 28007—2024 婴幼儿及儿童家具安全技术规范",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=1F3910E089378480AED28E14CA392840",
+      "version": "2024-06-25发布；2026-01-01实施",
+      "accessed": "2026-09-14",
+      "evidence": "儿童家具安全及适用范围需产品证据；不从标准名推导适配高度",
+      "status": "本轮官方检索确认现行；具体条款全文待核"
+    },
+    {
+      "id": "GB18883",
+      "kind": "国家推荐标准",
+      "title": "GB/T 18883—2022 室内空气质量标准",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=6188E23AE55E8F557043401FC2EDC436",
+      "version": "2022",
+      "accessed": "2026-09-14",
+      "evidence": "每人30m³/h作为本项目比较基准；条款与评价方法待全文核对，非本建筑施工验收结论",
+      "status": "本轮官方检索确认现行；具体条款全文待核"
+    },
+    {
+      "id": "BUILDING",
+      "kind": "建筑通风要求",
+      "title": "GB 55016—2021、GB 50736—2012及GB 55038—2025适用性待核",
+      "url": "https://www.mohurd.gov.cn/",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "既有住宅改造适用条款、北京地方要求与审查口径交暖通专业核定；本轮未宣称全部现行建筑要求满足",
+      "status": "待专业核查"
+    },
+    {
+      "id": "CLEANUP_CATALOG",
+      "kind": "厂家规划目录",
+      "title": "STEDIA 官方目录入口",
+      "url": "https://cleanup.jp/catalogue/user/catalogue/",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "链接catalabo目录0259_stediaca；当前目录ID 49210710000。目录入口可读；模块安装表尚未取得",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "CLEANUP_BEIJING",
+      "kind": "大陆销售渠道",
+      "title": "Cleanup 官方海外销售据点",
+      "url": "https://cleanup.jp/global/tcn/distributors/",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "列有北京百本木家装饰设计工程有限公司，北京市朝阳区青年路姚家园113号院悦鑫园23号库；名单不证明系列可供货或安装保修责任",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "CLEANUP_PLAN",
+      "kind": "厂家方案展示",
+      "title": "STEDIA PLAN16 岛台",
+      "url": "https://cleanup.jp/kitchen/stedia/plan/plan16.shtml",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "官方为フラット対面I型 アイランド；展示价格明确不含搬入与安装。平面尺寸在图像中，本轮未从像素推算",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "CLEANUP_PDF",
+      "kind": "厂家目录",
+      "title": "STEDIA繁中目录",
+      "url": "https://cleanup.jp/global/tcn/catalog/pdf/STEDIA_TCN.pdf",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "取得文件受本机E-SafeNet保护，无法作为普通PDF解析；未读取其模块尺寸，不作安装依据",
+      "status": "本机受保护文件，未解析"
+    },
+    {
+      "id": "TCL_P7",
+      "kind": "大陆产品规格",
+      "title": "TCL小蓝翼P7挂机",
+      "url": "https://www.tcl.com/cn/zh/air-conditioners/35gw-yp7cab1",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "页面分别写16分贝静音新风、免扩孔30m³/h新风量、睡眠模式主动开启新风；未给16分贝对应实测风量",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "TCL_C7",
+      "kind": "大陆产品规格",
+      "title": "TCL小蓝翼C7挂机",
+      "url": "https://www.tcl.com/cn/zh/air-conditioners/krf-35gw-yc7ca-b1",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "官方系列页列16分贝静音新风；以具体SKU安装手册及各档性能表复核",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "TCL_ULTRA",
+      "kind": "大陆产品规格",
+      "title": "TCL小蓝翼P7 Ultra挂机",
+      "url": "https://www.tcl.com/cn/zh/air-conditioners/xly-p7-ultra",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "页面写60m³/h澎湃新风量、微正压从室外引入空气；内循环净化另列，不计入室外新风",
+      "status": "本轮读取官方页面"
+    },
+    {
+      "id": "SITE",
+      "kind": "现场待核",
+      "title": "层高、开孔、噪声、排水与家具实物",
+      "url": "",
+      "version": "网页未标版本；访问2026-09-14",
+      "accessed": "2026-09-14",
+      "evidence": "2.8m为概念层高；夫妻178/165cm；孩子身高、床架与设备安装图未提供",
+      "status": "现场待核"
+    }
+  ]
+}

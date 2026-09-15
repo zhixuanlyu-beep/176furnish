@@ -1,0 +1,635 @@
+{
+  "revision": "R10.5",
+  "layout_sha256": "648af6731dbfac2487d3537d9a7eb6f1ba420dcf596605b2daebfba47c47e72c",
+  "inputs_sha256": "be1d8c5fc6904d5862d90baf0a01cd4bbeba9fcd95b5102cd64e72f9d6616961",
+  "rooms": [
+    {
+      "room": "Bedroom_A",
+      "area_m2": 23.8376,
+      "volume_m3": 66.7453,
+      "height_m": 2.8
+    },
+    {
+      "room": "Bath_A",
+      "area_m2": 2.38,
+      "volume_m3": 6.664,
+      "height_m": 2.8
+    },
+    {
+      "room": "Bedroom_B",
+      "area_m2": 11.0188,
+      "volume_m3": 30.8527,
+      "height_m": 2.8
+    },
+    {
+      "room": "Study",
+      "area_m2": 12.9808,
+      "volume_m3": 36.3462,
+      "height_m": 2.8
+    },
+    {
+      "room": "Hall",
+      "area_m2": 6.9759,
+      "volume_m3": 19.5326,
+      "height_m": 2.8
+    },
+    {
+      "room": "Bath_Public",
+      "area_m2": 3.2225,
+      "volume_m3": 9.0231,
+      "height_m": 2.8
+    },
+    {
+      "room": "Kitchen",
+      "area_m2": 6.2953,
+      "volume_m3": 17.627,
+      "height_m": 2.8
+    },
+    {
+      "room": "Living",
+      "area_m2": 24.6746,
+      "volume_m3": 69.089,
+      "height_m": 2.8
+    },
+    {
+      "room": "C_Prep_Dining",
+      "area_m2": 12.2438,
+      "volume_m3": 34.2827,
+      "height_m": 2.8
+    },
+    {
+      "room": "Bedroom_D",
+      "area_m2": 12.5005,
+      "volume_m3": 35.0015,
+      "height_m": 2.8
+    },
+    {
+      "room": "Balcony_A",
+      "area_m2": 3.2755,
+      "volume_m3": 9.1713,
+      "height_m": 2.8
+    },
+    {
+      "room": "Balcony_B",
+      "area_m2": 2.7158,
+      "volume_m3": 7.6043,
+      "height_m": 2.8
+    }
+  ],
+  "geometric_area_total_m2": 122.1213,
+  "height_status": "概念层高，须实测",
+  "scenarios": [
+    {
+      "scenario": "daily",
+      "label": "三人日常客餐厅",
+      "room": "Living",
+      "people": 3,
+      "area_m2": 24.6746,
+      "volume_m3": 69.089,
+      "required_m3h": 90,
+      "air_changes_h": 1.303,
+      "transfer_net_area_cm2": 500.0,
+      "transfer_gross_area_cm2": 1000.0,
+      "supply_path": "客厅与餐区连通；独立排风路径待现场，非厨卫排风",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "night",
+      "label": "三人关门夜间",
+      "room": "Bedroom_A",
+      "people": 2,
+      "area_m2": 23.8376,
+      "volume_m3": 66.7453,
+      "required_m3h": 60,
+      "air_changes_h": 0.899,
+      "transfer_net_area_cm2": 333.3,
+      "transfer_gross_area_cm2": 666.7,
+      "supply_path": "拟外墙进风＋消声过风至走道；外墙孔及独立排风未核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "night",
+      "label": "三人关门夜间",
+      "room": "Bedroom_B",
+      "people": 1,
+      "area_m2": 11.0188,
+      "volume_m3": 30.8527,
+      "required_m3h": 30,
+      "air_changes_h": 0.972,
+      "transfer_net_area_cm2": 166.7,
+      "transfer_gross_area_cm2": 333.3,
+      "supply_path": "拟东外墙进风；窗梁及消声过风待核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "guest_night",
+      "label": "五人含访客夜间",
+      "room": "Bedroom_A",
+      "people": 2,
+      "area_m2": 23.8376,
+      "volume_m3": 66.7453,
+      "required_m3h": 60,
+      "air_changes_h": 0.899,
+      "transfer_net_area_cm2": 333.3,
+      "transfer_gross_area_cm2": 666.7,
+      "supply_path": "拟外墙进风＋消声过风至走道；外墙孔及独立排风未核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "guest_night",
+      "label": "五人含访客夜间",
+      "room": "Bedroom_B",
+      "people": 1,
+      "area_m2": 11.0188,
+      "volume_m3": 30.8527,
+      "required_m3h": 30,
+      "air_changes_h": 0.972,
+      "transfer_net_area_cm2": 166.7,
+      "transfer_gross_area_cm2": 333.3,
+      "supply_path": "拟东外墙进风；窗梁及消声过风待核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "guest_night",
+      "label": "五人含访客夜间",
+      "room": "Bedroom_D",
+      "people": 2,
+      "area_m2": 12.5005,
+      "volume_m3": 35.0015,
+      "required_m3h": 60,
+      "air_changes_h": 1.714,
+      "transfer_net_area_cm2": 333.3,
+      "transfer_gross_area_cm2": 666.7,
+      "supply_path": "拟南外墙进风；梁、室外平台及消声过风待核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    },
+    {
+      "scenario": "reading",
+      "label": "三人家庭厅共读",
+      "room": "Study",
+      "people": 3,
+      "area_m2": 12.9808,
+      "volume_m3": 36.3462,
+      "required_m3h": 90,
+      "air_changes_h": 2.476,
+      "transfer_net_area_cm2": 500.0,
+      "transfer_gross_area_cm2": 1000.0,
+      "supply_path": "拟西外墙进风；外墙性质与1500门洞上方消声过风待核",
+      "exhaust_verified": false,
+      "conclusion": "条件不足；未核实夜间可用档与关门排气"
+    }
+  ],
+  "device_comparisons": [
+    {
+      "scenario": "daily",
+      "room": "Living",
+      "device": "TCL_P7",
+      "required_m3h": 90,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 60,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "daily",
+      "room": "Living",
+      "device": "TCL_C7",
+      "required_m3h": 90,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "daily",
+      "room": "Living",
+      "device": "TCL_ULTRA",
+      "required_m3h": 90,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 30,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_A",
+      "device": "TCL_P7",
+      "required_m3h": 60,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 30,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_A",
+      "device": "TCL_C7",
+      "required_m3h": 60,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_A",
+      "device": "TCL_ULTRA",
+      "required_m3h": 60,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_B",
+      "device": "TCL_P7",
+      "required_m3h": 30,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_B",
+      "device": "TCL_C7",
+      "required_m3h": 30,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "night",
+      "room": "Bedroom_B",
+      "device": "TCL_ULTRA",
+      "required_m3h": 30,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_A",
+      "device": "TCL_P7",
+      "required_m3h": 60,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 30,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_A",
+      "device": "TCL_C7",
+      "required_m3h": 60,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_A",
+      "device": "TCL_ULTRA",
+      "required_m3h": 60,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_B",
+      "device": "TCL_P7",
+      "required_m3h": 30,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_B",
+      "device": "TCL_C7",
+      "required_m3h": 30,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_B",
+      "device": "TCL_ULTRA",
+      "required_m3h": 30,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_D",
+      "device": "TCL_P7",
+      "required_m3h": 60,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 30,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_D",
+      "device": "TCL_C7",
+      "required_m3h": 60,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "guest_night",
+      "room": "Bedroom_D",
+      "device": "TCL_ULTRA",
+      "required_m3h": 60,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 0,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "reading",
+      "room": "Study",
+      "device": "TCL_P7",
+      "required_m3h": 90,
+      "advertised_m3h": 30,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 60,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    },
+    {
+      "scenario": "reading",
+      "room": "Study",
+      "device": "TCL_C7",
+      "required_m3h": 90,
+      "advertised_m3h": null,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": null,
+      "night_deficit_m3h": null,
+      "conclusion": "条件不足"
+    },
+    {
+      "scenario": "reading",
+      "room": "Study",
+      "device": "TCL_ULTRA",
+      "required_m3h": 90,
+      "advertised_m3h": 60,
+      "night_m3h": null,
+      "advertised_minimum_deficit_m3h": 30,
+      "night_deficit_m3h": null,
+      "conclusion": "不足"
+    }
+  ],
+  "winter_sensitivity": [
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 251.3,
+      "supply_after_recovery_c": -5
+    },
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 75.4,
+      "supply_after_recovery_c": 12.5
+    },
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 301.5,
+      "supply_after_recovery_c": -10
+    },
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 90.5,
+      "supply_after_recovery_c": 11.0
+    },
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 351.8,
+      "supply_after_recovery_c": -15
+    },
+    {
+      "flow_m3h": 30,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 105.5,
+      "supply_after_recovery_c": 9.5
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 502.5,
+      "supply_after_recovery_c": -5
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 150.8,
+      "supply_after_recovery_c": 12.5
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 603.0,
+      "supply_after_recovery_c": -10
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 180.9,
+      "supply_after_recovery_c": 11.0
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 703.5,
+      "supply_after_recovery_c": -15
+    },
+    {
+      "flow_m3h": 60,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 211.1,
+      "supply_after_recovery_c": 9.5
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 753.8,
+      "supply_after_recovery_c": -5
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 226.1,
+      "supply_after_recovery_c": 12.5
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 904.5,
+      "supply_after_recovery_c": -10
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 271.4,
+      "supply_after_recovery_c": 11.0
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 1055.2,
+      "supply_after_recovery_c": -15
+    },
+    {
+      "flow_m3h": 90,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 316.6,
+      "supply_after_recovery_c": 9.5
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 1256.2,
+      "supply_after_recovery_c": -5
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -5,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 376.9,
+      "supply_after_recovery_c": 12.5
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 1507.5,
+      "supply_after_recovery_c": -10
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -10,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 452.3,
+      "supply_after_recovery_c": 11.0
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0,
+      "sensible_load_w": 1758.8,
+      "supply_after_recovery_c": -15
+    },
+    {
+      "flow_m3h": 150,
+      "indoor_c": 20,
+      "outdoor_c": -15,
+      "assumed_sensible_efficiency": 0.7,
+      "sensible_load_w": 527.6,
+      "supply_after_recovery_c": 9.5
+    }
+  ],
+  "conclusion": "条件不足：本轮不建议取消独立新风预留。P7标称30对主卧两人60至少缺30；Ultra标称60也不能证明夜间60。",
+  "independent_options": [
+    {
+      "name": "分散双向热回收",
+      "basis": "A60、B30、D60、家庭厅90、公共区90m³/h各区能力；按场景控制，避免累计同一人"
+    },
+    {
+      "name": "集中平衡热回收",
+      "basis": "三人场景90，五人夜间150m³/h总有效新风起点；机组选型按风管阻力、脏滤网、噪声及其他适用要求上调"
+    }
+  ],
+  "limits": [
+    "按30m³/h·人比较；适用建筑标准及北京地方要求未全部核实。",
+    "日常90、三人夜间90、含访客夜间150、家庭共读90互为场景，不把同一人重复相加。",
+    "独立新风须按实际机外静压、滤网脏态、夜间噪声和低温防冻降风量选型。",
+    "消声过风面积为0.5m/s、50%自由面积算例，非已选消声器；压降和隔声量待选型。",
+    "卧室关门；不能依赖开门。厨卫排风与烟机补风分别核算，禁止接入独立新风排气管。",
+    "冬季温度为敏感性假设，不冒充北京法定室外设计温度；20℃室温，ρ1.2kg/m³、cp1005J/(kg·K)。",
+    "70%显热回收仅示例，需产品证据；热回收不证明风量足够。保温连续、防冷桥结露、冷凝排水防冻、过滤压降及冷风感待核。"
+  ]
+}

@@ -1,4 +1,4 @@
-"""Editable R10.4 details; no external assets, installations or network calls."""
+"""Editable R10.5 details; no external assets, installations or network calls."""
 import math
 import bpy
 from mathutils import Vector, Matrix
@@ -23,7 +23,7 @@ def complete_scene(g):
         for v in o.data.vertices:v.co+=delta
         o.location=pivot
         bpy.context.view_layer.update()
-        metadata(o,opening=d['opening'],swing_sign=d['swing_sign'],source='R10.4 published closed and 90-degree outlines')
+        metadata(o,opening=d['opening'],swing_sign=d['swing_sign'],source='R10.5 published closed and 90-degree outlines')
         if d['glass']:
             # Dark rails surround the thin glass without widening its footprint.
             for i,q in enumerate(([x,y,.025,depth],[x+w-.025,y,.025,depth])):
@@ -69,7 +69,8 @@ def complete_scene(g):
         for suffix in ('recess','bottom'):
             o=bpy.data.objects.get(name+'_'+suffix)
             if o:bpy.data.objects.remove(o,do_unlink=True)
-        cutter=box(name+'_cut',[x+.018,y+.018,w-.036,d-.036],.72,.3,None,'Scratch')
+        top=C['furniture']['sink' if name.startswith('kitchen') else 'island']['height']
+        cutter=box(name+'_cut',[x+.018,y+.018,w-.036,d-.036],top-.18,.3,None,'Scratch')
         for target in owners:
             o=bpy.data.objects[target];mod=o.modifiers.new('Recessed sink cutout','BOOLEAN');mod.operation='DIFFERENCE';mod.object=cutter
             bpy.context.view_layer.objects.active=o
@@ -78,9 +79,13 @@ def complete_scene(g):
             for index, material in enumerate(o.data.materials):
                 if material is None:o.data.materials[index]=o.data.materials[0]
         bpy.data.objects.remove(cutter,do_unlink=True)
-        box(name+'_bowl_bottom',[x+.018,y+.018,w-.036,d-.036],.725,.01,'metal','Kitchen' if name.startswith('kitchen') else 'C_Prep_Dining',.008)
+        top=C['furniture']['sink' if name.startswith('kitchen') else 'island']['height']
+        box(name+'_bowl_bottom',[x+.018,y+.018,w-.036,d-.036],top-.175,.01,'metal','Kitchen' if name.startswith('kitchen') else 'C_Prep_Dining',.008)
         for i,q in enumerate(([x+.018,y+.018,w-.036,.008],[x+.018,y+d-.026,w-.036,.008],[x+.018,y+.018,.008,d-.036],[x+w-.026,y+.018,.008,d-.036])):
-            box(name+f'_bowl_wall{i}',q,.73,.174,'metal','Kitchen' if name.startswith('kitchen') else 'C_Prep_Dining',.004)
+            box(name+f'_bowl_wall{i}',q,top-.17,.174,'metal','Kitchen' if name.startswith('kitchen') else 'C_Prep_Dining',.004)
+        for ob in list(scene.objects):
+            if ob.name.startswith(name+'_') and ob.type=='MESH' and ob.parent is None:
+                ob.parent=bpy.data.objects['sink' if name.startswith('kitchen') else 'island']
     # Under-cabinet warm task lighting and soft daylight through real openings.
     def light(name,pos,target,power,size,color=(1,.9,.76)):
         data=bpy.data.lights.new(name,'AREA');data.energy=power;data.shape='DISK';data.size=size;data.color=color

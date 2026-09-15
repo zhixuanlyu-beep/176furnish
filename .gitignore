@@ -4,4 +4,7 @@ __pycache__/
 .DS_Store
 node_modules/
 render-output/
+.tmp/
+.upload/
+*.log
 .local/

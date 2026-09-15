@@ -1,0 +1,124 @@
+{
+  "revision": "R10.5",
+  "height_m": 2.8,
+  "height_status": "概念层高，须实测",
+  "per_person_m3h": 30,
+  "indoor_c": 20,
+  "outdoor_sensitivity_c": [
+    -5,
+    -10,
+    -15
+  ],
+  "heat_recovery_sensitivity": [
+    0,
+    0.7
+  ],
+  "transfer_velocity_ms": 0.5,
+  "transfer_free_area_ratio": 0.5,
+  "devices": [
+    {
+      "id": "TCL_P7",
+      "label": "TCL小蓝翼P7挂机 / 35GW-YP7系列",
+      "source": "TCL_P7",
+      "mainland_status": "大陆官方展示；北京库存、完整SKU及供货待核",
+      "outdoor_air_advertised_m3h": 30,
+      "night_outdoor_air_m3h": null,
+      "night_noise_dba": null,
+      "advertised_min_noise_db": 16,
+      "recirculation_m3h": null,
+      "filter_pressure_pa": null,
+      "independent_operation": null,
+      "low_temperature_limit_c": null,
+      "wall_hole_mm": null,
+      "exhaust_path_verified": false,
+      "installation_verified": false
+    },
+    {
+      "id": "TCL_C7",
+      "label": "TCL小蓝翼C7挂机 / 35GW-YC7系列",
+      "source": "TCL_C7",
+      "mainland_status": "大陆官方展示；北京库存、完整SKU及供货待核",
+      "outdoor_air_advertised_m3h": null,
+      "night_outdoor_air_m3h": null,
+      "night_noise_dba": null,
+      "advertised_min_noise_db": 16,
+      "recirculation_m3h": null,
+      "filter_pressure_pa": null,
+      "independent_operation": null,
+      "low_temperature_limit_c": null,
+      "wall_hole_mm": null,
+      "exhaust_path_verified": false,
+      "installation_verified": false
+    },
+    {
+      "id": "TCL_ULTRA",
+      "label": "TCL小蓝翼P7 Ultra挂机 / 具体SKU待锁定",
+      "source": "TCL_ULTRA",
+      "mainland_status": "大陆官方展示；北京库存、完整SKU及供货待核",
+      "outdoor_air_advertised_m3h": 60,
+      "night_outdoor_air_m3h": null,
+      "night_noise_dba": null,
+      "advertised_min_noise_db": null,
+      "recirculation_m3h": null,
+      "filter_pressure_pa": null,
+      "independent_operation": null,
+      "low_temperature_limit_c": null,
+      "wall_hole_mm": null,
+      "exhaust_path_verified": false,
+      "installation_verified": false
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "daily",
+      "label": "三人日常客餐厅",
+      "occupants": {
+        "adult_178": "Living",
+        "adult_165": "Living",
+        "child": "Living"
+      }
+    },
+    {
+      "id": "night",
+      "label": "三人关门夜间",
+      "occupants": {
+        "adult_178": "Bedroom_A",
+        "adult_165": "Bedroom_A",
+        "child": "Bedroom_B"
+      }
+    },
+    {
+      "id": "guest_night",
+      "label": "五人含访客夜间",
+      "occupants": {
+        "adult_178": "Bedroom_A",
+        "adult_165": "Bedroom_A",
+        "child": "Bedroom_B",
+        "guest_1": "Bedroom_D",
+        "guest_2": "Bedroom_D"
+      }
+    },
+    {
+      "id": "reading",
+      "label": "三人家庭厅共读",
+      "occupants": {
+        "adult_178": "Study",
+        "adult_165": "Study",
+        "child": "Study"
+      }
+    }
+  ],
+  "independent_options": [
+    {
+      "name": "分散双向热回收",
+      "basis": "A60、B30、D60、家庭厅90、公共区90m³/h各区能力；按场景控制，避免累计同一人"
+    },
+    {
+      "name": "集中平衡热回收",
+      "basis": "三人场景90，五人夜间150m³/h总有效新风起点；机组选型按风管阻力、脏滤网、噪声及其他适用要求上调"
+    }
+  ],
+  "night_noise_target_dba": 30,
+  "night_noise_target_basis": "卧室项目比较目标，测点与测量方法待核；不冒充已核建筑限值",
+  "building_requirements_verified": false
+}

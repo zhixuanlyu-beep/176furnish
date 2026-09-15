@@ -1,6 +1,6 @@
 # 接手与重建
 
-仓库已归并为当前 R10.4。Git 历史保留旧版；工作树无需旧文件、Blender 快照或外部效果图即可重建。
+仓库已归并为当前 R10.5。Git 历史保留旧版；工作树无需旧文件、Blender 快照或外部效果图即可重建。
 
 ## 环境
 
@@ -13,10 +13,11 @@
 在仓库根目录执行；默认命令不渲染三维。
 
 ```sh
-python3 scripts/build_2d.py
-node scripts/preview_2d.cjs
 blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/build_3d.py
 blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python scripts/validate_3d.py
+python3 scripts/build_2d.py
+node scripts/preview_2d.cjs
+python3 scripts/verify_repeatability.py
 python3 scripts/validate_delivery.py
 ```
 
@@ -38,7 +39,7 @@ model/scene_config.json 由布局自动换算，附布局 SHA256。Blender 场�
 
 帧 1 为房门与柜门关闭；帧 90 为开启端点。所有门同时动画用于演示运动，**不是同时使用许可**。浅柜门为移门，衣柜门和鞋柜门有铰接动画，高柜设备有开门动画，衣柜抽屉向外滑移。实际厂家五金未选定。
 
-默认显示四人桌椅，Dining_6 为互斥替代；Ceilings、Candidate_Equipment、Clearance_Envelopes 隐藏。切换六人时同时关闭 Dining_4。机器人仅为净预留和实际柜体开口，没有虚构适配的整机。鞋柜顶 400mm 封口属于柜墙几何，不能为轴测美观而随意删成不存在的开放边界。
+默认显示四人桌椅，Dining_6 为互斥替代；Ceilings、Candidate_Equipment、Clearance_Envelopes 隐藏。切换六人时同时关闭 Dining_4。岛台已取消机器人开孔；洗烘阳台候选包络隐藏，尚无已适配机型。鞋柜顶 400mm 封口属于柜墙几何，不能为轴测美观而随意删成不存在的开放边界。
 
 GLB 是当前四人关闭状态的静态便携模型，排除顶棚、六人组和检查包络；Blender 保留替代组、动画、相机和灯光。程序化材质在 GLB 中仅提供兼容基础材质，噪声纹理／凹凸等可能简化；Blender 是完整可编辑源。
 
@@ -60,4 +61,9 @@ reports/delivery.json 记录 SVG 实际坐标与配置误差、CSV／面积一�
 
 新增 scripts/room_validation.py 和 scripts/room_drawings.py；layout.json 中 room_functions、use_zones、workflow_routes、accessories 和 historical_issues 分别保存功能、状态、过程路径、壁面/柜内设施与旧问题记录。模型配置统一换算这些坐标到米，使用包络默认隐藏。推拉门用线性位移动画，不能按铰链弧处理。
 
-30张二维图包括12张逐室功能与状态局部图。逐室路线同时报告500单人、600方篮、620带余量方篮和900目标；不把路径失败删去。主卫585保守门口净距与客卫条件方案在constraints.md公开。未运行render_3d.py。
+58张二维图包括12张逐室功能与状态局部图。逐室路线同时报告500单人、600方篮、620带余量方篮和900目标；不把路径失败删去。主卫585保守门口净距与客卫条件方案在constraints.md公开。未运行render_3d.py。
+
+
+## 当前投影与深化
+
+先build_3d生成model/projection_snapshot.json，再validate_3d、build_2d、preview_2d、verify_repeatability、validate_delivery。纯二维排版可复用快照；layout、style3d或三维生成工具更改后会拒绝旧快照。data/schedules中的dimension_sources、product_installation和ventilation为专业输入；scripts/design_review.py由build_2d调用生成计算和表格。禁止运行render_3d.py。产品资料不足项见[深化说明](design-review.md)。

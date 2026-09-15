@@ -1,4 +1,4 @@
-"""R10.4 cabinetry, with editable shells and door animation, all units metres."""
+"""R10.5 cabinetry, with editable shells and door animation, all units metres."""
 import bpy,math
 from mathutils import Vector
 def special_cabinet(n,f,g):
@@ -12,10 +12,11 @@ def special_cabinet(n,f,g):
   o['operation']='hinged';o['opening_angle_degrees']=math.degrees(angle)
  if n=='island':
   body=b('carcass',[x,y,w,d],0,h-.03);b('counter',[x,y,w,d],h-.03,.03,'stone')
-  cutter=box('robot_access_cut',[x+.02,y+.05,.76,d],-.01,.66,None,'Scratch')
-  mod=body.modifiers.new('Robot station access','BOOLEAN');mod.operation='DIFFERENCE';mod.object=cutter;bpy.context.view_layer.objects.active=body;bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
+  # Unspecified system cabinet: no fabricated Cleanup module or robot cutout.
+  for i in range(3):
+   b('storage_front'+str(i),[x+.02,y+d-.02,.76,.02],.10+i*.23,.22)
   b('sink_front',[x+.81,y+d-.02,.78,.02],.10,h-.14)
-  a=C['appliances']['robot_station'];o=box('robot_station_reservation',a['box'],0,.65,'olive','Clearance_Envelopes');o.display_type='WIRE';o['status']='760×650×650 concept reservation; no selected device'
+  a=C['appliances']['robot_station'];o=box('robot_station_reservation',a['box'],0,a['height'],'olive','Clearance_Envelopes');o.display_type='WIRE';o['status']='Laundry candidate space only; no selected device or installation approval'
   b('module_divider',[x+.78,y,.02,d],0,h-.03)
  elif n=='shoe':
   b('west_side',[x,y,.018,d],.1,2.3);b('east_side',[x+w-.018,y,.018,d],.1,2.3)

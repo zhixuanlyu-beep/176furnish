@@ -210,9 +210,9 @@
       "status": "candidate_hidden"
     }
   },
-  "revision": "R10.4",
+  "revision": "R10.5",
   "walls_are_final_segments": true,
-  "layout_sha256": "9f3e01ffaa302b986a77874666fa97dd8d3eee53f78f7ae45a2db703786723c9",
+  "layout_sha256": "648af6731dbfac2487d3537d9a7eb6f1ba420dcf596605b2daebfba47c47e72c",
   "walls": {
     "wall_A_east_0": [
       6.62,
@@ -957,10 +957,29 @@
         1.8,
         2.0
       ],
-      "height": 0.6,
+      "height": 1.05,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "mattress_size_mm": [
+        1800.0,
+        2000.0
+      ],
+      "frame_external_size_mm": null,
+      "frame_overhang_sensitivity_mm": [
+        0,
+        25,
+        50,
+        100
+      ],
+      "mattress_top_mm": 550,
+      "status": "床垫尺寸已分列；等宽无外伸床架仅概念，真实外尺寸待选型；另表复算外伸敏感性",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "mattress_top": 0.55,
+      "mattress_size": [
+        1.8,
+        2.0
+      ]
     },
     "bedB": {
       "kind": "bed",
@@ -971,10 +990,29 @@
         1.2,
         2.0
       ],
-      "height": 0.6,
+      "height": 1.05,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "mattress_size_mm": [
+        1200.0,
+        2000.0
+      ],
+      "frame_external_size_mm": null,
+      "frame_overhang_sensitivity_mm": [
+        0,
+        25,
+        50,
+        100
+      ],
+      "mattress_top_mm": 550,
+      "status": "床垫尺寸已分列；等宽无外伸床架仅概念，真实外尺寸待选型；另表复算外伸敏感性",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "mattress_top": 0.55,
+      "mattress_size": [
+        1.2,
+        2.0
+      ]
     },
     "bedD": {
       "kind": "bed",
@@ -985,10 +1023,29 @@
         1.5,
         2.0
       ],
-      "height": 0.6,
+      "height": 1.05,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "mattress_size_mm": [
+        1500.0,
+        2000.0
+      ],
+      "frame_external_size_mm": null,
+      "frame_overhang_sensitivity_mm": [
+        0,
+        25,
+        50,
+        100
+      ],
+      "mattress_top_mm": 550,
+      "status": "床垫尺寸已分列；等宽无外伸床架仅概念，真实外尺寸待选型；另表复算外伸敏感性",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "mattress_top": 0.55,
+      "mattress_size": [
+        1.5,
+        2.0
+      ]
     },
     "wardrobeB": {
       "kind": "sliding_wardrobe",
@@ -1002,6 +1059,7 @@
       ],
       "height": 2.4,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1017,6 +1075,7 @@
       ],
       "height": 2.4,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1031,6 +1090,7 @@
       ],
       "height": 0.85,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "linen",
       "rotation_deg": 0
     },
@@ -1045,6 +1105,7 @@
       ],
       "height": 0.08,
       "z": 2.2,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1059,8 +1120,12 @@
       ],
       "height": 0.75,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 705,
+      "height_adjustment_range_mm": null,
       "material": "walnut",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.705
     },
     "study_chair": {
       "kind": "chair",
@@ -1074,8 +1139,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "olive",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "study_storage": {
       "kind": "cabinet",
@@ -1089,6 +1165,7 @@
       ],
       "height": 2.3,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1106,6 +1183,7 @@
       "z": 0.0,
       "door_operation": "double_hinged",
       "handle": "recessed_max_5mm",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1121,6 +1199,7 @@
       ],
       "height": 2.2,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "walnut",
       "rotation_deg": 0
     },
@@ -1136,6 +1215,7 @@
       ],
       "height": 2.2,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "walnut",
       "rotation_deg": 0
     },
@@ -1151,6 +1231,7 @@
       ],
       "height": 0.9,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "walnut",
       "rotation_deg": 0
     },
@@ -1164,8 +1245,11 @@
         1.6,
         0.75
       ],
-      "height": 0.9,
+      "height": 0.85,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "status": "850初选台面；165cm主厨需结合水槽深度与锅具试用；厂家档位待核",
+      "system": "Cleanup STEDIA优先研究；当前仅空间控制体，非兼容模块或已选品牌柜",
       "material": "walnut",
       "rotation_deg": 0
     },
@@ -1180,8 +1264,12 @@
       ],
       "height": 0.75,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 680,
+      "height_adjustment_range_mm": null,
       "material": "walnut",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.68
     },
     "chair4_0": {
       "kind": "chair",
@@ -1195,8 +1283,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair4_1": {
       "kind": "chair",
@@ -1210,8 +1309,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair4_2": {
       "kind": "chair",
@@ -1225,8 +1335,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair4_3": {
       "kind": "chair",
@@ -1240,8 +1361,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "table6": {
       "kind": "table",
@@ -1254,8 +1386,12 @@
       ],
       "height": 0.75,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 680,
+      "height_adjustment_range_mm": null,
       "material": "walnut",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.68
     },
     "chair6_0": {
       "kind": "chair",
@@ -1269,8 +1405,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair6_1": {
       "kind": "chair",
@@ -1284,8 +1431,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair6_2": {
       "kind": "chair",
@@ -1299,8 +1457,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair6_3": {
       "kind": "chair",
@@ -1314,8 +1483,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair6_4": {
       "kind": "chair",
@@ -1329,8 +1509,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "chair6_5": {
       "kind": "chair",
@@ -1344,8 +1535,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 450,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 450,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "linen",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.45,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.45
     },
     "hob": {
       "kind": "cabinet",
@@ -1357,8 +1559,10 @@
         0.68,
         0.6
       ],
-      "height": 0.9,
+      "height": 0.85,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "status": "850初选台面；165cm主厨需结合水槽深度与锅具试用；厂家档位待核",
       "material": "olive",
       "rotation_deg": 0
     },
@@ -1372,8 +1576,10 @@
         0.8,
         0.6
       ],
-      "height": 0.9,
+      "height": 0.85,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "status": "850初选台面；165cm主厨需结合水槽深度与锅具试用；厂家档位待核",
       "material": "olive",
       "rotation_deg": 0
     },
@@ -1387,8 +1593,10 @@
         0.776,
         0.6
       ],
-      "height": 0.9,
+      "height": 0.85,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "status": "850初选台面；165cm主厨需结合水槽深度与锅具试用；厂家档位待核",
       "material": "olive",
       "rotation_deg": 0
     },
@@ -1405,6 +1613,7 @@
       "height": 0.85,
       "z": 0.0,
       "front": "south",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1421,6 +1630,7 @@
       "height": 0.75,
       "z": 0.0,
       "front": "south",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1437,6 +1647,7 @@
       "height": 0.85,
       "z": 0.0,
       "front": "west",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1453,6 +1664,7 @@
       "height": 0.75,
       "z": 0.0,
       "front": "south",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1469,6 +1681,7 @@
       "height": 2.1,
       "z": 0.0,
       "entry_gap_mm": 700,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "glass",
       "rotation_deg": 0
     },
@@ -1485,6 +1698,7 @@
       ],
       "height": 1.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "warm_white",
       "rotation_deg": 0
     },
@@ -1503,6 +1717,7 @@
       "door_operation": "sliding",
       "use_north": "常用书籍／文具",
       "use_south": "低频物品",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1517,8 +1732,12 @@
       ],
       "height": 0.5,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 455,
+      "height_adjustment_range_mm": null,
       "material": "walnut",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.455
     },
     "lounge_chair": {
       "kind": "chair",
@@ -1532,8 +1751,19 @@
       ],
       "height": 0.8,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 430,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 430,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "olive",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.43,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.43
     },
     "floor_lamp": {
       "kind": "floor_lamp",
@@ -1546,6 +1776,7 @@
       ],
       "height": 1.6,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "walnut",
       "rotation_deg": 0
     },
@@ -1566,6 +1797,7 @@
       "side_panel": 18,
       "door_leaf_width": 400,
       "drawer_travel": 450,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     },
@@ -1582,8 +1814,12 @@
       "z": 0.0,
       "front": "north",
       "status": "可调桌；安装高度随成长调整",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 705,
+      "height_adjustment_range_mm": null,
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.705
     },
     "child_chair": {
       "room": "Bedroom_B",
@@ -1597,8 +1833,19 @@
       "height": 0.8,
       "z": 0.0,
       "facing": "south",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 380,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 380,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.38,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.38
     },
     "family_reading_chair": {
       "room": "Study",
@@ -1612,8 +1859,19 @@
       "height": 0.8,
       "z": 0.0,
       "facing": "west",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "seat_height_mm": 430,
+      "seat_thickness_mm": 60,
+      "back_thickness_mm": 50,
+      "back_bottom_mm": 430,
+      "seat_adjustment_range_mm": null,
+      "status": "按用途区分的概念座高；非已选产品或人体适配通过",
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "seat_height": 0.43,
+      "seat_thickness": 0.06,
+      "back_thickness": 0.05,
+      "back_bottom": 0.43
     },
     "family_side_table": {
       "room": "Study",
@@ -1626,8 +1884,12 @@
       ],
       "height": 0.5,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 455,
+      "height_adjustment_range_mm": null,
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.455
     },
     "A_bedside_west": {
       "room": "Bedroom_A",
@@ -1640,8 +1902,12 @@
       ],
       "height": 0.55,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 505,
+      "height_adjustment_range_mm": null,
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.505
     },
     "A_bedside_east": {
       "room": "Bedroom_A",
@@ -1654,8 +1920,12 @@
       ],
       "height": 0.55,
       "z": 0.0,
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
+      "under_table_clear_height_mm": 505,
+      "height_adjustment_range_mm": null,
       "material": "oak",
-      "rotation_deg": 0
+      "rotation_deg": 0,
+      "under_table_clear_height": 0.505
     },
     "D_bedside": {
       "room": "Bedroom_D",
@@ -1669,6 +1939,7 @@
       "height": 0.04,
       "z": 0.65,
       "status": "床头北侧壁面薄搁板，保持柜前900及床西主要通路",
+      "dimension_status": "概念外包络；无实物安装图，不是确定产品尺寸",
       "material": "oak",
       "rotation_deg": 0
     }
@@ -1687,7 +1958,14 @@
       "front": "north",
       "opening": 550,
       "operator": 600,
-      "water": "概念采用手动水箱；取水箱方式待选型"
+      "water": "概念采用手动水箱；取水箱方式待选型",
+      "installation_verified": false,
+      "product_model": null,
+      "body_size_mm": null,
+      "cutout_size_mm": null,
+      "heat_clearance_mm": null,
+      "connection_clearance_mm": null,
+      "full_open_removal_mm": null
     },
     "built_in_microwave": {
       "label": "嵌入式微波炉",
@@ -1702,32 +1980,47 @@
       "front": "north",
       "opening": 520,
       "operator": 600,
-      "water": "无固定上下水"
+      "water": "无固定上下水",
+      "installation_verified": false,
+      "product_model": null,
+      "body_size_mm": null,
+      "cutout_size_mm": null,
+      "heat_clearance_mm": null,
+      "connection_clearance_mm": null,
+      "full_open_removal_mm": null
     },
     "robot_station": {
-      "label": "岛台自动上下水基站预留",
+      "label": "洗烘阳台基站候选空间（非机型安装尺寸）",
       "box": [
-        2.32,
-        -0.925,
-        0.76,
-        0.65
+        4.296,
+        0.15,
+        0.6,
+        0.6
       ],
       "z": 0.0,
-      "height": 0.65,
+      "height": 0.7,
       "front": "north",
       "module": [
-        2300,
-        -975,
-        800,
-        750
+        4296,
+        150,
+        600,
+        600
       ],
       "approach": [
-        2300,
-        -225,
-        800,
-        1000
+        4296,
+        750,
+        600,
+        800
       ],
-      "water": "给排水接点未成立；按选定机型核定"
+      "water": "排水、保温、阀门、插座待核",
+      "status": "candidate_only",
+      "installation_verified": false,
+      "product_model": null,
+      "body_size_mm": null,
+      "cutout_size_mm": null,
+      "heat_clearance_mm": null,
+      "connection_clearance_mm": null,
+      "full_open_removal_mm": null
     },
     "island_sink": {
       "label": "原岛槽位置保留",
@@ -1737,10 +2030,17 @@
         0.34,
         0.36
       ],
-      "z": 0.87,
+      "z": 0.82,
       "height": 0.03,
       "front": "north",
-      "water": "重力排水未成立"
+      "water": "重力排水未成立",
+      "installation_verified": false,
+      "product_model": null,
+      "body_size_mm": null,
+      "cutout_size_mm": null,
+      "heat_clearance_mm": null,
+      "connection_clearance_mm": null,
+      "full_open_removal_mm": null
     }
   },
   "parts": {
@@ -1826,11 +2126,14 @@
   "assumptions": [
     "所有设备为概念占位，不能用于柜体下单。",
     "主卫洁具、排污、排风位置及墙体可改性待现场核实。",
-    "全屋唯一淋浴位于客卫；保留850×850mm原概念占位，不宣称已满足舒适或无障碍要求。",
+    "全屋唯一淋浴位于客卫；保留900×1354mm概念占位，不宣称已满足舒适或无障碍要求。",
     "柜内净宽总计3056mm；三个挂衣模块净宽合计2292mm，双层短衣另计挂杆长度。",
-    "R10.4二维与三维模型已同步；本轮未生成渲染，渲染质量未验收。",
+    "R10.5二维与三维模型已同步；本轮未生成渲染，渲染质量未验收。",
     "900mm嵌入柜仅在原1010mm短墙可改、门框有独立可靠固定的条件下成立。",
-    "家庭厅1500mm子母门、北桌、西侧大件柜、A/B门位不变。"
+    "家庭厅1500mm子母门、北桌、西侧大件柜、A/B门位不变。",
+    "Cleanup模块及北京供货保修待核，岛台控制体不得下单。",
+    "基站已取消岛台开孔，阳台仅候选包络，不代表已安置设备。",
+    "全部真实家具/设备外尺寸未定，几何校验不能替代产品验收。"
   ],
   "use_zones": {
     "child_seated": {

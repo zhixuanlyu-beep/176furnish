@@ -1,5 +1,5 @@
 {
-  "revision": "R10.4",
+  "revision": "R10.5",
   "status": "二维方案已生成；实体检查与条件项分列，非施工定稿",
   "hard_errors": [],
   "evidence": {
@@ -7558,5 +7558,5 @@
       "status": "东铰内开逐度概念复算；门框与开关及真实五金仍待核"
     }
   },
-  "layout_sha256": "9f3e01ffaa302b986a77874666fa97dd8d3eee53f78f7ae45a2db703786723c9"
+  "layout_sha256": "648af6731dbfac2487d3537d9a7eb6f1ba420dcf596605b2daebfba47c47e72c"
 }

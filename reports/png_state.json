@@ -3,124 +3,236 @@
   "density": 144,
   "assets": {
     "01-furniture.svg": {
-      "svg_sha256": "823b40f72f6aed8de42cfe845381f4ecfb8344afd057352507a427fb6e1637a8",
-      "png_sha256": "939df7810217faef115ab9e14f1662ae08b6407130985767d1acac9573e5141b"
+      "svg_sha256": "3eb97f2cecf137d1f85c0629cc759a906a07a135c6fbda11565304fd6e934b43",
+      "png_sha256": "4d79bc416557ebefc887d3b2653579086e163e4c8365f38c4d0045167f292a5b"
     },
     "02-dining.svg": {
-      "svg_sha256": "81af20eff0228dd9994021e79700197a57c4a3c0284466476b45bdeafc4484a7",
-      "png_sha256": "01d242d7227a6aabf37ff5975b82d238e40734884a36af5ba60f28c56bca3195"
+      "svg_sha256": "bdd53043c2088230211e00353be688f61ee846e0831fd6bd9755d4e51df84550",
+      "png_sha256": "0e79b098cbb3d73b53da4cd02e47af0fa4d9ba3ff3bd4638acceb047b6f68631"
     },
     "03-seating-4.svg": {
-      "svg_sha256": "0952222d74c2bb082a62792b85b47d06422b390e9801113ed056d67f33c351ce",
-      "png_sha256": "53978bb360b7cccb36fa2a6397a1311b9d6da16c5fbd31c9cd2aed94018347c0"
+      "svg_sha256": "d1b7fa89954bc5e069886124879957d5d5448dab32417b4317f4093c68094903",
+      "png_sha256": "7c605fa985243d6d33fa8804f296d292c1e75f46efe687ea0d836ebfad55e9b7"
     },
     "03-seating-6.svg": {
-      "svg_sha256": "d68882c05566aa6c73eabdc78d355e085f20899208b5baaa21182352a94a3609",
-      "png_sha256": "f399753610560f1cfe476ba211f0dcdf7c91360dbd63af3a9a2027f47f6a2332"
+      "svg_sha256": "62410b4ca46a8deb7bc20ccbfa609ae3760e485088072f2cc765c8c9cab68a50",
+      "png_sha256": "94bb2ac04bb1f85f0523a32d3042987f0aba669eca2514fc71a7b628a933e937"
     },
     "04-cabinet-elevation.svg": {
-      "svg_sha256": "74ba811a7140c96783e35fa051e5499d609563fd6bd41ffd6c08b9939a14c6d8",
-      "png_sha256": "72de3e2c97f30d05e072d43eed2c1c1d8549bfa308c74de5550a2fb12b17d295"
+      "svg_sha256": "d664c489772a64cd8fcdc9cd65ba1e6419e059b2f503dd2850251bce25862c72",
+      "png_sha256": "bce3ef03a8a697d564a01111f7bf2040662e0ca0a44579f6d83dd52680ef42f4"
     },
     "05-master-suite.svg": {
-      "svg_sha256": "eb20b16d7ddd4f7781e69b335aec05c4aa67f6f0861fa6e10f52521ca8345155",
-      "png_sha256": "31e95a64dfb428f381cd3157b01a50eb050bc2205f2aebe65236d1c68b737ce9"
+      "svg_sha256": "9571af5d96ef911e24cc5f87b0e85f46a41f79eca5f09c948db847f6e2971b70",
+      "png_sha256": "873d43160a8a879378e3baea04eb6122c4de92205549a65c32fdecc7ffdb1562"
     },
     "06-alterations.svg": {
-      "svg_sha256": "2da44d4b03578a2f9692d911cd02e00ad9f22d1b197e05a0c4aa0ee7c31b1b7a",
-      "png_sha256": "e13df75db205e2922e653b06a372025f68fecad47fef2262cd55aafffe710fc7"
+      "svg_sha256": "f53470ae66c1c15c66415cce34059fc6bd95786293114a44bf24de442c90be54",
+      "png_sha256": "fbf0bd62031f2d6bf1921f18e4c917727c3e6545bf7c408e8348d4caa4eaa35f"
     },
     "07-wardrobe.svg": {
-      "svg_sha256": "1b4b4183a19ee5f1897874f914f1ce8874c9e5caa5f39fbfd5d1226015867357",
-      "png_sha256": "30b9bf620de10d329b235dd06a3dd24089dd976ad024756d174ddf20e0f71f7a"
+      "svg_sha256": "afe93e2de61e1484016197a6801e552cdf6b0d6fcc408ac896e8d607d7f63392",
+      "png_sha256": "d14e547e18484920219462770ad8dbb057beed36f563f74a1f84dc6ad7b6068c"
     },
     "08-island-robot.svg": {
-      "svg_sha256": "5dd7c8d8948414c7aef4b5a93089bc7d3f7ad7de006e1da873dbf5d7a0b70adf",
-      "png_sha256": "3218a9f5d51e34431196369c98a5bdf6f26c0a364f728ff8aabe5f33e8b3e79b"
+      "svg_sha256": "dd823c652f045ab750178e889454e1368088a63d9e98efd91da3a5d895784cb0",
+      "png_sha256": "f9d949df0ee683c1d045af12f0844e474499a1d9e7e331331929581f58f77efd"
     },
     "09-appliance-clearance.svg": {
-      "svg_sha256": "2afdbf20cfa0780ff30985c982fb0a08cac0e1851fb53d34610624670cc7a83a",
-      "png_sha256": "aa6c8bb3567292125c6d6f791248a666c06f3f3284f4f9130737f493db512976"
+      "svg_sha256": "70dcdd2a68c24ad456096e76e31fe3710e4b91a1d2b99fb9b0298c35d2189980",
+      "png_sha256": "41dec96eee3728b4850c6a28a97247704ffe2948650fbe5a3ed2f9c15ed8108c"
     },
     "10-workflows.svg": {
-      "svg_sha256": "31772d20e088713c98251f90d0c059ac93ffa0770a211e7c42ba4c760da9140a",
-      "png_sha256": "812c2e194cd7e2bea4ee254473cff6e96208d74ff58b99e4a903b0ce422012e8"
+      "svg_sha256": "721968366f2b86d19acc8aa9967d9bfa397d58c65121db7dfe400beaa731c3aa",
+      "png_sha256": "de0eada6663bd0501978be8d79e8e735926fb182dc33506a089ad7bb273b6066"
     },
     "11-services.svg": {
-      "svg_sha256": "b511013e05ba783b0d7fafc51bc0588df597ded864cb065a1250c095ebbfb52e",
-      "png_sha256": "2e773e652e3c601f4ee104c77e461e7bc7e0821108a7092281accb539804c0fb"
+      "svg_sha256": "f1f4f637436a148ab8c9871b4b39cbc6df80825c8ffe61f0477d6dd210b7093b",
+      "png_sha256": "6bddb74c611c8e417ef1d88cbb3ba2cd5b0104122623c44269e24860379e0ce3"
     },
     "12-public-bath.svg": {
-      "svg_sha256": "4f670bd8e3ac7889b6c4794efdc88c3004ab1384d0f4f202254d9e1c5d72047f",
-      "png_sha256": "f1e8306aa22cca4b0fcfe045def2d77170be3430dad73cd2b5ae3fbe91bbf0b3"
+      "svg_sha256": "44dde8fe9e0f71aade86dfd62a18cfb685c6bae5edd7f4744297cf71caf67089",
+      "png_sha256": "ec6ca756ed367e11dbe3fb507e2f5306bdb8c3a512d5f1e1ec2f9c0d672b5b4e"
     },
     "13-family-entry.svg": {
-      "svg_sha256": "4ac6936d0336dcd00f9aa91d95b399fc61bde5ff592182bde5adc259299c0338",
-      "png_sha256": "9638b5d5b21abc509f1619a32da20a3cfdf4b10078ba17e65dce7bfc673cd972"
+      "svg_sha256": "f6110532d024940b944d1ccfcc6542164d82c0b99cb429e5d163091c0820ca43",
+      "png_sha256": "2bd9daba321e8b70e8966acff86b282e9317bf6d3c2d5061e258ddc5fd3610c4"
     },
     "14-shoe-elevation.svg": {
-      "svg_sha256": "a6437145a796049393e7529eb2196bd0fa391ac5cc390ab928aebb9f3ff032bb",
-      "png_sha256": "2b2e5a15bd0e01147a7c5daacceb97db38360f0651947d6a681b556b11c2ea54"
+      "svg_sha256": "84bb9d35f9ec7ac8cc0858bc234de2712f1421272220dc812925300e9855eb46",
+      "png_sha256": "19448b11903f51a98f08e869c3e79f43874b5ffbb088f3e1df782c83209b3ef5"
     },
     "15-cabinet-section.svg": {
-      "svg_sha256": "3e77d1b8b2a0dd5c08380a1b27a7fd59f19951c67ab0a23f12e4ff6b1d3382c8",
-      "png_sha256": "55746562f64ca903d04c6ee6fb4bc984c69f40693146e6e87798379cb3023e98"
+      "svg_sha256": "a44c7af2c73d473187f5813b1a18fa03251f1630eca424b99fef56207ed4754c",
+      "png_sha256": "71538deec705f1365744f4e92cb7e11f54471c53462af4041424489aeb31e365"
     },
     "16-entry-alterations.svg": {
-      "svg_sha256": "c4b34b070748f13f6a28a34ac205f0d4e94ad80bd47a6d5f88801cb11e9d28cb",
-      "png_sha256": "0cfc13c32e295421015fc0a51f46f1bd99dc36b3ea496527d3cbaf0167c19d30"
+      "svg_sha256": "892369e1cf61a81b1b82b5d1275cbbfddbeb6332496c09e7faef86a22adfdbe3",
+      "png_sha256": "f47b3f110c4b1dbc69692f886b6fc5d51a6c1c19a75c8613e79174b84ca8e212"
     },
     "17-room-routes.svg": {
-      "svg_sha256": "a0a684c239e061ebe9ed93dd343177d24d6dc0ddc2f5853a989f0db89f55cffa",
-      "png_sha256": "ef6e7e00cb0e6ac6b4475ad26ca838cf34ef08e736ffcdde515372ea53d43520"
+      "svg_sha256": "9691b5c6c807642d0e9b51d22858d2ea49eca082473f436f82625024c3636fab",
+      "png_sha256": "39cf94d0930a5d7d9227db649c1efbf52e7630ac19e50055ce6f4686feba9028"
     },
     "19-room-Hall.svg": {
-      "svg_sha256": "2e7720915165078de7b29116e4160da1838c3258d5df08b9265c1dd171b8561d",
-      "png_sha256": "11a34169b9d605395ccbaece74618d03b61aab458674273c6735399621d9c3b2"
+      "svg_sha256": "0a7bab07493c309c3a31a672bd01d0883091e438f9e870e1c6aec1c1c1b0f403",
+      "png_sha256": "60db051f005a80848703ae1b4e4bc079ca828d092a8379bc52523cc3f4ba0ffe"
     },
     "20-room-Study.svg": {
-      "svg_sha256": "d922f3c2b5d3cad715deee3b4a2c3fc84264ba0b78606c52f7f9774f0fc790a2",
-      "png_sha256": "638aadf865fdaf75d2569488914cb033b2470b30ed7ea33910347fde55c2d80a"
+      "svg_sha256": "3b9e234684335ff6d4f1365ad500e5bda950b0369171d332a3ff611a224be34f",
+      "png_sha256": "b1bbd196fd26b123be0573a4b991ddb1e784886d0c2b3b3eb9d9e748a8bc8986"
     },
     "21-room-Bedroom_A.svg": {
-      "svg_sha256": "047a491dfa744260914f71e6e99037d60570815d0ae50cd6b098a61b3cab36f2",
-      "png_sha256": "aa6dbf7217d47a17b6f0c8a6d95f68224d5a75447be873abac4949286fc94648"
+      "svg_sha256": "f70d35a579102e8247e4ee4df41b7a85d21f7cb786aa46ddf49282b93cbb8c73",
+      "png_sha256": "ee053a71d193c50e93eb7e6a005c97312085d6f801266a920dcf63febd6a82f6"
     },
     "22-room-Bedroom_B.svg": {
-      "svg_sha256": "024bc0270c608a2ad3ce51697a816efbcfc95062c140608e8bf3769cf822b248",
-      "png_sha256": "e51706429701308177ed7ffa691f0b0731e76bc05bc031cc60d780306f091d32"
+      "svg_sha256": "2ce88a4b244a340c749fa740cf35b7757eaf582e55d2f9e80f197e1fe1202245",
+      "png_sha256": "3b34734e3127577bcfeb51b1e33a21843000668149b4248a95ac5c07db2caefb"
     },
     "23-room-Bedroom_D.svg": {
-      "svg_sha256": "c4c2de0f72bbbef50f64f1feed37dab91e90acf003a5a8ce19489d9ec9a19b8f",
-      "png_sha256": "1cc9e2117e4f6d6378828bd66058045661a3e0abdf397f8c28547487dc6dada1"
+      "svg_sha256": "9070aea8bb585c7e40127ce23bf92d34b8bde115af3e47da10e4ff201b6e47f1",
+      "png_sha256": "73a00736e25e695721a220b57b3dee8ea8f3352f55b344d697799417d6e8b47b"
     },
     "24-room-Living.svg": {
-      "svg_sha256": "504c317a267e754216146144bf206cfd100d233ad6249a036d8acd703b0e63cd",
-      "png_sha256": "b9c54d3f87b78be2334be6afc0e06a449e679db42321ae494a2231dee676f430"
+      "svg_sha256": "7b1d3926497c1a674c3e8eabf6d629d3df2af420b491e55de7261437c1aa3335",
+      "png_sha256": "3d14589dd434e14735d492e34432f61f38fcec5820732c198a47670f9635c768"
     },
     "25-room-Kitchen.svg": {
-      "svg_sha256": "055c6fe3b41b71f8e87214ef786fc94372461e2cf7fbcc770d38666183522159",
-      "png_sha256": "9dfc106de64d4088b65bde750011b9390361a0fd59bc34bfdc6befd0a6a4f4ee"
+      "svg_sha256": "4f06b8648cb1016b864d6158ef1d3d0b1b420175dd1aebe47aebe895a44744bc",
+      "png_sha256": "0b5d0166dbbfa84ce2bf48b2bf1f1766df8c768e034ee24d6cc1801f3de7bcbd"
     },
     "26-room-C_Prep_Dining.svg": {
-      "svg_sha256": "62740d747a759855ef07732126aca5fc51730723400b68bb3e25f551294d3dc9",
-      "png_sha256": "f3501c8e2d5935051e5b24c883310aaf02f834d1f073a9c1292b952aa95f8330"
+      "svg_sha256": "505ea73a9dacb8868a34b7dc47b67a7539f59183eeabae55fd9a7f1f90571b6f",
+      "png_sha256": "079a85fa437b8214a745122652bcf62528e66c96cf43a237c97af9664a22abb7"
     },
     "27-room-Bath_A.svg": {
-      "svg_sha256": "90b2424cd3a2aeba5381d753e4d1014fc13c5c8c74cfccd6bd3de0f0f6c8e119",
-      "png_sha256": "28bf3bb57c45d6a860d52b21c744546b9d97ca10220cd46b4d487c57a0f57ed5"
+      "svg_sha256": "526db17751341feb748205683e291a9b96126bc984b5bb84fd8070a64f359033",
+      "png_sha256": "a222263771591c0af87ca283ed942542f47b59382f6531487a90696c80d7cc74"
     },
     "28-room-Bath_Public.svg": {
-      "svg_sha256": "704c39bb9005a6e74c8f392d11a86b713123e9f5149817022c5dba895a79edc8",
-      "png_sha256": "cd1c293314f281dbe3f091fe8a3d9fe2c1542acfb3343b23f4359e19c1265744"
+      "svg_sha256": "b3afb325c3d6dae362ae6ce287f6a0c35ca4e1394c8b1fc104c3973a3d05833c",
+      "png_sha256": "973f1808862cb8dfb838e23f67740be58508b602dbd1dfb172faefe5eb46ccc2"
     },
     "29-room-Balcony_B.svg": {
-      "svg_sha256": "f2e9902066e51cda74abe196e2c7cb67c258c88a9fd7a3706475314e99734d6f",
-      "png_sha256": "ab5b1386ff8d77b92623d29413f8895c99ba2064432cabca23f25ea7b5912382"
+      "svg_sha256": "5b9c5afce6caadb8850b42fecc4ce816be1e9fd2a95b5f0fee7603d9e1bc0c22",
+      "png_sha256": "d4747581ae7a6203d6a744c3fc77430f3449022b93a27215c40c9aaeda72360c"
     },
     "30-room-Balcony_A.svg": {
-      "svg_sha256": "f32e25a68cda64dafe9173a405943ca13614d49e6b94c7fcb7e796729017c03b",
-      "png_sha256": "0465b3bf5dcab74a0d9aa31949816af09ebd7df84df0d879ca345a0acf97f239"
+      "svg_sha256": "d2d10eaab614ee1a2e765a48ab87733504ae664bdac377497c2692a48b3bf630",
+      "png_sha256": "dc12ffe213cf333ed626b67813c6799dba9ba9ac69aa091289b62c3e4206cb74"
+    },
+    "31-ventilation.svg": {
+      "svg_sha256": "c1707f78f9f309a310345750ac03e8d81186c12d1bf2b5a892c39b7f2cd9eba5",
+      "png_sha256": "18619614b0115dbfe956e9c0ddfcd9b8beac067fabc29788617fffaf9662cf52"
+    },
+    "32-dimension-review.svg": {
+      "svg_sha256": "a3dd6442f8a81bc85ef67033372f68491c5e4552181855af3a40b9b0706ab3e8",
+      "png_sha256": "cc3a0f3a99055377cd20a18c2ec38f90477c95b85303b5a2bd4a63161c608c28"
+    },
+    "33-kitchen-installation.svg": {
+      "svg_sha256": "2f93c9a78d0e6a8bb44a58c3067ab74b7a39b6f14d256a272613111ab37fc912",
+      "png_sha256": "ab7d102260f8a2b0ec5c039e4f5bf6d7249890ad985451340006f70d4051eff8"
+    },
+    "34-robot-candidates.svg": {
+      "svg_sha256": "2a03a1ec3a870679eac867fd73c06bd1c812676f71a6352e44fc20c6e7c4854c",
+      "png_sha256": "1798185ad3302854ecb6366f8247bf77d2d5fc8322f90e715171745621968cf2"
+    },
+    "state-A_bed_east.svg": {
+      "svg_sha256": "824daa0c12f03d6ab681900075e549127e10bb557decce3941f4532119c66461",
+      "png_sha256": "a8cd0246035faabaffdedacc17464e97813618e342fb710c17636d7125afe37d"
+    },
+    "state-A_bed_west.svg": {
+      "svg_sha256": "1b5734c3c93c2826bbc67fa541b54ed7b5aceac3db4fd945e6ea5961da5544db",
+      "png_sha256": "27123a7c8b4b6ab2a7b6aed67f3377a5c3dd0225cca88a0bb4dac81c3459b19a"
+    },
+    "state-B_wardrobe_access.svg": {
+      "svg_sha256": "44e5a12718e9a166ba00208670c32c6eff7f7332aea6a80c8f2dea2464ce2653",
+      "png_sha256": "96ace5a36129f0e105b8f8653d8c8c6fc1dbe4a8c27c3f67759dadab3bb77ba5"
+    },
+    "state-D_wardrobe_access.svg": {
+      "svg_sha256": "de04ebbebfcbababc792d5675bdd603b6e96ebb157d0d39caadce03fb13591a1",
+      "png_sha256": "cc38e875cde0df22067a0ca0041e3ce1e48e798b08fd9354af0c38161c831e77"
+    },
+    "state-balconyA_hanging.svg": {
+      "svg_sha256": "bcc55eb3fb09fdb51fd7f04f5b7a995ed2f581d6e117b4b0a9f747697f4c199a",
+      "png_sha256": "e33e9e8b3d35e1b9e212e29a39f71483aea55985f34591d272d9abb213c46b65"
+    },
+    "state-basket_wait.svg": {
+      "svg_sha256": "a73f26837e65e9341f88711b2fd76071a52456aca8331a4fc70b9efd5e13533f",
+      "png_sha256": "8b0b717dd986c647c5c2e6cb88120a377214899d16213ea9ec86b6e8e8ef6480"
+    },
+    "state-child_bay_access.svg": {
+      "svg_sha256": "baaf26f1a126c37126e026a67846886400bb4d7c59239c5aa83acae81770939d",
+      "png_sha256": "7d3784f398abc44806becf7d239ddc534ccb5e265416acc990914baacca410bd"
+    },
+    "state-child_play.svg": {
+      "svg_sha256": "ad5e4acf234134de467ee971b1418ed8f2b2ffb5d72072cbfcba293fdc700e9b",
+      "png_sha256": "1cbde5cdc66c625e7dc2e92dc5782e2408cc07387785dd196da229f4d8969b18"
+    },
+    "state-child_pull.svg": {
+      "svg_sha256": "94d77f277e7bfa13c105ec8a5f157ad306d1bf80cb4527c0e12175955cee1985",
+      "png_sha256": "159e90ebb335bc33f209b6f204868796d27e1084f1bce3b0e4091978d10f8d43"
+    },
+    "state-child_seated.svg": {
+      "svg_sha256": "391956cfe7672fb1806a16d2701e900d7fbd4edc0bb1111f4bb5ce24efb67a6d",
+      "png_sha256": "bb7f1af148595728301feaec17de58c1fff913cb02160c4364eeebaeb2b2587b"
+    },
+    "state-family_legs.svg": {
+      "svg_sha256": "cf1711e2c180deba2c197eb8bb32e3df5e368a7def194471245b2c777c05942f",
+      "png_sha256": "b0bfd2b521b188d15ed9e0e19082fa10eb8c37f99d2a8ada4de061150110a20c"
+    },
+    "state-laundry_folded.svg": {
+      "svg_sha256": "4e90742c0b02e42d7a36ddee0ecfd7f7c1e7492cc1136b0cbf83425e604186d7",
+      "png_sha256": "f7bfabc1c0b46c25cba120504b3b439cee21b131ef139a7eda843cdfa6a321ea"
+    },
+    "state-laundry_hanging.svg": {
+      "svg_sha256": "cb069ab05f7b68334d643cf568f66ad4e18c5f9b50bbab8ad46a754c3e161b55",
+      "png_sha256": "5be1c9ef1028adcc08785e348d6030f068a5cef67eecc4d74075a2503a8465e6"
+    },
+    "state-laundry_loading.svg": {
+      "svg_sha256": "64e7ae832b3c71484dfaffc0c8f51d98c88b7847bf8cfc7c179880f2a8e3ce1a",
+      "png_sha256": "e68670be2327101cfcdaeed70ceeee0c0ddfbd0b928f6029cc9e78355e61fb14"
+    },
+    "state-laundry_table_open.svg": {
+      "svg_sha256": "4df69ce8f61c436b6770ad768fe176b957427774a2861d945c66219ca818427c",
+      "png_sha256": "b7f4aa1f5145b984339c705c9fe4a2112dfec9c11c4f5fddfc4c19c4598a8cf3"
+    },
+    "state-lounge_legs.svg": {
+      "svg_sha256": "01ccec40d59a5a1255bd79f4b471f3edba9e23cccd852dade2a9d67c1e2205c7",
+      "png_sha256": "0bdd6e5c7c879b5b92ec41d2271fbb85974f414a131ee6e5e8c30f056b1ab54e"
+    },
+    "state-public_basin_use.svg": {
+      "svg_sha256": "2b3e1fb7614c886700a0081dae5c9b4d6656f1d36459553495d14c22f32bd3bb",
+      "png_sha256": "dd1bfd66ab487ffb2d89822dd313a90c8b1622a01b866c543d257146d53a7bae"
+    },
+    "state-public_changing.svg": {
+      "svg_sha256": "9f4efb7539d2410e6ba6314b47101ab9f63a748a04ce43dce780ee69305f2d46",
+      "png_sha256": "514534a51865ac5fa5effa4e6af4c49d450df19b017aba9a0269a0b335bfe1eb"
+    },
+    "state-public_wc_use.svg": {
+      "svg_sha256": "04f7863a71e81f0d79dc8663a40adcf27170892f574a6eb4afcd66c9e29334e1",
+      "png_sha256": "577c1bb9483d4db951c46efd052e03c0a445aa97e357d3f1bc7388ed1d131b4a"
+    },
+    "state-screen_down.svg": {
+      "svg_sha256": "7dde8011388e0b1587c05bb3fb3b886bd4d3e93a6fa0775b7e714a021118eb84",
+      "png_sha256": "290bf8160125446d1462026061f3871184f08ab159db9ca27615643627172ee6"
+    },
+    "state-shoe_seat_folded.svg": {
+      "svg_sha256": "b5641051951c93bfbf4f46ae5d1e902b5d21005f4115250cb226d31aa5682c7c",
+      "png_sha256": "3b45039906f0a4e1f77548872f961271ece67e2b64841652d3a360a85e98e2f6"
+    },
+    "state-shoe_seat_open.svg": {
+      "svg_sha256": "c23fb5b9c336d97502a85cf255caf12f928307e89d887a425a98f4638efff276",
+      "png_sha256": "ff0dec6d5a4176ce700c11e5eceb09a1d594611f1ee0a49d4eae6d054a537ab5"
+    },
+    "state-shower_entry.svg": {
+      "svg_sha256": "8ad79858e10528e60aa57a331c6987205aaaef544a10d7547b08d85282e72599",
+      "png_sha256": "1ed3dd43d58e547e5e9a025b0def04beda940ad54e8a618d7f3645ce9accea25"
+    },
+    "state-study_pull.svg": {
+      "svg_sha256": "d3a966255cb3b04c7b0f85f73412ac6f6e7d15eb51589a86306c4d6bba0be6de",
+      "png_sha256": "8006c8dff6dab43158ad6607ec02d5415ee639e31fa057d0cc3cfe414ea0e0ef"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
-  "revision": "R10.4",
+  "revision": "R10.5",
   "passed": true,
-  "drawings": 30,
-  "tagged_geometry_count": 1391,
+  "drawings": 58,
+  "tagged_geometry_count": 2722,
   "max_svg_world_error_mm": 0.0697247706430062,
   "furniture_rows": 48,
-  "table_count": 19,
+  "table_count": 28,
   "basket_states": 112,
-  "checked_local_links": 129,
+  "checked_local_links": 242,
   "errors": [],
   "limits": [
     "SVG annotations and actual geometry checked at 1mm; not a site survey.",

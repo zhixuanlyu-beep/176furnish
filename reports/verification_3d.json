@@ -1,7 +1,7 @@
 {
-  "revision": "R10.4",
+  "revision": "R10.5",
   "checks_passed": true,
-  "check_count": 71,
+  "check_count": 75,
   "checks": {
     "configuration_current": true,
     "metric_units": true,
@@ -57,12 +57,16 @@
     "principal_furniture_1mm": true,
     "D_bedside_shelf_height": true,
     "special_cabinet_actual_bounds_1mm": true,
-    "island_top_900mm": true,
+    "island_top_matches_layout": true,
+    "individual_seat_heights_1mm": true,
+    "no_robot_opening_in_island": true,
+    "robot_candidate_matches_layout": true,
     "shoe_sections": true,
     "no_obsolete_solids": true,
     "one_shower": true,
     "appliance_vertical_positions_1mm": true,
-    "robot_760x650x650_entry_actual_mesh_clear": true,
+    "current_component_projection": true,
+    "projection_matches_reopened_mesh": true,
     "room_door_endpoints_1mm": true,
     "whole_home_use_zones_1mm": true,
     "accessory_positions_1mm": true,
@@ -227,7 +231,25 @@
         "top_error_mm": 4.7683715642676816e-05
       }
     },
-    "island_top_900mm": null,
+    "island_top_matches_layout": null,
+    "individual_seat_heights_1mm": {
+      "study_chair": 1.1920928966180355e-05,
+      "chair4_0": 1.1920928966180355e-05,
+      "chair4_1": 1.1920928966180355e-05,
+      "chair4_2": 1.1920928966180355e-05,
+      "chair4_3": 1.1920928966180355e-05,
+      "chair6_0": 1.1920928966180355e-05,
+      "chair6_1": 1.1920928966180355e-05,
+      "chair6_2": 1.1920928966180355e-05,
+      "chair6_3": 1.1920928966180355e-05,
+      "chair6_4": 1.1920928966180355e-05,
+      "chair6_5": 1.1920928966180355e-05,
+      "lounge_chair": 7.152557379708213e-06,
+      "child_chair": 4.768371586472142e-06,
+      "family_reading_chair": 7.152557379708213e-06
+    },
+    "no_robot_opening_in_island": null,
+    "robot_candidate_matches_layout": null,
     "shoe_sections": null,
     "no_obsolete_solids": null,
     "one_shower": null,
@@ -235,7 +257,8 @@
       "combi_steam_oven": 2.384185793236071e-05,
       "built_in_microwave": 7.629394527253197e-05
     },
-    "robot_760x650x650_entry_actual_mesh_clear": [],
+    "current_component_projection": null,
+    "projection_matches_reopened_mesh": null,
     "room_door_endpoints_1mm": {
       "A_door_leaf_closed_box": 0.00015258789062833067,
       "master_bath_door_leaf_closed_box": 0.00033569335933236744,
@@ -317,7 +340,7 @@
     "未生成或检查三维渲染图；灯光、材质观感、曝光和相机构图待后续渲染验收。"
   ],
   "blender": "5.2.1 LTS",
-  "layout_sha256": "9f3e01ffaa302b986a77874666fa97dd8d3eee53f78f7ae45a2db703786723c9",
-  "blend_sha256": "a65a7fe0679f70c497c530a5427ef612d7a24e9cd5ef72087f39528cba454d88",
-  "glb_sha256": "6fc99ab8015e60f83782617c12cd19cac52ef84cb1682e0d78f9d734160caf64"
+  "layout_sha256": "648af6731dbfac2487d3537d9a7eb6f1ba420dcf596605b2daebfba47c47e72c",
+  "blend_sha256": "3b47b2e12489c35eee726a2c01f5761d79ee1c5b45fb68968eb71b0f765b359a",
+  "glb_sha256": "85d63e3a1ad6f5464d5c9c4df02fdbe4752be3fe0de41cbb4f7283745da17a59"
 }

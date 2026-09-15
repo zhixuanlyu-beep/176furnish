@@ -1,0 +1,474 @@
+{
+  "revision": "R10.5",
+  "layout_sha256": "648af6731dbfac2487d3537d9a7eb6f1ba420dcf596605b2daebfba47c47e72c",
+  "beds": [
+    {
+      "bed": "bedA",
+      "mattress_mm": [
+        1800.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 0,
+      "envelope_mm": [
+        3720.0,
+        7577.0,
+        1800.0,
+        2000.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedA",
+      "mattress_mm": [
+        1800.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 25,
+      "envelope_mm": [
+        3695.0,
+        7552.0,
+        1850.0,
+        2050.0
+      ],
+      "fixed_hits": [
+        "A_bedside_west",
+        "A_bedside_east"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    },
+    {
+      "bed": "bedA",
+      "mattress_mm": [
+        1800.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 50,
+      "envelope_mm": [
+        3670.0,
+        7527.0,
+        1900.0,
+        2100.0
+      ],
+      "fixed_hits": [
+        "A_bedside_west",
+        "A_bedside_east"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    },
+    {
+      "bed": "bedA",
+      "mattress_mm": [
+        1800.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 100,
+      "envelope_mm": [
+        3620.0,
+        7477.0,
+        2000.0,
+        2200.0
+      ],
+      "fixed_hits": [
+        "A_bedside_west",
+        "A_bedside_east"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    },
+    {
+      "bed": "bedB",
+      "mattress_mm": [
+        1200.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 0,
+      "envelope_mm": [
+        2140.0,
+        4047.0,
+        1200.0,
+        2000.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": 553,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedB",
+      "mattress_mm": [
+        1200.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 25,
+      "envelope_mm": [
+        2115.0,
+        4022.0,
+        1250.0,
+        2050.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": 528,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedB",
+      "mattress_mm": [
+        1200.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 50,
+      "envelope_mm": [
+        2090.0,
+        3997.0,
+        1300.0,
+        2100.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": 503,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedB",
+      "mattress_mm": [
+        1200.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 100,
+      "envelope_mm": [
+        2040.0,
+        3947.0,
+        1400.0,
+        2200.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": 453,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedD",
+      "mattress_mm": [
+        1500.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 0,
+      "envelope_mm": [
+        976.0,
+        -5262.0,
+        1500.0,
+        2000.0
+      ],
+      "fixed_hits": [],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "仍待真实床架；算例不代表适配通过"
+    },
+    {
+      "bed": "bedD",
+      "mattress_mm": [
+        1500.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 25,
+      "envelope_mm": [
+        951.0,
+        -5287.0,
+        1550.0,
+        2050.0
+      ],
+      "fixed_hits": [
+        "D_bedside"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    },
+    {
+      "bed": "bedD",
+      "mattress_mm": [
+        1500.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 50,
+      "envelope_mm": [
+        926.0,
+        -5312.0,
+        1600.0,
+        2100.0
+      ],
+      "fixed_hits": [
+        "D_bedside"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    },
+    {
+      "bed": "bedD",
+      "mattress_mm": [
+        1500.0,
+        2000.0
+      ],
+      "actual_frame_mm": null,
+      "assumed_each_side_overhang_mm": 100,
+      "envelope_mm": [
+        876.0,
+        -5362.0,
+        1700.0,
+        2200.0
+      ],
+      "fixed_hits": [
+        "D_bedside"
+      ],
+      "open_door_hits": [],
+      "child_bed_foot_to_stowed_chair_mm": null,
+      "conclusion": "实体冲突（敏感性算例）"
+    }
+  ],
+  "robot_candidates": [
+    {
+      "candidate": "robot_laundry",
+      "body_mm": [
+        4296,
+        150,
+        600,
+        600
+      ],
+      "approach_mm": [
+        4296,
+        750,
+        600,
+        800
+      ],
+      "fixed_hits": [],
+      "operation_time_overlaps": [
+        "laundry_loading"
+      ],
+      "open_door_overlaps": [],
+      "status": "无型号空间试算；不进入固定家具",
+      "conclusion": "待型号安装图；不能判通过"
+    },
+    {
+      "candidate": "robot_coffee",
+      "body_mm": [
+        120,
+        -2998,
+        600,
+        600
+      ],
+      "approach_mm": [
+        120,
+        -2398,
+        600,
+        900
+      ],
+      "fixed_hits": [
+        "coffee"
+      ],
+      "operation_time_overlaps": [],
+      "open_door_overlaps": [],
+      "status": "备用；需替换咖啡柜西段为独立模块，当前未拆柜",
+      "conclusion": "待型号安装图；不能判通过"
+    }
+  ],
+  "installation": {
+    "revision": "R10.5",
+    "approval": "无已取得完整安装图的设备，不建立确定尺寸采购基线",
+    "items": [
+      {
+        "id": "fridge",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "dishwasher",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "combi_steam_oven",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "built_in_microwave",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "washer",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "dryer",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "robot_station",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "child_desk",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "child_chair",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "bedA",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "bedB",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      },
+      {
+        "id": "bedD",
+        "model": null,
+        "source": "SITE",
+        "body_mm": null,
+        "cutout_mm": null,
+        "heat_clearance_mm": null,
+        "connections_mm": null,
+        "full_open_removal_mm": null,
+        "status": "待实机安装图；现有几何仅概念"
+      }
+    ],
+    "cleanup": {
+      "series": "STEDIA",
+      "source_ids": [
+        "CLEANUP_CATALOG",
+        "CLEANUP_BEIJING",
+        "CLEANUP_PLAN",
+        "CLEANUP_PDF"
+      ],
+      "selected_modules": [],
+      "height_target_mm": 850,
+      "supply_confirmed": false,
+      "installation_responsibility": null,
+      "warranty_responsibility": null,
+      "conclusion": "条件不足：北京经销商有官方名单依据，但模块安装图、供货范围、安装和保修未确认；当前1600×750仅空间控制体，不是Cleanup成套方案。",
+      "table_connection": "独立桌腿承重，靠接岛台；850/750高差100。防水收边、侧封板、踢脚、热胀缝和固定许可待厂家；禁止现场擅自切改成套柜。"
+    }
+  },
+  "historical_issues": [
+    {
+      "id": "A_handle_west_hinge",
+      "finding": "原西铰A门50mm突出把手在87–90°碰西墙",
+      "closed_box": [
+        -375.0,
+        6189.5,
+        810.0,
+        35.0
+      ],
+      "open_box": [
+        -410.0,
+        6189.5,
+        35.0,
+        810.0
+      ],
+      "resolution": "东铰内开后重新逐度复算；实际门框、开关及五金仍待现场"
+    },
+    {
+      "id": "public_bath_old",
+      "finding": "原850×850淋浴、700×400换衣区及外开门绕行",
+      "resolution": "边界不变，改西侧淋浴及南侧外置移门；排污、防水、隐私锁待核"
+    }
+  ],
+  "conclusion": "真实床架及设备安装尺寸未锁定；概念基线与敏感性复算分列。儿童桌椅真实可调产品尚未锁定，不能声明适配。"
+}

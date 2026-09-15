@@ -33,7 +33,7 @@
   ],
   [
     "08-island-robot.svg",
-    "基站、水槽分格与岛桌关系"
+    "Cleanup岛台研究与独立岛桌连接"
   ],
   [
     "09-appliance-clearance.svg",
@@ -73,50 +73,162 @@
   ],
   [
     "19-room-Hall.svg",
-    "玄关／走道逐室功能与状态"
+    "玄关／走道正常布置与功能"
   ],
   [
     "20-room-Study.svg",
-    "家庭厅逐室功能与状态"
+    "家庭厅正常布置与功能"
   ],
   [
     "21-room-Bedroom_A.svg",
-    "主卧 A逐室功能与状态"
+    "主卧 A正常布置与功能"
   ],
   [
     "22-room-Bedroom_B.svg",
-    "儿童房 B逐室功能与状态"
+    "儿童房 B正常布置与功能"
   ],
   [
     "23-room-Bedroom_D.svg",
-    "客房 D逐室功能与状态"
+    "客房 D正常布置与功能"
   ],
   [
     "24-room-Living.svg",
-    "客厅逐室功能与状态"
+    "客厅正常布置与功能"
   ],
   [
     "25-room-Kitchen.svg",
-    "厨房逐室功能与状态"
+    "厨房正常布置与功能"
   ],
   [
     "26-room-C_Prep_Dining.svg",
-    "餐区逐室功能与状态"
+    "餐区正常布置与功能"
   ],
   [
     "27-room-Bath_A.svg",
-    "主卫·无淋浴逐室功能与状态"
+    "主卫·无淋浴正常布置与功能"
   ],
   [
     "28-room-Bath_Public.svg",
-    "客卫·唯一淋浴逐室功能与状态"
+    "客卫·唯一淋浴正常布置与功能"
   ],
   [
     "29-room-Balcony_B.svg",
-    "洗烘阳台逐室功能与状态"
+    "洗烘阳台正常布置与功能"
   ],
   [
     "30-room-Balcony_A.svg",
-    "阳台 A逐室功能与状态"
+    "阳台 A正常布置与功能"
+  ],
+  [
+    "31-ventilation.svg",
+    "关门新风送排原理与待核路径"
+  ],
+  [
+    "32-dimension-review.svg",
+    "家具真实外尺寸与使用高度校核"
+  ],
+  [
+    "33-kitchen-installation.svg",
+    "常规厨房与设备安装包络"
+  ],
+  [
+    "34-robot-candidates.svg",
+    "基站迁移两处候选及冲突"
+  ],
+  [
+    "state-A_bed_east.svg",
+    "主卧 A · 东侧上下床"
+  ],
+  [
+    "state-A_bed_west.svg",
+    "主卧 A · 西侧上下床"
+  ],
+  [
+    "state-B_wardrobe_access.svg",
+    "儿童房 B · 移门取衣"
+  ],
+  [
+    "state-D_wardrobe_access.svg",
+    "客房 D · 移门取衣及取行李"
+  ],
+  [
+    "state-balconyA_hanging.svg",
+    "阳台 A · 临时晾晒展开"
+  ],
+  [
+    "state-basket_wait.svg",
+    "客厅 · 北排拉椅时等待"
+  ],
+  [
+    "state-child_bay_access.svg",
+    "儿童房 B · 飘窗窗帘操作"
+  ],
+  [
+    "state-child_play.svg",
+    "儿童房 B · 床尾活动"
+  ],
+  [
+    "state-child_pull.svg",
+    "儿童房 B · 拉椅"
+  ],
+  [
+    "state-child_seated.svg",
+    "儿童房 B · 坐人"
+  ],
+  [
+    "state-family_legs.svg",
+    "家庭厅 · 阅读坐人"
+  ],
+  [
+    "state-laundry_folded.svg",
+    "洗烘阳台 · 整理台收起"
+  ],
+  [
+    "state-laundry_hanging.svg",
+    "洗烘阳台 · 少量挂晾展开"
+  ],
+  [
+    "state-laundry_loading.svg",
+    "洗烘阳台 · 装卸清滤网"
+  ],
+  [
+    "state-laundry_table_open.svg",
+    "洗烘阳台 · 整理台展开"
+  ],
+  [
+    "state-lounge_legs.svg",
+    "客厅 · 单椅坐人"
+  ],
+  [
+    "state-public_basin_use.svg",
+    "客卫·唯一淋浴 · 洗手"
+  ],
+  [
+    "state-public_changing.svg",
+    "客卫·唯一淋浴 · 擦身换衣"
+  ],
+  [
+    "state-public_wc_use.svg",
+    "客卫·唯一淋浴 · 坐便"
+  ],
+  [
+    "state-screen_down.svg",
+    "客厅 · 幕布放下"
+  ],
+  [
+    "state-shoe_seat_folded.svg",
+    "玄关／走道 · 收起"
+  ],
+  [
+    "state-shoe_seat_open.svg",
+    "玄关／走道 · 展开换鞋"
+  ],
+  [
+    "state-shower_entry.svg",
+    "客卫·唯一淋浴 · 进出淋浴"
+  ],
+  [
+    "state-study_pull.svg",
+    "家庭厅 · 拉椅"
   ]
 ]

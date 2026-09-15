@@ -1,0 +1,154 @@
+{
+  "revision": "R10.5",
+  "approval": "无已取得完整安装图的设备，不建立确定尺寸采购基线",
+  "items": [
+    {
+      "id": "fridge",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "dishwasher",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "combi_steam_oven",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "built_in_microwave",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "washer",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "dryer",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "robot_station",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "child_desk",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "child_chair",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "bedA",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "bedB",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    },
+    {
+      "id": "bedD",
+      "model": null,
+      "source": "SITE",
+      "body_mm": null,
+      "cutout_mm": null,
+      "heat_clearance_mm": null,
+      "connections_mm": null,
+      "full_open_removal_mm": null,
+      "status": "待实机安装图；现有几何仅概念"
+    }
+  ],
+  "cleanup": {
+    "series": "STEDIA",
+    "source_ids": [
+      "CLEANUP_CATALOG",
+      "CLEANUP_BEIJING",
+      "CLEANUP_PLAN",
+      "CLEANUP_PDF"
+    ],
+    "selected_modules": [],
+    "height_target_mm": 850,
+    "supply_confirmed": false,
+    "installation_responsibility": null,
+    "warranty_responsibility": null,
+    "conclusion": "条件不足：北京经销商有官方名单依据，但模块安装图、供货范围、安装和保修未确认；当前1600×750仅空间控制体，不是Cleanup成套方案。",
+    "table_connection": "独立桌腿承重，靠接岛台；850/750高差100。防水收边、侧封板、踢脚、热胀缝和固定许可待厂家；禁止现场擅自切改成套柜。"
+  }
+}

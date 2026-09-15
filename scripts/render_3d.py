@@ -1,11 +1,11 @@
-"""Future opt-in rendering. Not executed for the R10.4 model-only delivery."""
+"""Future opt-in rendering. Not executed for the R10.5 model-only delivery."""
 import argparse,json,sys
 from pathlib import Path
 import bpy
 R=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--device',choices=['CPU','METAL'],required=True);p.add_argument('--preview',action='store_true');p.add_argument('--camera');p.add_argument('--samples',type=int,default=128)
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
-bpy.ops.wm.open_mainfile(filepath=str(R/'model/whole_home_R10.4.blend'));s=bpy.context.scene
+bpy.ops.wm.open_mainfile(filepath=str(R/'model/whole_home_R10.5.blend'));s=bpy.context.scene
 c=json.loads(s['configuration']);names=[a.camera] if a.camera else list(c['cameras'])
 if any(n not in c['cameras'] for n in names):raise ValueError('Unknown camera')
 if a.device=='METAL':

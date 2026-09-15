@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Standalone R10.4 2D publisher. Python standard library only. Never invokes Blender."""
+"""Standalone R10.5 2D publisher. Python standard library only. Never invokes Blender."""
 import csv, hashlib, html, itertools, json, math, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/layout.json').read_text())
 F=D['furniture']; W=D['walls']; DOORS=D['doors']
+from projection import load_snapshot
+PROJECTION=None
 LABELS={'Dining_4':'四人就座组','Dining_6':'六人替代组','Bedroom_A':'主卧 A','Bedroom_B':'卧室 B','Bedroom_D':'卧室 D','Bath_A':'主卫·无淋浴','Bath_Public':'客卫·唯一淋浴','Study':'家庭厅','Hall':'玄关／走道','Kitchen':'厨房','Living':'客厅','C_Prep_Dining':'餐区','Balcony_A':'阳台 A','Balcony_B':'洗烘阳台','bedA':'主卧床','bedB':'B床','bedD':'D床','wardrobeA':'原主卧衣柜','wardrobeB':'B衣柜','wardrobeD':'D衣柜','entry_wardrobe':'入口衣柜','sofa':'沙发','screen':'升降幕布','desk':'书桌','study_chair':'书椅','study_storage':'大件柜','study_shallow':'浅柜','shoe':'鞋柜','fridge':'冰箱','tower':'电器高柜','coffee':'咖啡柜','island':'岛台','table4':'四人桌','table6':'六人桌','hob':'灶台','prep':'备菜柜','sink':'主槽柜','Bath_A_basin':'主卫洗手盆','Bath_A_wc':'主卫马桶','Bath_Public_basin':'客卫洗手盆','Bath_Public_wc':'客卫马桶','shower_public':'客卫淋浴','laundry':'洗烘','side_table':'边几','lounge_chair':'单椅','floor_lamp':'落地灯','A_door_leaf':'主卧门','master_bath_door_leaf':'主卫门','bath_door_leaf':'客卫门','entry_leaf':'入户门','balconyB_door_leaf':'洗烘阳台门','combi_steam_oven':'蒸烤一体机','built_in_microwave':'嵌入式微波炉','robot_station':'基站预留','coffee_machine':'咖啡机','grinder':'磨豆机','coffee_landing':'放盘区','island_sink_recess':'岛槽','dishwasher':'洗碗机','purifier':'净水预留'}
 changed={'bedA','entry_wardrobe','Bath_A_wc','Bath_A_basin','island','table4','table6','fridge','tower','coffee'}
 C={'ink':'#233e38','green':'#34735e','light':'#e0e9df','orange':'#b36b36','red':'#b6473b','blue':'#467896','paper':'#fbfaf5'}
@@ -169,13 +171,13 @@ def validate():
   if not (r[0]<=b[0] and r[1]<=b[1] and b[0]+b[2]<=r[0]+r[2] and b[1]+b[3]<=r[1]+r[3]):hard.append(n+' 超出主卫')
  evidence['metrics']={'island_length_mm':1600,'table_translation_mm':600,'bath_before_m2':3.757,'bath_after_m2':2.38,'bath_released_m2':1.377,'wardrobe_external_mm':3200,'wardrobe_internal_sum_mm':4*(800-36),'hanging_module_width_sum_mm':3*(800-36),'nominal_hanging_rail_length_mm':5*(800-36),'wardrobe_to_bed_mm':940,'bed_east_gap_mm':1100,'entrance_to_wardrobe_mm':1570,'fridge_to_island_nominal_mm':1273,'fridge_open_plus_operator_remaining_mm':73,'six_chair_to_fridge_horizontal_mm':250,'microwave_counter_released_mm':520}
  evidence['limitations']=['600mm衣篮原完整路线仍受阻，不能作为通过项。','冰箱门600mm与站人600mm算例合计1200mm，前方仅余73mm，不能再作为旁侧穿行宽度。','全部拉椅与咖啡／电器人员操作重叠，需错时；北侧600mm只是名义通道。','基站进出区与人员、携篮活动区有重叠，清扫回充与备菜、携篮错时。','客卫仅850×850mm淋浴占位且换衣空间紧凑，舒适性及真实设备型号待核。','三维碰撞、人体工学、实际门五金、结构及管线施工不在此次二维通过范围。']
- return {'revision':'R10.4','status':'二维几何检查完成，含使用限制和现场待核','hard_errors':sorted(set(hard)),'evidence':evidence}
+ return {'revision':'R10.5','status':'二维几何检查完成，含使用限制和现场待核','hard_errors':sorted(set(hard)),'evidence':evidence}
 
 REPORT=validate()
 # All drawings use fixed canvas and one world-coordinate transform; dimension data are machine-readable.
 class Drawing:
  def __init__(self,title,subtitle='单位：mm · 概念尺寸，非现场实测／下单尺寸',width=1400,height=1050):
-  self.w=width;self.h=height;self.p=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img"><title>{esc(title)}</title><rect width="100%" height="100%" fill="{C["paper"]}"/><g font-family="PingFang SC, Microsoft YaHei, sans-serif">',self.text(42,48,'R10.4  /  '+title,27,C['ink']),self.text(42,79,subtitle,15,C['orange'])]
+  self.w=width;self.h=height;self.p=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img"><title>{esc(title)}</title><rect width="100%" height="100%" fill="{C["paper"]}"/><g font-family="PingFang SC, Microsoft YaHei, sans-serif">',self.text(42,48,'R10.5  /  '+title,27,C['ink']),self.text(42,79,subtitle,15,C['orange'])]
  def text(self,x,y,s,size=16,color=None,anchor='start'):
   return f'<text x="{x:g}" y="{y:g}" font-size="{size}" fill="{color or C["ink"]}" text-anchor="{anchor}">{esc(s)}</text>'
  def box(self,b,fill='none',stroke=None,dash=False,attrs=''):
@@ -187,6 +189,8 @@ class Drawing:
    q=point((b[0],b[1]+b[3]));return [*q,b[2]*s,b[3]*s]
   return point,r,s
  def plan(self,bounds,frame,seats=4,pulled=(),ops=False,old=False,route=None,labels=True,roomlabels=False):
+  global PROJECTION
+  if PROJECTION is None:PROJECTION=load_snapshot()
   pt,r,s=self.panel(bounds,frame);src=D
   cid='panel_'+str(len(self.p));self.p.append(f'<defs><clipPath id="{cid}">'+self.box(frame,'white','none')+'</clipPath></defs>'+f'<g clip-path="url(#{cid})" data-plan="true" data-world="{esc(json.dumps(bounds))}" data-frame="{esc(json.dumps(frame))}" data-pulled="{esc(json.dumps(list(pulled)))}">')
   for n,b in src['walls'].items():self.p.append(self.box(r(b),'#64736d','none',attrs=f'data-wall="{n}" data-box="{",".join(map(fmt,b))}"'))
@@ -200,18 +204,21 @@ class Drawing:
    if max(x for x,y in p)<bounds[0] or min(x for x,y in p)>bounds[0]+bounds[2] or max(y for x,y in p)<bounds[1] or min(y for x,y in p)>bounds[1]+bounds[3]:continue
    pts=[pt(q) for q in p];fill='#e7dfd2' if 'chair' in n or f['kind']=='table' else C['light'];stroke=C['orange'] if n in changed and not old else C['green']
    self.p.append(f'<polygon points="'+ ' '.join(f'{x:g},{y:g}' for x,y in pts)+f'" fill="{fill}" stroke="{stroke}" stroke-width="1.4" data-object="{n}" data-box="{",".join(map(fmt,f["box"]))}"/>')
+   for component in sorted((v for v in PROJECTION['components'] if v['owner']==n),key=lambda v:(v['z_max_mm'],v['name'])):
+    if not any(key in component['name'] for key in ['mattress','headboard','pillow','seat','back','front','door','drawer','pull','rim','bowl','tank','port']):continue
+    shift=500 if f.get('facing')=='south' else -500
+    cp=[pt((x,y+(shift if n in pulled else 0))) for x,y in component['polygon_mm']]
+    self.p.append('<polygon points="'+' '.join(f'{x:g},{y:g}' for x,y in cp)+f'" fill="none" stroke="#758c83" stroke-width="0.7" data-component="{esc(component["name"])}"/>')
    if labels and not n.startswith('chair'):
     x=sum(x for x,y in pts)/4;y=sum(y for x,y in pts)/4
     label=name(n)
     if not old and n in changed:label+=' '+str(round(f['box'][2] if n!='bedA' else f['box'][3]))
     if f['box'][2]*s>32:self.p.append(self.text(x,y,label,11 if s<.09 else 14,anchor='middle'))
-   if f['kind']=='bed':
-    bx,by,bw,bh=f['box']
-    for dx in [.1,.54]:self.p.append(self.box(r([bx+bw*dx,by+bh-420,bw*.35,300]),'#fbfaf5',C['green']))
   for n,v in src['doors'].items():
    b=v['closed_box']
    if b[0]<bounds[0]-900 or b[0]>bounds[0]+bounds[2]+900 or b[1]<bounds[1]-900 or b[1]>bounds[1]+bounds[3]+900:continue
    self.p.append(self.box(r(b),'#cdbb9e',C['orange']))
+   if not ops:continue
    self.p.append(self.box(r(v['open_box']),'none',C['orange'],True))
    p,sgn,frames=door_motion(v);tip=max(rectpoly(b),key=lambda q:math.dist(q,p));arc=[pt(rotate(tip,p,sgn*a)) for a in range(0,91,3)]
    self.p.append('<polyline points="'+' '.join(f'{x:g},{y:g}' for x,y in arc)+f'" fill="none" stroke="{C["orange"]}" stroke-dasharray="3 4"/>')
@@ -222,7 +229,7 @@ class Drawing:
     self.p.append(self.box(r(b),'#d7e6ea',C['blue']))
     if s>.13 and n in ['coffee_machine','grinder','coffee_landing']:
      x,y=pt((b[0]+b[2]/2,b[1]+b[3]/2));self.p.append(self.text(x,y,name(n),11,anchor='middle'))
-   if s>.1 and bounds[1]>5000:
+   if ops and s>.1 and bounds[1]>5000:
     for m in range(4):
      for leaf in range(2):
       b=[-420+m*800+leaf*400,7437,18,400] if leaf==0 else [-420+m*800+(leaf+1)*400-18,7437,18,400]
@@ -250,7 +257,7 @@ class Drawing:
   self.p.append(self.box([32,y-24,self.w-64,len(lines)*29+28],'#eef1e8','none'))
   for i,t in enumerate(lines):self.p.append(self.text(48,y+i*29,t,16))
  def save(self,n):
-  self.p.extend([self.text(42,self.h-20,'R10.4；三维模型已同步；本轮未生成渲染图。红色／虚线表示开启或使用范围，不能视为实体。',12,C['orange']),'</g></svg>'])
+  self.p.extend([self.text(42,self.h-20,'R10.5；三维模型已同步；本轮未生成渲染图。红色／虚线表示开启或使用范围，不能视为实体。',12,C['orange']),'</g></svg>'])
   p=ROOT/'drawings/svg'/n;p.write_text(''.join(self.p),encoding='utf-8');return p
 
 def drawings():
@@ -258,13 +265,13 @@ def drawings():
  def save(q,n,title):q.save(n);items.append((n,title))
  q=Drawing('全屋家具与门窗',height=1250)
  q.plan([-4700,-7100,11800,17600],[30,100,1020,1090],roomlabels=True)
- for i,t in enumerate(['01  鞋柜 900×400×2400','02  浅柜缩至1176，双移门','03  原短墙改为柜墙概念','04  家庭厅门1500保持','05  完整衣篮路线见专项图','06  A门五金待核／暂停定稿','07  其他已确认布局保持','08  三维模型已同步R10.4','图例','绿色：家具／柜体','橙色：本轮改动／门扇','蓝色：设备／水电预留']):q.p.append(q.text(1060,160+i*42,t,16))
+ for i,t in enumerate(['01  鞋柜 900×400×2400','02  浅柜缩至1176，双移门','03  原短墙改为柜墙概念','04  家庭厅门1500保持','05  完整衣篮路线见专项图','06  A门五金待核／暂停定稿','07  其他已确认布局保持','08  三维模型已同步R10.5','图例','绿色：家具／柜体','橙色：本轮改动／门扇','蓝色：设备／水电预留']):q.p.append(q.text(1060,160+i*42,t,16))
  save(q,'01-furniture.svg','全屋家具与门窗')
  q=Drawing('餐区与南墙柜列')
  pt,_,_=q.plan([-1400,-3300,6800,6200],[40,110,1050,690],ops=False)
  q.dim(pt((2300,-225)),pt((3900,-225)),'1600',-25)
  q.dim(pt((3475,-2248)),pt((3475,-975)),'1273',34)
- for i,t in enumerate(['厨房在上方','岛台：1600×750','基站西800／水槽东800','四人桌：1600×750','咖啡柜：1800×600','电器高柜：600×600','冰箱：975×750','柜列西端距边界100']):q.p.append(q.text(1090,170+i*43,t,15))
+ for i,t in enumerate(['厨房在上方','岛台：1600×750','岛台控制体，模块待选','四人桌：1600×750','咖啡柜：1800×600','电器高柜：600×600','冰箱：975×750','柜列西端距边界100']):q.p.append(q.text(1090,170+i*43,t,15))
  q.notes(['桌椅同步向左600mm，岛槽原位置保留；南墙顺序为咖啡柜—电器高柜—冰箱。','冰箱至岛台名义间距1273mm；开启600＋站人600后仅余73mm，不是可穿行通道。','六人状态最右餐椅至冰箱水平间隔250mm；实体和操作状态另见核验图。'])
  save(q,'02-dining.svg','岛台与餐区总图')
  for seats in [4,6]:
@@ -301,13 +308,12 @@ def drawings():
   q.p.append(q.text(x+400*scale,830,'800外宽／764净宽',15,anchor='middle'))
  q.notes(['四模块、18mm侧板：柜内净宽合计3056mm；不包含门板／背板／安装误差后的现场修正。','三个挂衣模块净宽合计2292mm；两组双层短衣＋一组长衣，概念挂杆总长3820mm。','第四模块为抽屉／层板；柜门每模块两扇、每扇400mm；衣帽区属于开放过道。'],875)
  save(q,'07-wardrobe.svg','衣柜立面与容量')
- q=Drawing('岛台基站／水槽分格与连接')
- pt,r,s=q.plan([1800,-1250,2450,2200],[45,130,730,650],ops=True,labels=False)
- for n,b in [('基站模块800',[2300,-975,800,750]),('水槽模块800',[3100,-975,800,750]),('净预留760×650',D['appliances']['robot_station']['box'])]:
-  q.p.append(q.box(r(b),'none',C['blue'],True));x,y=pt((b[0]+b[2]/2,b[1]+b[3]/2));q.p.append(q.text(x,y+(30 if n.startswith('净') else -15),n,15,anchor='middle'))
- for i,t in enumerate(['基站净高：650mm（概念）','开口朝北／厨房','前方检查区：800×1000','岛台高900；餐桌高750','桌面与岛台高差150','原岛槽位置不变','阀门、接头、电源可达','与水槽柜分隔、整机可抽出','重力排水条件未成立']):q.p.append(q.text(840,170+i*51,t,18))
- q.notes(['柜体分格是概念预留；厂家净尺寸、进出距离、上盖取件和散热要求需要按型号替换。','基站活动区与携篮／备菜人员可能重叠；不能把检查区当作持续空闲的走道。','岛槽排水与基站排水分别核定；基站泵排能力不证明岛槽重力排水可行。'])
- save(q,'08-island-robot.svg','基站、水槽分格与岛桌关系')
+ q=Drawing('Cleanup岛台研究与岛桌靠接 · 非成套定稿')
+ pt,r,s=q.plan([300,-1450,3900,1900],[45,130,1000,650],ops=False,labels=False)
+ q.dim(pt((2300,-225)),pt((3900,-225)),'1600控制长度',-30)
+ for i,t in enumerate(['STEDIA优先核查','当前非官方模块','岛台初选高850','餐桌独立高750','高差100','岛台基站孔取消','北京渠道有名单','供货安装保修待核']):q.p.append(q.text(1070,175+i*54,t,16))
+ q.notes(['1600×750仅保留空间边界，不把自定义双800柜标成Cleanup；官方模块安装表未取得，暂无合格组合。','四人日常、六人替代桌均独立承重并靠接；侧封板、踢脚、防水与色调接口待厂家书面方案。','机器人改查洗烘阳台；600×600候选控制区并非机型净空，装卸检修重叠见基站迁移表。'])
+ save(q,'08-island-robot.svg','Cleanup岛台研究与独立岛桌连接')
  q=Drawing('电器开启与人员操作范围')
  q.plan([-100,-3150,4250,4500],[40,115,1000,690],ops=True)
  for i,t in enumerate(['红：设备开启','蓝：人员操作','冰箱开启算例600','蒸烤开门算例550','微波开门算例520','咖啡抽屉算例500','人员站位算例600','各机型待安装图核定']):q.p.append(q.text(1060,180+i*48,t,16))
@@ -328,16 +334,4 @@ def drawings():
  return items
 
 def services():
- return [
- {'id':'S01','x':2470,'y':-2870,'name':'蒸烤／嵌入式微波电源','height':'按厂家；置可达邻侧检修区','water':'蒸烤暂按手动水箱','note':'两机负荷、散热、叠放许可待核；不在机器背后不可达处封死'},
- {'id':'S02','x':3475,'y':-2890,'name':'冰箱电源','height':'按厂家与邻侧检修条件','water':'无固定供排水假设','note':'随冰箱右移；压缩机散热及门体最大开启待选型'},
- {'id':'S03','x':1000,'y':-2980,'name':'咖啡机／磨豆机台面电源','height':'概念距地1100','water':'手动加水／接水盘','note':'与溅水区域分离，负荷待核'},
- {'id':'W01','x':3090,'y':-800,'name':'基站水电检修界面','height':'阀／接头／电源错层，具体待设备','water':'独立关阀、供水及废水均待确认接点','note':'界面不是实际管件坐标；与水槽柜分隔，整机向北抽出'},
- {'id':'W02','x':3630,'y':-510,'name':'原岛槽中心','height':'台面900','water':'冷热水／重力排水未成立','note':'保留原槽位；不画已成立坡度或虚构接点'},
- {'id':'W03','x':880,'y':9715,'name':'主卫洗手盆中心','height':'盆台850概念','water':'给排水点按柜体与原立管核定','note':'位置调整；排水路径待现场'},
- {'id':'W04','x':-80,'y':9525,'name':'主卫马桶机体中心','height':'按洁具','water':'仅定位占位，坑距／排污口未测','note':'不能以机体中心作为排污施工点'},
- {'id':'X01','x':825,'y':9475,'name':'历史淋浴管口待核封堵区域','height':'原点位待测','water':'取消淋浴专用点位；旧管口封堵待核','note':'来自旧概念淋浴区域，不是已发现的现场管口'},
- {'id':'L01','x':1180,'y':8137,'name':'入口衣柜照明','height':'柜内／柜顶按灯具','water':'无','note':'检修电源可达，不跨主卧门运动范围'},
- {'id':'K01','x':3588,'y':2424,'name':'厨房主槽／净水预留','height':'按设备','water':'原位置，合法接点仍待核','note':'既有条件保留'},
- {'id':'K02','x':2900,'y':2424,'name':'洗碗机预留','height':'按设备','water':'供排水及防回流待安装图','note':'独立阀与检修；装卸和携篮错时'},
- {'id':'LA01','x':4591,'y':2165,'name':'洗烘条件位','height':'按设备','water':'接管及可用排水待核','note':'保留原位置，不认定接管已成立'}]
+ return D['service_points']

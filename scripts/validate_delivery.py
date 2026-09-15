@@ -34,7 +34,7 @@ for n,title in figures:
  if png.exists():
   data=png.read_bytes();fail(data[:8]==b'\x89PNG\r\n\x1a\n' and min(struct.unpack_from('>II',data,16))>=1000,n+' PNG format/size')
   fail(png_state.get(n,{}).get('svg_sha256')==sha(p) and png_state.get(n,{}).get('png_sha256')==sha(png),n+' stale PNG or provenance')
-fail(len(figures)==18+len(D['room_functions']),'base and per-room drawings required');fail(labels>0,'no tagged geometry checked')
+fail(len(figures)==22+len(D['room_functions'])+len(D['use_zones']),'base, room and separate state drawings required');fail(labels>0,'no tagged geometry checked')
 furn=rows('家具尺寸表.csv');fail(len(furn)==len(D['furniture']),'furniture row count')
 for v in furn:
  f=D['furniture'][v['编号']];actual=[float(v[k]) for k in ['西X_mm','南Y_mm','宽X_mm','深Y_mm','高_mm']];fail(max(abs(a-b) for a,b in zip(actual,[*f['box'],f['height']]))<=1,'furniture CSV '+v['编号'])
@@ -42,10 +42,16 @@ areas=rows('新图面积标注.csv');fail(len(areas)==len(D['rooms']),'area row 
 for v,(n,bs) in zip(areas,D['rooms'].items()):fail(abs(float(v['几何面积_m2'])-sum(b[2]*b[3]/1e6 for b in bs))<.0001,'area '+n)
 two=json.loads((R/'reports/verification_2d.json').read_text());three=json.loads((R/'reports/verification_3d.json').read_text());config=json.loads((R/'model/scene_config.json').read_text())
 fail(not two['hard_errors'],'2D hard errors');fail(three['checks_passed'],'3D errors');fail(three['layout_sha256']==config['layout_sha256']==sha(R/'data/layout.json'),'stale model layout')
+from projection import load_snapshot
+projection=load_snapshot()
+fail(projection['layout_sha256']==sha(R/'data/layout.json'),'stale projection')
+for report_name in ['ventilation.json','dimension_review.json']:
+ extra=json.loads((R/'reports'/report_name).read_text())
+ fail(extra['revision']==D['revision'] and extra['layout_sha256']==sha(R/'data/layout.json'),'stale '+report_name)
 fail(two.get('layout_sha256')==sha(R/'data/layout.json'),'stale 2D verification')
 fail(set(two['evidence']['room_function_coverage'])==set(D['rooms']),'all rooms must have function coverage')
 fail(len(rows('辅助设施尺寸表.csv'))==len(D['accessories']),'accessory table count')
-for ext in ['blend','glb']:fail(three[ext+'_sha256']==sha(R/f'model/whole_home_R10.4.{ext}'),'changed '+ext)
+for ext in ['blend','glb']:fail(three[ext+'_sha256']==sha(R/f'model/whole_home_R10.5.{ext}'),'changed '+ext)
 fail(len(two['evidence']['basket_routes'])==112,'112 route states required')
 class Links(HTMLParser):
  def handle_starttag(self,tag,attrs):
@@ -66,7 +72,7 @@ for p in delivery_files:
  if not p.is_file() or any(k in p.parts for k in ['.git','__pycache__','node_modules']):continue
  if p.suffix in ['.py','.json','.csv','.svg','.html','.md','.cjs']:
   t=p.read_text();fail(not re.search(r'R10\.[23]',t),str(p.relative_to(R))+' obsolete version reference');fail(not re.search(r'/(?:Users|home)/[^/]+/',t),str(p.relative_to(R))+' machine absolute path')
-report={'revision':'R10.4','passed':not errors,'drawings':len(figures),'tagged_geometry_count':labels,'max_svg_world_error_mm':max(svgerrors,default=None),'furniture_rows':len(furn),'table_count':len(list((R/'tables').glob('*.csv'))),'basket_states':112,'checked_local_links':checkedlinks,'errors':errors,'limits':['SVG annotations and actual geometry checked at 1mm; not a site survey.','No 3D render or full-scene continuous collision certification.','A-door hardware and operation conditions remain unresolved.']}
+report={'revision':'R10.5','passed':not errors,'drawings':len(figures),'tagged_geometry_count':labels,'max_svg_world_error_mm':max(svgerrors,default=None),'furniture_rows':len(furn),'table_count':len(list((R/'tables').glob('*.csv'))),'basket_states':112,'checked_local_links':checkedlinks,'errors':errors,'limits':['SVG annotations and actual geometry checked at 1mm; not a site survey.','No 3D render or full-scene continuous collision certification.','A-door hardware and operation conditions remain unresolved.']}
 (R/'reports/delivery.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 paths=sorted(p for p in delivery_files if p.is_file() and not any(x in p.parts for x in ['.git','__pycache__','node_modules']) and p.name!='manifest.sha256' and p.suffix not in ['.blend1','.pyc'])
 (R/'reports/manifest.sha256').write_text(''.join(sha(p)+'  '+p.relative_to(R).as_posix()+'\n' for p in paths))

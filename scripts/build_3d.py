@@ -126,7 +126,7 @@ for name,b in C['walls'].items():
             if op['kind'] in ('door','glass_door'):parts=[p for a in parts for p in subtract(a,op['box'])]
     for i,p in enumerate(parts):
         o=box(name if C.get('walls_are_final_segments') else f'wall_{name}_{i}',p,0,H)
-        metadata(o,source='R10.4 concept wall face',structural_status='unverified, preserve')
+        metadata(o,source='R10.5 concept wall face',structural_status='unverified, preserve')
 
 def frame(name,b,z,h,room='Openings'):
     x,y,w,d=b; horizontal=w>d;length=w if horizontal else d
@@ -186,7 +186,7 @@ for name,f in C['furniture'].items():
     elif kind=='bed':
         box(name+'_base',b,.10,.2,'walnut',room,.035)
         box(name+'_mattress',b,.3,.25,'linen',room,.07)
-        box(name+'_headboard',[x,y+d-.08,w,.08],.2,.85,'walnut',room,.03)
+        box(name+'_headboard',[x,y+d-.08,w,.08],.2,h-.2,'walnut',room,.03)
         box(name+'_cover',[x,y,w,d*.65],.53,.035,'olive' if name=='bedB' else 'linen',room,.02)
         for i in range(2):box(name+f'_pillow{i}',[x+.08+i*w/2,y+d-.48,w/2-.12,.36],.56,.12,'warm_white',room,.05)
     elif kind=='sofa':
@@ -203,11 +203,12 @@ for name,f in C['furniture'].items():
             box(name+'_beam',[x+.015,y+d/2-.06,w-.03,.12],.68,.025,mat,room,.003)
         else: legs(name,b,h-.045,room)
     elif kind=='chair':
-        box(name+'_seat',b,.43,.07,mat,room,.035);legs(name,b,.43,room)
+        seat=f['seat_height'];thickness=f['seat_thickness']
+        box(name+'_seat',b,seat-thickness,thickness,mat,room,.035);legs(name,b,seat-thickness,room)
         facing=f.get('facing','north')
         back=[x,y+d-.05 if facing=='south' else y,w,.05]
         if facing in ('east','west'):back=[x if facing=='east' else x+w-.05,y,.05,d]
-        box(name+'_back',back,.50,.30,'walnut',room,.02)
+        box(name+'_back',back,f['back_bottom'],h-f['back_bottom'],'walnut',room,.02)
     elif kind=='sliding_wardrobe':
         box(name+'_carcass',b,.10,h-.1,mat,room,.006)
         east=f['front']=='east'
@@ -293,13 +294,13 @@ def sink(name,b,room,z=.902):
     for q in [[x,y,w,.018],[x,y+d-.018,w,.018],[x,y,.018,d],[x+w-.018,y,.018,d]]:box(name+'_rim',q,z,.022,'metal',room,.006)
     cylinder(name+'_tap',(x+w*.7,y+d+.035,z+.16),.018,.32,'metal',room)
     box(name+'_tap_spout',[x+w*.7-.018,y+d-.10,.036,.14],z+.28,.035,'metal',room,.01)
-sink('kitchen_sink',[3.34,2.24,.48,.36],'Kitchen')
-sink('island_sink',C['appliances']['island_sink']['box'],room,z=.902)
+sink('kitchen_sink',[3.34,2.24,.48,.36],'Kitchen',z=C['furniture']['sink']['height']+.002)
+sink('island_sink',C['appliances']['island_sink']['box'],room,z=C['furniture']['island']['height']+.002)
 metadata(bpy.data.objects['island_sink_recess'],**C['equipment']['island_sink'])
 o=box('dishwasher',[2.6,2.105,.6,.025],.12,.72,'metal','Kitchen',.008);metadata(o,**C['equipment']['dishwasher'])
 o=box('purifier',[3.28,2.27,.18,.30],.15,.4,'warm_white','Kitchen',.015);metadata(o,**C['equipment']['purifier'])
-box('hob_glass',[1.78,2.22,.55,.42],.9,.018,'black','Kitchen',.012)
-for xx in (1.92,2.18):cylinder('burner',(xx,2.42,.933),.09,.015,'metal','Kitchen')
+box('hob_glass',[1.78,2.22,.55,.42],C['furniture']['hob']['height'],.018,'black','Kitchen',.012)
+for xx in (1.92,2.18):cylinder('burner',(xx,2.42,C['furniture']['hob']['height']+.033),.09,.015,'metal','Kitchen')
 box('hood',[1.76,2.26,.60,.42],1.8,.15,'metal','Kitchen',.02)
 box('hood_flue',[1.93,2.40,.26,.26],1.95,.65,'metal','Kitchen')
 for i in range(4):box(f'kitchen_upper{i}',[2.45+i*.375,2.40,.36,.30],1.55,.65,'oak','Kitchen',.01)
@@ -342,12 +343,14 @@ scene.frame_start=1;scene.frame_end=90
 for name in ['Ceilings','Dining_6','Candidate_Equipment','Clearance_Envelopes']:
     col=collection(name);col.hide_render=True;col.hide_viewport=True
 scene['configuration']=json.dumps(C,ensure_ascii=False)
-scene['notes']='R10.4. data/layout.json is authoritative. Frame 1 closed; frame 90 open; alternatives exclusive. No render produced. Site and A-door hardware conditions unresolved.'
+from projection import export_snapshot
+export_snapshot(C)
+scene['notes']='R10.5. data/layout.json is authoritative. Frame 1 closed; frame 90 open; alternatives exclusive. No render produced. Site and A-door hardware conditions unresolved.'
 bpy.context.preferences.filepaths.save_version=0
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT.parent/'model/whole_home_R10.4.blend'),compress=True)
+bpy.ops.wm.save_as_mainfile(filepath=str(ROOT.parent/'model/whole_home_R10.5.blend'),compress=True)
 bpy.ops.object.select_all(action='DESELECT')
 excluded={'Ceilings','Dining_6','Candidate_Equipment','Clearance_Envelopes'}
 for o in scene.objects:
     if o.type=='MESH' and not any(c.name in excluded for c in o.users_collection):o.select_set(True)
-bpy.ops.export_scene.gltf(filepath=str(ROOT.parent/'model/whole_home_R10.4.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False,export_materials='EXPORT')
+bpy.ops.export_scene.gltf(filepath=str(ROOT.parent/'model/whole_home_R10.5.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False,export_materials='EXPORT')
 print('MODEL_BUILD_COMPLETE',len(scene.objects))
